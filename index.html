@@ -3,119 +3,162 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Sundara Heart — Music, Artwork & Merch with Soul">
-  <title>Sundara Heart | Music & Artwork</title>
+  <meta name="description" content="Sundara Heart — Experimental music, graffiti art & cosmic merch from the heart">
+  <title>Sundara Heart</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500&display=swap');
-    body { font-family: 'Inter', system_ui, sans-serif; }
-    .heading-font { font-family: 'Playfair Display', sans-serif; }
-    .hero-bg { background: linear-gradient(135deg, #f5f0e8 0%, #e8f0e8 100%); }
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+    body { font-family: 'VT323', monospace; }
+    .heading { font-family: 'Press Start 2P', cursive; }
+    .graffiti { text-shadow: 3px 3px 0 #ff00ff, -2px -2px 0 #00ffff; }
+    .hero-bg { background: linear-gradient(45deg, #0a0a2a, #1a0022, #002211); }
   </style>
 </head>
-<body class="bg-[#f8f4ee] text-[#3f2e1e]">
-  <!-- Navbar -->
-  <nav class="bg-white/80 backdrop-blur-md border-b border-[#d4c9b8] sticky top-0 z-50">
-    <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
-      <div class="flex items-center gap-2">
-        <span class="text-2xl">🪶</span>
-        <h1 class="heading-font text-2xl tracking-tight">Sundara Heart</h1>
+<body class="bg-[#0a0a1f] text-[#00ffcc]">
+
+  <!-- NAVBAR -->
+  <nav class="bg-black/80 backdrop-blur-md border-b border-[#ff00ff] sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <span class="text-4xl">🪐</span>
+        <h1 class="heading text-3xl graffiti tracking-widest">SUNDARA HEART</h1>
       </div>
-      <div class="hidden md:flex gap-8 text-sm font-medium">
-        <a href="#music" class="hover:text-[#5a8f6e] transition-colors">Music</a>
-        <a href="#art" class="hover:text-[#5a8f6e] transition-colors">Artwork</a>
-        <a href="#merch" class="hover:text-[#5a8f6e] transition-colors">Merch</a>
-        <a href="#about" class="hover:text-[#5a8f6e] transition-colors">About</a>
+      <div class="hidden md:flex gap-8 text-lg">
+        <a href="#releases" class="hover:text-[#ff00ff] transition-colors">RELEASES</a>
+        <a href="#art" class="hover:text-[#ff00ff] transition-colors">GRAFFITI ART</a>
+        <a href="#merch" class="hover:text-[#ff00ff] transition-colors">MERCH</a>
+        <a href="#about" class="hover:text-[#ff00ff] transition-colors">ABOUT</a>
       </div>
-      <a href="#contact" class="px-6 py-2 bg-[#5a8f6e] text-white rounded-full text-sm font-medium hover:bg-[#4a7a5c] transition-colors">Send Message</a>
+      <a href="#listen" class="px-8 py-3 bg-[#ff00ff] text-black rounded-none font-bold hover:bg-[#00ffff] transition-colors">LISTEN NOW</a>
     </div>
   </nav>
 
-  <!-- HERO (mirrors journeyingon.com style) -->
-  <section id="hero" class="hero-bg min-h-screen flex items-center pt-20">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <div class="inline-flex items-center gap-2 bg-white rounded-3xl px-5 py-2 text-sm mb-8 shadow-sm">
-        <span class="text-[#5a8f6e]">🌿</span>
-        <span class="font-medium">Music, Artwork &amp; Merch with Soul</span>
+  <!-- HERO -->
+  <section id="hero" class="hero-bg min-h-screen flex items-center pt-20 relative overflow-hidden">
+    <div class="max-w-6xl mx-auto px-6 text-center z-10">
+      <div class="inline-block bg-black px-6 py-2 mb-8 border-4 border-[#00ffff] rotate-[-2deg]">
+        <span class="text-2xl">✦ EXPERIMENTAL SOUNDS FROM THE HEART ✦</span>
       </div>
-
-      <h1 class="heading-font text-7xl md:text-8xl leading-none tracking-tighter mb-6">
-        Sundara Heart
-      </h1>
-
-      <p class="text-3xl md:text-4xl text-[#6b5c4a] max-w-2xl mx-auto mb-10">
-        You do not have to walk this journey alone.
-      </p>
-
-      <p class="text-xl max-w-xl mx-auto text-[#6b5c4a] mb-12">
-        Soulful music, original artwork, and gentle merch to accompany you through life’s quiet and beautiful moments.
-      </p>
-
-      <!-- CTAs -->
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="#music" class="px-10 py-5 bg-[#3f2e1e] text-white rounded-3xl text-lg font-medium flex items-center justify-center gap-3 hover:scale-105 transition-transform">
-          <i class="fas fa-headphones"></i>
-          Listen Now
-        </a>
-        <a href="#art" class="px-10 py-5 border-2 border-[#3f2e1e] text-[#3f2e1e] rounded-3xl text-lg font-medium flex items-center justify-center gap-3 hover:bg-[#3f2e1e] hover:text-white transition-all">
-          <i class="fas fa-palette"></i>
-          View Artwork
-        </a>
-      </div>
-
-      <!-- Stats (adapted from journeyingon) -->
-      <div class="mt-16 grid grid-cols-3 gap-8 max-w-xs mx-auto text-center">
-        <div>
-          <div class="text-4xl font-semibold text-[#5a8f6e]">3+</div>
-          <div class="text-sm text-[#6b5c4a]">New Releases</div>
-        </div>
-        <div>
-          <div class="text-4xl font-semibold text-[#5a8f6e]">∞</div>
-          <div class="text-sm text-[#6b5c4a]">Songs with Soul</div>
-        </div>
-        <div>
-          <div class="text-4xl font-semibold text-[#5a8f6e]">1</div>
-          <div class="text-sm text-[#6b5c4a]">Heart Behind It All</div>
-        </div>
-      </div>
-
-      <!-- Quote -->
-      <blockquote class="mt-20 max-w-lg mx-auto text-[#6b5c4a] italic border-l-4 border-[#5a8f6e] pl-6 text-left">
-        “In the quiet moments, the music finds you — and reminds you that beauty is always waiting.”<br>
-        <span class="text-sm mt-3 block not-italic">— Sundara Heart</span>
-      </blockquote>
-    </div>
-  </section>
-
-  <!-- MUSIC SECTION -->
-  <section id="music" class="py-24 bg-white">
-    <div class="max-w-6xl mx-auto px-6">
-      <h2 class="heading-font text-5xl text-center mb-4">Latest Release</h2>
-      <p class="text-center text-xl text-[#6b5c4a] mb-12">Oh Universe (Buy Me That Iridescent Green Truck) — 3-track EP • Now streaming everywhere</p>
+      <h1 class="heading text-8xl md:text-9xl graffiti leading-none mb-6">SUNDARA HEART</h1>
+      <p class="text-5xl text-[#ff00ff] mb-8">OH UNIVERSE (Buy Me That Iridescent Green Truck)</p>
+      <p class="text-3xl max-w-2xl mx-auto mb-12">3-track cosmic glitch EP • out now</p>
       
-      <div class="flex justify-center">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/1qEfXc96PrJWsHGnFCPbWS?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+      <div class="flex flex-col sm:flex-row gap-6 justify-center">
+        <a href="#listen" class="px-12 py-6 bg-[#ff00ff] text-black text-3xl font-bold hover:scale-110 transition-transform">STREAM EVERYWHERE</a>
+        <a href="#merch" class="px-12 py-6 border-4 border-[#00ffff] text-3xl font-bold hover:bg-[#00ffff] hover:text-black transition-all">GRAB MERCH</a>
       </div>
+      
+      <div class="mt-20 text-[#00ffcc]/70 text-xl flex justify-center gap-12">
+        <div>🌌 Santa Fe, NM</div>
+        <div>∞ New release every full moon</div>
+      </div>
+    </div>
+    
+    <!-- Floating graffiti elements -->
+    <div class="absolute bottom-12 left-12 text-6xl rotate-12 opacity-20">🪐</div>
+    <div class="absolute top-1/3 right-12 text-7xl -rotate-12 opacity-20">🌈</div>
+  </section>
 
-      <p class="text-center mt-8 text-sm text-[#6b5c4a]">Also available on YouTube, SoundCloud, Apple Music &amp; more</p>
+  <!-- LATEST RELEASE / LISTEN -->
+  <section id="listen" class="py-20 bg-black">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="heading text-6xl text-center mb-12 text-[#ff00ff]">LATEST DROP</h2>
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h3 class="text-4xl mb-4">Oh Universe (Buy Me That Iridescent Green Truck)</h3>
+          <p class="text-xl mb-8">3-track EP • Glitch, electronica & cosmic transmissions</p>
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/1qEfXc96PrJWsHGnFCPbWS?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+        </div>
+        <div class="space-y-6">
+          <p class="text-2xl">Also streaming on:</p>
+          <div class="flex flex-wrap gap-4">
+            <a href="#" class="px-8 py-4 bg-[#1a1a2e] border border-[#00ffff] text-center flex-1 hover:bg-[#00ffff] hover:text-black">YouTube</a>
+            <a href="#" class="px-8 py-4 bg-[#1a1a2e] border border-[#ff00ff] text-center flex-1 hover:bg-[#ff00ff] hover:text-black">Bandcamp</a>
+            <a href="#" class="px-8 py-4 bg-[#1a1a2e] border border-[#00ffcc] text-center flex-1 hover:bg-[#00ffcc] hover:text-black">Apple Music</a>
+          </div>
+          <p class="text-sm opacity-70">Full discography below ↓</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- ARTWORK / MERCH / ABOUT / CONTACT sections follow the same clean style — I kept the code short for this message but can expand instantly if you want more detail. -->
+  <!-- OTHER RELEASES -->
+  <section id="releases" class="py-20 bg-[#1a0022]">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="heading text-5xl text-center mb-12">MORE TRANSMISSIONS</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-black p-6 border border-[#ff00ff]">
+          <p class="text-[#00ffff]">Llorona del Río: Echoes of the Frontier</p>
+        </div>
+        <div class="bg-black p-6 border border-[#00ffcc]">
+          <p class="text-[#ff00ff]">Burning Palms and Fish & Chips</p>
+        </div>
+        <div class="bg-black p-6 border border-[#ff00ff]">
+          <p class="text-[#00ffff]">Be Back Soon / Respected Sky / Itty Bitty Sunshine</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ART + MERCH -->
+  <section id="art" class="py-20 bg-black">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="heading text-6xl text-center mb-12 text-[#00ffff]">GRAFFITI & ARTWORK</h2>
+      <p class="text-center text-xl mb-12">Original cosmic street art & limited prints</p>
+      <!-- Placeholder grid — replace src with your actual image URLs later -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="aspect-square bg-gradient-to-br from-pink-500 to-cyan-500 flex items-center justify-center text-6xl">🌀</div>
+        <div class="aspect-square bg-gradient-to-br from-cyan-500 to-purple-500 flex items-center justify-center text-6xl">🌌</div>
+        <div class="aspect-square bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-6xl">🪐</div>
+        <div class="aspect-square bg-gradient-to-br from-pink-500 to-yellow-500 flex items-center justify-center text-6xl">🚀</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="merch" class="py-20 bg-[#002211]">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="heading text-6xl text-center mb-12 text-[#ff00ff]">MERCH DROP</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="h-64 bg-black border-4 border-[#ff00ff] mb-4 flex items-center justify-center text-8xl">👕</div>
+          <p class="text-2xl">Iridescent Green Truck Tee</p>
+          <p class="text-[#00ffff]">$35</p>
+        </div>
+        <div class="text-center">
+          <div class="h-64 bg-black border-4 border-[#00ffff] mb-4 flex items-center justify-center text-8xl">🧥</div>
+          <p class="text-2xl">Cosmic Hoodie</p>
+          <p class="text-[#ff00ff]">$55</p>
+        </div>
+        <div class="text-center">
+          <div class="h-64 bg-black border-4 border-[#ff00ff] mb-4 flex items-center justify-center text-8xl">🪐</div>
+          <p class="text-2xl">Sticker Pack (10 cosmic designs)</p>
+          <p class="text-[#00ffff]">$12</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="py-20 bg-black">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="heading text-5xl mb-8">SUNDARA HEART</h2>
+      <p class="text-2xl leading-relaxed">Experimental electronic transmissions, graffiti soul, and merch that glows in the dark. Based in Santa Fe, NM. Making music that feels like the universe whispering back.</p>
+      <a href="tel:5754250347" class="mt-12 inline-block text-3xl border-4 border-[#00ffff] px-12 py-6 hover:bg-[#00ffff] hover:text-black">575.425.0347</a>
+    </div>
+  </section>
 
   <!-- FOOTER -->
-  <footer class="bg-[#3f2e1e] text-[#f8f4ee] py-12">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-      <p class="mb-2">Sundara Heart • Music &amp; Artwork</p>
-      <p class="text-sm opacity-70">Santa Fe, New Mexico • Virtual everywhere</p>
-      <p class="mt-6 text-xs opacity-50">© 2026 Sundara Heart. All rights reserved.</p>
-      <a href="tel:5754250347" class="block mt-4 text-[#5a8f6e] hover:underline">575.425.0347</a>
+  <footer class="bg-[#0a0a1f] py-12 border-t-4 border-[#ff00ff]">
+    <div class="max-w-6xl mx-auto px-6 text-center text-sm">
+      <p>© 2026 Sundara Heart • All transmissions reserved</p>
+      <p class="mt-4 flex justify-center gap-6">
+        <a href="#" class="hover:text-[#ff00ff]">Instagram</a>
+        <a href="#" class="hover:text-[#ff00ff]">Bandcamp</a>
+        <a href="#" class="hover:text-[#ff00ff]">Spotify</a>
+      </p>
     </div>
   </footer>
 
-  <script>
-    // Tailwind script already loaded
-  </script>
 </body>
 </html>
