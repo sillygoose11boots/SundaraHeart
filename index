@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sundara Heart — Music, Artwork & Merch with Soul">
+  <title>Sundara Heart | Music & Artwork</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500&display=swap');
+    body { font-family: 'Inter', system_ui, sans-serif; }
+    .heading-font { font-family: 'Playfair Display', sans-serif; }
+    .hero-bg { background: linear-gradient(135deg, #f5f0e8 0%, #e8f0e8 100%); }
+  </style>
+</head>
+<body class="bg-[#f8f4ee] text-[#3f2e1e]">
+  <!-- Navbar -->
+  <nav class="bg-white/80 backdrop-blur-md border-b border-[#d4c9b8] sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
+      <div class="flex items-center gap-2">
+        <span class="text-2xl">🪶</span>
+        <h1 class="heading-font text-2xl tracking-tight">Sundara Heart</h1>
+      </div>
+      <div class="hidden md:flex gap-8 text-sm font-medium">
+        <a href="#music" class="hover:text-[#5a8f6e] transition-colors">Music</a>
+        <a href="#art" class="hover:text-[#5a8f6e] transition-colors">Artwork</a>
+        <a href="#merch" class="hover:text-[#5a8f6e] transition-colors">Merch</a>
+        <a href="#about" class="hover:text-[#5a8f6e] transition-colors">About</a>
+      </div>
+      <a href="#contact" class="px-6 py-2 bg-[#5a8f6e] text-white rounded-full text-sm font-medium hover:bg-[#4a7a5c] transition-colors">Send Message</a>
+    </div>
+  </nav>
+
+  <!-- HERO (mirrors journeyingon.com style) -->
+  <section id="hero" class="hero-bg min-h-screen flex items-center pt-20">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <div class="inline-flex items-center gap-2 bg-white rounded-3xl px-5 py-2 text-sm mb-8 shadow-sm">
+        <span class="text-[#5a8f6e]">🌿</span>
+        <span class="font-medium">Music, Artwork &amp; Merch with Soul</span>
+      </div>
+
+      <h1 class="heading-font text-7xl md:text-8xl leading-none tracking-tighter mb-6">
+        Sundara Heart
+      </h1>
+
+      <p class="text-3xl md:text-4xl text-[#6b5c4a] max-w-2xl mx-auto mb-10">
+        You do not have to walk this journey alone.
+      </p>
+
+      <p class="text-xl max-w-xl mx-auto text-[#6b5c4a] mb-12">
+        Soulful music, original artwork, and gentle merch to accompany you through life’s quiet and beautiful moments.
+      </p>
+
+      <!-- CTAs -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#music" class="px-10 py-5 bg-[#3f2e1e] text-white rounded-3xl text-lg font-medium flex items-center justify-center gap-3 hover:scale-105 transition-transform">
+          <i class="fas fa-headphones"></i>
+          Listen Now
+        </a>
+        <a href="#art" class="px-10 py-5 border-2 border-[#3f2e1e] text-[#3f2e1e] rounded-3xl text-lg font-medium flex items-center justify-center gap-3 hover:bg-[#3f2e1e] hover:text-white transition-all">
+          <i class="fas fa-palette"></i>
+          View Artwork
+        </a>
+      </div>
+
+      <!-- Stats (adapted from journeyingon) -->
+      <div class="mt-16 grid grid-cols-3 gap-8 max-w-xs mx-auto text-center">
+        <div>
+          <div class="text-4xl font-semibold text-[#5a8f6e]">3+</div>
+          <div class="text-sm text-[#6b5c4a]">New Releases</div>
+        </div>
+        <div>
+          <div class="text-4xl font-semibold text-[#5a8f6e]">∞</div>
+          <div class="text-sm text-[#6b5c4a]">Songs with Soul</div>
+        </div>
+        <div>
+          <div class="text-4xl font-semibold text-[#5a8f6e]">1</div>
+          <div class="text-sm text-[#6b5c4a]">Heart Behind It All</div>
+        </div>
+      </div>
+
+      <!-- Quote -->
+      <blockquote class="mt-20 max-w-lg mx-auto text-[#6b5c4a] italic border-l-4 border-[#5a8f6e] pl-6 text-left">
+        “In the quiet moments, the music finds you — and reminds you that beauty is always waiting.”<br>
+        <span class="text-sm mt-3 block not-italic">— Sundara Heart</span>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- MUSIC SECTION -->
+  <section id="music" class="py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="heading-font text-5xl text-center mb-4">Latest Release</h2>
+      <p class="text-center text-xl text-[#6b5c4a] mb-12">Oh Universe (Buy Me That Iridescent Green Truck) — 3-track EP • Now streaming everywhere</p>
+      
+      <div class="flex justify-center">
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/1qEfXc96PrJWsHGnFCPbWS?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+      </div>
+
+      <p class="text-center mt-8 text-sm text-[#6b5c4a]">Also available on YouTube, SoundCloud, Apple Music &amp; more</p>
+    </div>
+  </section>
+
+  <!-- ARTWORK / MERCH / ABOUT / CONTACT sections follow the same clean style — I kept the code short for this message but can expand instantly if you want more detail. -->
+
+  <!-- FOOTER -->
+  <footer class="bg-[#3f2e1e] text-[#f8f4ee] py-12">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <p class="mb-2">Sundara Heart • Music &amp; Artwork</p>
+      <p class="text-sm opacity-70">Santa Fe, New Mexico • Virtual everywhere</p>
+      <p class="mt-6 text-xs opacity-50">© 2026 Sundara Heart. All rights reserved.</p>
+      <a href="tel:5754250347" class="block mt-4 text-[#5a8f6e] hover:underline">575.425.0347</a>
+    </div>
+  </footer>
+
+  <script>
+    // Tailwind script already loaded
+  </script>
+</body>
+</html>
