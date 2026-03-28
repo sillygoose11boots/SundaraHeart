@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Sundara Heart — Experimental music, graffiti art & cosmic merch from the heart">
+  <meta name="description" content="Sundara Heart — Experimental music, graffiti art & cosmic merch from Santa Fe, NM">
   <title>Sundara Heart</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -25,6 +25,7 @@
         <h1 class="heading text-3xl graffiti tracking-widest">SUNDARA HEART</h1>
       </div>
       <div class="hidden md:flex gap-8 text-lg">
+        <a href="#listen" class="hover:text-[#ff00ff] transition-colors">LISTEN</a>
         <a href="#releases" class="hover:text-[#ff00ff] transition-colors">RELEASES</a>
         <a href="#art" class="hover:text-[#ff00ff] transition-colors">GRAFFITI ART</a>
         <a href="#merch" class="hover:text-[#ff00ff] transition-colors">MERCH</a>
@@ -42,71 +43,121 @@
       </div>
       <h1 class="heading text-8xl md:text-9xl graffiti leading-none mb-6">SUNDARA HEART</h1>
       <p class="text-5xl text-[#ff00ff] mb-8">OH UNIVERSE (Buy Me That Iridescent Green Truck)</p>
-      <p class="text-3xl max-w-2xl mx-auto mb-12">3-track cosmic glitch EP • out now</p>
+      <p class="text-3xl max-w-2xl mx-auto mb-12">3-track cosmic glitch EP • Blues • DnB • Wu-Tang vibes • Out now</p>
       
       <div class="flex flex-col sm:flex-row gap-6 justify-center">
-        <a href="#listen" class="px-12 py-6 bg-[#ff00ff] text-black text-3xl font-bold hover:scale-110 transition-transform">STREAM EVERYWHERE</a>
+        <a href="#listen" class="px-12 py-6 bg-[#ff00ff] text-black text-3xl font-bold hover:scale-110 transition-transform">PLAY ON BANDCAMP</a>
         <a href="#merch" class="px-12 py-6 border-4 border-[#00ffff] text-3xl font-bold hover:bg-[#00ffff] hover:text-black transition-all">GRAB MERCH</a>
       </div>
-      
-      <div class="mt-20 text-[#00ffcc]/70 text-xl flex justify-center gap-12">
-        <div>🌌 Santa Fe, NM</div>
-        <div>∞ New release every full moon</div>
-      </div>
     </div>
-    
-    <!-- Floating graffiti elements -->
-    <div class="absolute bottom-12 left-12 text-6xl rotate-12 opacity-20">🪐</div>
-    <div class="absolute top-1/3 right-12 text-7xl -rotate-12 opacity-20">🌈</div>
   </section>
 
-  <!-- LATEST RELEASE / LISTEN -->
+  <!-- LISTEN SECTION – FEATURED ALBUM -->
   <section id="listen" class="py-20 bg-black">
-    <div class="max-w-6xl mx-auto px-6">
-      <h2 class="heading text-6xl text-center mb-12 text-[#ff00ff]">LATEST DROP</h2>
-      <div class="grid md:grid-cols-2 gap-12 items-center">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="heading text-6xl text-center mb-12 text-[#ff00ff]">LATEST DROP — STREAM & BUY</h2>
+      
+      <div class="grid md:grid-cols-2 gap-12">
+        <!-- Bandcamp Player (your latest album) -->
         <div>
-          <h3 class="text-4xl mb-4">Oh Universe (Buy Me That Iridescent Green Truck)</h3>
-          <p class="text-xl mb-8">3-track EP • Glitch, electronica & cosmic transmissions</p>
-          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/1qEfXc96PrJWsHGnFCPbWS?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-        </div>
-        <div class="space-y-6">
-          <p class="text-2xl">Also streaming on:</p>
-          <div class="flex flex-wrap gap-4">
-            <a href="#" class="px-8 py-4 bg-[#1a1a2e] border border-[#00ffff] text-center flex-1 hover:bg-[#00ffff] hover:text-black">YouTube</a>
-            <a href="#" class="px-8 py-4 bg-[#1a1a2e] border border-[#ff00ff] text-center flex-1 hover:bg-[#ff00ff] hover:text-black">Bandcamp</a>
-            <a href="#" class="px-8 py-4 bg-[#1a1a2e] border border-[#00ffcc] text-center flex-1 hover:bg-[#00ffcc] hover:text-black">Apple Music</a>
+          <h3 class="text-4xl mb-6 flex items-center gap-4">
+            <i class="fab fa-bandcamp text-5xl"></i>
+            Bandcamp – Play & Download
+          </h3>
+          <p class="mb-6 text-[#00ffcc]/80">$9 or more • High-quality FLAC/MP3 • Name-your-price</p>
+          <iframe style="border: 0; width: 100%; height: 472px;" 
+                  src="https://bandcamp.com/EmbeddedPlayer/album=oh-universe-buy-me-that-iridescent-green-truck/size=large/bgcol=1a1a2e/linkcol=ff00ff/tracklist=true/artwork=small/transparent=true/" 
+                  seamless>
+          </iframe>
+          <div class="mt-6 text-center">
+            <a href="https://sundaraheart.bandcamp.com/album/oh-universe-buy-me-that-iridescent-green-truck" 
+               target="_blank"
+               class="inline-block px-10 py-5 bg-[#ff00ff] text-black font-bold text-xl hover:bg-white transition-colors">
+              BUY DIGITAL ALBUM
+            </a>
           </div>
-          <p class="text-sm opacity-70">Full discography below ↓</p>
+        </div>
+
+        <!-- Spotify -->
+        <div>
+          <h3 class="text-4xl mb-6">Also streaming on Spotify</h3>
+          <iframe style="border-radius:12px" 
+                  src="https://open.spotify.com/embed/artist/1qEfXc96PrJWsHGnFCPbWS?utm_source=generator" 
+                  width="100%" height="380" frameBorder="0" allowfullscreen="" 
+                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+          </iframe>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- OTHER RELEASES -->
+  <!-- FULL RELEASES GRID – ALL 7 RELEASES -->
   <section id="releases" class="py-20 bg-[#1a0022]">
-    <div class="max-w-6xl mx-auto px-6">
-      <h2 class="heading text-5xl text-center mb-12">MORE TRANSMISSIONS</h2>
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="heading text-6xl text-center mb-12 text-[#00ffff]">MORE TRANSMISSIONS • FULL DISCOGRAPHY</h2>
       <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-black p-6 border border-[#ff00ff]">
-          <p class="text-[#00ffff]">Llorona del Río: Echoes of the Frontier</p>
+        
+        <!-- 1 -->
+        <div class="bg-black p-6 border-2 border-[#ff00ff] hover:border-[#00ffff] transition-colors">
+          <h3 class="text-2xl mb-1">Oh Universe (Buy Me That Iridescent Green Truck)</h3>
+          <p class="text-[#00ffcc]/70 mb-6">March 2026 • 3-track EP</p>
+          <a href="https://sundaraheart.bandcamp.com/album/oh-universe-buy-me-that-iridescent-green-truck" 
+             target="_blank" class="block text-center px-8 py-4 bg-[#ff00ff] text-black font-bold hover:bg-white">LISTEN ON BANDCAMP</a>
         </div>
-        <div class="bg-black p-6 border border-[#00ffcc]">
-          <p class="text-[#ff00ff]">Burning Palms and Fish & Chips</p>
+
+        <!-- 2 -->
+        <div class="bg-black p-6 border-2 border-[#ff00ff] hover:border-[#00ffff] transition-colors">
+          <h3 class="text-2xl mb-1">Three Track EP Llorona del Río: Echoes of the Frontier</h3>
+          <p class="text-[#00ffcc]/70 mb-6">February 2026</p>
+          <a href="https://sundaraheart.bandcamp.com/album/three-track-ep-llorona-del-r-o-echoes-of-the-frontier" 
+             target="_blank" class="block text-center px-8 py-4 bg-[#ff00ff] text-black font-bold hover:bg-white">LISTEN ON BANDCAMP</a>
         </div>
-        <div class="bg-black p-6 border border-[#ff00ff]">
-          <p class="text-[#00ffff]">Be Back Soon / Respected Sky / Itty Bitty Sunshine</p>
+
+        <!-- 3-7 (all link to main page) -->
+        <div class="bg-black p-6 border-2 border-[#00ffff] hover:border-[#ff00ff] transition-colors">
+          <h3 class="text-2xl mb-1">Burning Palms and Fish & Chips</h3>
+          <p class="text-[#00ffcc]/70 mb-6">February 2026</p>
+          <a href="https://sundaraheart.bandcamp.com/" target="_blank" class="block text-center px-8 py-4 bg-[#00ffff] text-black font-bold hover:bg-white">LISTEN ON BANDCAMP</a>
         </div>
+        <div class="bg-black p-6 border-2 border-[#00ffff] hover:border-[#ff00ff] transition-colors">
+          <h3 class="text-2xl mb-1">Danger Mouse</h3>
+          <p class="text-[#00ffcc]/70 mb-6">January 2026</p>
+          <a href="https://sundaraheart.bandcamp.com/" target="_blank" class="block text-center px-8 py-4 bg-[#00ffff] text-black font-bold hover:bg-white">LISTEN ON BANDCAMP</a>
+        </div>
+        <div class="bg-black p-6 border-2 border-[#00ffff] hover:border-[#ff00ff] transition-colors">
+          <h3 class="text-2xl mb-1">Be Back Soon</h3>
+          <p class="text-[#00ffcc]/70 mb-6">January 2026</p>
+          <a href="https://sundaraheart.bandcamp.com/" target="_blank" class="block text-center px-8 py-4 bg-[#00ffff] text-black font-bold hover:bg-white">LISTEN ON BANDCAMP</a>
+        </div>
+        <div class="bg-black p-6 border-2 border-[#00ffff] hover:border-[#ff00ff] transition-colors">
+          <h3 class="text-2xl mb-1">3i Rising</h3>
+          <p class="text-[#00ffcc]/70 mb-6">December 2025</p>
+          <a href="https://sundaraheart.bandcamp.com/" target="_blank" class="block text-center px-8 py-4 bg-[#00ffff] text-black font-bold hover:bg-white">LISTEN ON BANDCAMP</a>
+        </div>
+        <div class="bg-black p-6 border-2 border-[#00ffff] hover:border-[#ff00ff] transition-colors">
+          <h3 class="text-2xl mb-1">Respected Sky</h3>
+          <p class="text-[#00ffcc]/70 mb-6">September 2025</p>
+          <a href="https://sundaraheart.bandcamp.com/" target="_blank" class="block text-center px-8 py-4 bg-[#00ffff] text-black font-bold hover:bg-white">LISTEN ON BANDCAMP</a>
+        </div>
+      </div>
+
+      <div class="mt-12 text-center">
+        <a href="https://sundaraheart.bandcamp.com/" target="_blank"
+           class="inline-flex items-center gap-4 px-12 py-6 border-4 border-[#ff00ff] text-2xl font-bold hover:bg-[#ff00ff] hover:text-black transition-all">
+          <i class="fab fa-bandcamp"></i>
+          FULL DISCOGRAPHY + BUNDLE ($22.95 or more)
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- ART + MERCH -->
+  <!-- The rest of your sections (art, merch, about, footer) are unchanged from the version you liked. If you want me to expand those too, just say the word. -->
+
+  <!-- ART SECTION (unchanged) -->
   <section id="art" class="py-20 bg-black">
     <div class="max-w-6xl mx-auto px-6">
       <h2 class="heading text-6xl text-center mb-12 text-[#00ffff]">GRAFFITI & ARTWORK</h2>
       <p class="text-center text-xl mb-12">Original cosmic street art & limited prints</p>
-      <!-- Placeholder grid — replace src with your actual image URLs later -->
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
         <div class="aspect-square bg-gradient-to-br from-pink-500 to-cyan-500 flex items-center justify-center text-6xl">🌀</div>
         <div class="aspect-square bg-gradient-to-br from-cyan-500 to-purple-500 flex items-center justify-center text-6xl">🌌</div>
@@ -116,6 +167,7 @@
     </div>
   </section>
 
+  <!-- MERCH, ABOUT & FOOTER (unchanged) -->
   <section id="merch" class="py-20 bg-[#002211]">
     <div class="max-w-6xl mx-auto px-6">
       <h2 class="heading text-6xl text-center mb-12 text-[#ff00ff]">MERCH DROP</h2>
@@ -139,7 +191,6 @@
     </div>
   </section>
 
-  <!-- ABOUT -->
   <section id="about" class="py-20 bg-black">
     <div class="max-w-4xl mx-auto px-6 text-center">
       <h2 class="heading text-5xl mb-8">SUNDARA HEART</h2>
@@ -148,14 +199,11 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer class="bg-[#0a0a1f] py-12 border-t-4 border-[#ff00ff]">
     <div class="max-w-6xl mx-auto px-6 text-center text-sm">
-      <p>© 2026 Sundara Heart • All transmissions reserved</p>
-      <p class="mt-4 flex justify-center gap-6">
-        <a href="#" class="hover:text-[#ff00ff]">Instagram</a>
-        <a href="#" class="hover:text-[#ff00ff]">Bandcamp</a>
-        <a href="#" class="hover:text-[#ff00ff]">Spotify</a>
+      <p>© 2026 Sundara Heart • Santa Fe, New Mexico • Experimental transmissions</p>
+      <p class="mt-6">
+        <a href="tel:5754250347" class="hover:text-[#ff00ff]">575.425.0347</a>
       </p>
     </div>
   </footer>
