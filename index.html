@@ -724,9 +724,9 @@ h1.big-name .line-red {
 .about-body p {
   font-family: var(--elite);
   font-size: 0.88rem;
-  line-height: 1.95;
+  line-height: 1.7;
   color: var(--muted);
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.75rem;
 }
 .about-body p strong { color: var(--ink); }
 .about-body p a { color: var(--red); text-decoration: underline; text-underline-offset: 3px; }
@@ -738,7 +738,7 @@ h1.big-name .line-red {
   background: none;
   border: none;
   border-bottom: 3px wavy var(--red);
-  margin: 1.25rem 0;
+  margin: 0.6rem 0;
   opacity: 0.4;
 }
 
@@ -946,7 +946,65 @@ footer {
   .flock-form button { border-left: none; border-top: 2.5px solid var(--ink); }
 }
 
-/* ── REVEAL ──────────────────────────── */
+/* ── PLAYER CAROUSEL ─────────────────── */
+.player-carousel {
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--teal);
+}
+
+.carousel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px dashed rgba(28,24,16,0.2);
+}
+
+.car-btn {
+  font-family: var(--bebas);
+  font-size: 1.1rem;
+  background: none;
+  border: none;
+  color: var(--ink);
+  cursor: pointer;
+  padding: 0 0.4rem;
+  transition: color 0.15s;
+  line-height: 1;
+}
+.car-btn:hover { color: var(--red); }
+
+.carousel-track {
+  overflow: hidden;
+  position: relative;
+}
+
+.car-slide {
+  display: none;
+  padding: 0.75rem;
+}
+.car-slide.active { display: block; }
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.6rem;
+  border-top: 1px dashed rgba(28,24,16,0.2);
+}
+
+.car-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: rgba(28,24,16,0.2);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.15s;
+}
+.car-dot.active { background: var(--red); }
+
+
 .reveal {
   opacity: 0;
   transform: translateY(16px);
@@ -1001,11 +1059,11 @@ footer {
         SUNDARA
         <span class="line-red">HEART</span>
       </h1>
-      <span class="hero-sticker">Lo-fi &middot; Ambient &middot; Art &middot; Clay &middot; Wax</span>
+      <span class="hero-sticker">Music &middot; Art &middot; Clay &middot; Wax &middot; Whatever It Needs To Be</span>
     </div>
     <div class="hero-right reveal" style="transition-delay:0.1s">
       <p class="hero-desc">
-        Music made with AI collaborators. Art made with fire and bare hands.
+        Music written, recorded and made with AI collaborators. Art made with fire and bare hands.
         Encaustic wax, oil, clay, monotype &amp; digital. UK roots.
         High-desert frequency. Santa Fe, NM.
       </p>
@@ -1039,7 +1097,6 @@ footer {
 <!-- ─ MUSIC ──────────────────────────── -->
 <section id="music">
   <div class="section-header reveal">
-    <span class="section-num">[01]</span>
     <h2 class="section-title"><span>Latest Drops</span></h2>
   </div>
 
@@ -1057,15 +1114,15 @@ footer {
         </div>
         <span class="track-arrow">&#8594;</span>
       </a>
-      <a class="track" href="https://sundaraheart.bandcamp.com" target="_blank">
+      <a class="track" href="https://sundaraheart.bandcamp.com/track/scorpio-unravelling" target="_blank">
         <span class="track-n">02</span>
         <div>
-          <p class="track-title">XXII</p>
-          <p class="track-meta">Album &middot; electronica &middot; glitch</p>
+          <p class="track-title">Scorpio Unravelling</p>
+          <p class="track-meta">Single &middot; Bandcamp</p>
         </div>
         <span class="track-arrow">&#8594;</span>
       </a>
-      <a class="track" href="https://open.spotify.com/artist/1qEfXc96PrJWsHGnFCPbWS" target="_blank">
+      <a class="track" href="https://sundaraheart.bandcamp.com/track/be-back-soon" target="_blank">
         <span class="track-n">03</span>
         <div>
           <p class="track-title">Be Back Soon</p>
@@ -1073,44 +1130,67 @@ footer {
         </div>
         <span class="track-arrow">&#8594;</span>
       </a>
-      <a class="track" href="https://open.spotify.com/artist/1qEfXc96PrJWsHGnFCPbWS" target="_blank">
+      <a class="track" href="https://sundaraheart.bandcamp.com/track/3i-rising" target="_blank">
         <span class="track-n">04</span>
         <div>
-          <p class="track-title">Respected Sky</p>
-          <p class="track-meta">Single &middot; lo-fi</p>
+          <p class="track-title">3I Rising</p>
+          <p class="track-meta">Single &middot; Bandcamp</p>
         </div>
         <span class="track-arrow">&#8594;</span>
       </a>
-      <a class="track" href="https://open.spotify.com/artist/1qEfXc96PrJWsHGnFCPbWS" target="_blank">
+      <a class="track" href="https://sundaraheart.bandcamp.com/track/danger-mouse" target="_blank">
         <span class="track-n">05</span>
         <div>
-          <p class="track-title">Itty Bitty Sunshine</p>
-          <p class="track-meta">Single &middot; downtempo</p>
+          <p class="track-title">Danger Mouse</p>
+          <p class="track-meta">Single &middot; Bandcamp</p>
         </div>
         <span class="track-arrow">&#8594;</span>
       </a>
-      <a class="track" href="https://open.spotify.com/artist/1qEfXc96PrJWsHGnFCPbWS" target="_blank">
+      <a class="track" href="https://sundaraheart.bandcamp.com/track/burning-palms-and-fish-chips" target="_blank">
         <span class="track-n">06</span>
         <div>
-          <p class="track-title">Gobbledy Orbit Meltdown</p>
-          <p class="track-meta">From XXII &middot; electronica</p>
+          <p class="track-title">Burning Palms and Fish &amp; Chips</p>
+          <p class="track-meta">Single &middot; Bandcamp</p>
         </div>
         <span class="track-arrow">&#8594;</span>
       </a>
     </div>
 
     <div class="players-col reveal" style="transition-delay:0.12s">
-      <div class="player-card tilt-r">
-        <p class="player-tag">&#9654; BANDCAMP &mdash; stream + support</p>
-        <iframe src="https://bandcamp.com/EmbeddedPlayer/album=3025827773/size=large/bgcol=e8e0cd/linkcol=c0291a/artwork=small/transparent=true/" height="120" seamless></iframe>
+
+      <!-- PLAYER CAROUSEL -->
+      <div class="player-carousel">
+        <div class="carousel-header">
+          <button class="car-btn" id="carPrev" onclick="carMove(-1)">&#8592;</button>
+          <p class="player-tag" id="carLabel">&#9654; BANDCAMP &mdash; Oh Universe EP</p>
+          <button class="car-btn" id="carNext" onclick="carMove(1)">&#8594;</button>
+        </div>
+        <div class="carousel-track" id="carTrack">
+          <div class="car-slide">
+            <iframe style="border:0; width:100%; height:120px;" src="https://bandcamp.com/EmbeddedPlayer/album=1495791960/size=large/bgcol=e8e0cd/linkcol=c0291a/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://sundaraheart.bandcamp.com/album/oh-universe-buy-me-that-iridescent-green-truck">Oh Universe by Sundara Heart</a></iframe>
+          </div>
+          <div class="car-slide">
+            <iframe style="border:0; width:100%; height:120px;" src="https://bandcamp.com/EmbeddedPlayer/track=3068622189/size=large/bgcol=e8e0cd/linkcol=c0291a/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://sundaraheart.bandcamp.com/track/scorpio-unravelling">Scorpio Unravelling by Sundara Heart</a></iframe>
+          </div>
+          <div class="car-slide">
+            <iframe style="border:0; width:100%; height:120px;" src="https://bandcamp.com/EmbeddedPlayer/track=2124313159/size=large/bgcol=e8e0cd/linkcol=c0291a/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://sundaraheart.bandcamp.com/track/burning-palms-and-fish-chips">Burning Palms and Fish &amp; Chips by Sundara Heart</a></iframe>
+          </div>
+          <div class="car-slide">
+            <iframe style="border:0; width:100%; height:120px;" src="https://bandcamp.com/EmbeddedPlayer/track=402650807/size=large/bgcol=e8e0cd/linkcol=c0291a/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://sundaraheart.bandcamp.com/track/be-back-soon">Be Back Soon by Sundara Heart</a></iframe>
+          </div>
+          <div class="car-slide">
+            <iframe style="border:0; width:100%; height:120px;" src="https://bandcamp.com/EmbeddedPlayer/track=4033126334/size=large/bgcol=e8e0cd/linkcol=c0291a/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://sundaraheart.bandcamp.com/track/danger-mouse">Danger Mouse by Sundara Heart</a></iframe>
+          </div>
+          <div class="car-slide">
+            <iframe style="border-radius:0; width:100%; height:120px;" src="https://open.spotify.com/embed/artist/1qEfXc96PrJWsHGnFCPbWS?utm_source=generator" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          </div>
+        </div>
+        <div class="carousel-dots" id="carDots"></div>
       </div>
-      <div class="player-card tilt-l">
-        <p class="player-tag">&#9654; SPOTIFY</p>
-        <iframe style="border-radius:0" src="https://open.spotify.com/embed/artist/1qEfXc96PrJWsHGnFCPbWS?utm_source=generator" height="120" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-      </div>
+
       <p style="font-family:var(--elite); font-size:0.72rem; color:var(--muted); line-height:1.75; padding-top:0.75rem; border-top:1px dashed rgba(28,24,16,0.2);">
         Songwriter &middot; Producer &middot; AI collaborator.<br>
-        New tracks drop regularly.
+        New tracks drop whenever they're ready.
       </p>
     </div>
   </div>
@@ -1121,10 +1201,9 @@ footer {
   <div class="art-inner">
     <div class="art-header">
       <div class="reveal">
-        <span class="section-num" style="color:rgba(232,224,205,0.4)">[02]</span>
         <h2 class="section-title">The <span>Work</span></h2>
       </div>
-      <a href="https://sillygooserecordings.com/paintings-and-clay-offerings" target="_blank"
+      <a href="mailto:sundaraheartu@gmail.com"
          class="zine-btn zb-outline reveal"
          style="color:var(--paper); border-color:rgba(232,224,205,0.4); box-shadow:3px 3px 0 var(--yellow); font-size:0.85rem">
         Full Gallery &#8594;
@@ -1167,7 +1246,7 @@ footer {
     </div>
 
     <blockquote class="art-pullquote reveal">
-      <p>"I create because the universe is pure chaos until I wrestle it into something that breathes. I chase raw emotion through thick oils that drip like desert sunsets, encaustic wax that burns and glows, acrylic explosions, digital glitches that feel alive, and hand-thrown clay pieces you can actually grip."</p>
+      <p>"I make things because I have to. Oil that I push around until it drips right. Wax I melt and burn and scrape back. Clay I throw with my hands until it holds its shape. Prints where the press decides what stays. Digital work that glitches into something more honest than I planned. It's all the same thing really — just me trying to make something real out of the chaos."</p>
       <cite>&mdash; Sundara Heart</cite>
     </blockquote>
   </div>
@@ -1176,40 +1255,33 @@ footer {
 <!-- ─ MEDIUMS ─────────────────────────── -->
 <section id="mediums">
   <div class="section-header reveal">
-    <span class="section-num">[03]</span>
     <h2 class="section-title">How It <span>Gets Made</span></h2>
   </div>
 
   <div class="mediums-list reveal" style="transition-delay:0.08s">
     <div class="medium-item">
-      <span class="medium-num-stamp">&mdash;01/</span>
       <p class="medium-name">Encaustic Wax</p>
       <p class="medium-desc">Heated beeswax fused with pigment. Layered, burned, scraped until it breathes.</p>
     </div>
     <div class="medium-item">
-      <span class="medium-num-stamp">&mdash;02/</span>
       <p class="medium-name">Oil Paint</p>
       <p class="medium-desc">Thick, slow-drying. Dripping like desert sunsets. Emotion trapped in pigment.</p>
     </div>
     <div class="medium-item">
-      <span class="medium-num-stamp">&mdash;03/</span>
       <p class="medium-name">Clay</p>
       <p class="medium-desc">Hand-thrown vessels. Objects you can grip. Totems for ritual and daily life.</p>
     </div>
     <div class="medium-item">
-      <span class="medium-num-stamp">&mdash;04/</span>
       <p class="medium-name">Monotype Print</p>
       <p class="medium-desc">One-of-a-kind impressions. The press decides what survives.</p>
     </div>
     <div class="medium-item">
-      <span class="medium-num-stamp">&mdash;05/</span>
       <p class="medium-name">Digital Glitch</p>
       <p class="medium-desc">Corrupted imagery that feels more honest than the original. Signal and noise.</p>
     </div>
     <div class="medium-item">
-      <span class="medium-num-stamp">&mdash;06/</span>
-      <p class="medium-name">Lo-fi Music</p>
-      <p class="medium-desc">Written, produced, and co-created with AI. Hypnotic. Nostalgic. Unruly.</p>
+      <p class="medium-name">Music</p>
+      <p class="medium-desc">I write my own stuff. Sometimes record instruments and my own voice. Then collaborate with AI to take it somewhere unexpected.</p>
     </div>
   </div>
 </section>
@@ -1222,13 +1294,13 @@ footer {
     <ul class="about-card-links">
       <li><a href="https://open.spotify.com/artist/1qEfXc96PrJWsHGnFCPbWS" target="_blank">Spotify &#8599;</a></li>
       <li><a href="https://sundaraheart.bandcamp.com" target="_blank">Bandcamp &#8599;</a></li>
-      <li><a href="https://sillygooserecordings.com/shop-premium-apparel" target="_blank">Shop Merch &#8599;</a></li>
+      <li><a href="https://sillygooseproductions.printful.me/" target="_blank">Shop Merch &#8599;</a></li>
       <li><a href="https://sillygooserecordings.com/contact-silly-goose-recording" target="_blank">Contact &#8599;</a></li>
       <li><a href="https://buymeacoffee.com/sundaraheart" target="_blank">Buy Me a Coffee &#8599;</a></li>
     </ul>
   </div>
 
-<div class="about-body reveal" style="transition-delay:0.1s">
+  <div class="about-body reveal" style="transition-delay:0.1s">
     <p>
       I'm a multidisciplinary artist and producer based in Santa Fe, New Mexico, with UK roots. This is <strong>Silly Goose Recordings</strong> — no house style, no rulebook, a lot of ideas.
     </p>
@@ -1237,11 +1309,11 @@ footer {
       Honestly? I make whatever wants to come out. Lo-fi, ambient, glitchy, experimental, unhinged, tender — sometimes all of it in one track. I've never stayed in one lane and I'm not about to start. Ask me what genre and I'll say yes. Genre is a filing system. This isn't that. New tracks drop whenever they're ready.
     </p>
     <p>
-      My visual practice spans encaustic wax painting, oil painting, clay sculpture, monotype printing, and digital art. Each medium is a different form of the same compulsion: wrestling the chaos of the universe into something that breathes.
+      I work in encaustic wax, oil paint, clay, monotype print, and digital — whatever the idea needs. Each one is a different way of doing the same thing: making something out of nothing, with my hands, until it feels true.
     </p>
     <hr class="squiggle">
     <p>
-      I also work as an <strong>INELDA-trained death doula</strong> through my separate practice, <a href="https://journeyingon.com/" target="_blank">Journeying On</a> — guiding people and families through end-of-life with the same creative presence I bring to everything else.
+      I also work as an <strong>INELDA-trained death doula</strong> through my separate practice, <a href="https://journeyingon.com/" target="_blank">Journeying On</a> — guiding people and families through end-of-life with the same presence I bring to everything else.
     </p>
     <p>
       Commissions, collabs, and inquiries always welcome.
@@ -1262,12 +1334,15 @@ footer {
 <!-- ─ FLOCK ───────────────────────────── -->
 <div id="flock">
   <h2 class="flock-h reveal">Join the Flock.</h2>
-  <p class="flock-sub reveal">Free download + first access to new drops. No noise. Just signal.</p>
+  <p class="flock-sub reveal">New drops, new work, new chaos. Be the first to know.</p>
   <div class="flock-form reveal">
     <input type="email" id="flockEmail" placeholder="your@email.com">
     <button onclick="doFlock()">Join &#8594;</button>
   </div>
   <p id="flock-msg"></p>
+  <p style="font-family:var(--elite); font-size:0.75rem; color:var(--muted); margin-top:1.5rem;">
+    Or just say hi directly &mdash; <a href="mailto:sundaraheartu@gmail.com" style="color:var(--red);">sundaraheartu@gmail.com</a>
+  </p>
 </div>
 
 <!-- ─ FOOTER ─────────────────────────── -->
@@ -1280,7 +1355,7 @@ footer {
     <div class="footer-links">
       <a href="https://open.spotify.com/artist/1qEfXc96PrJWsHGnFCPbWS" target="_blank">Spotify</a>
       <a href="https://sundaraheart.bandcamp.com" target="_blank">Bandcamp</a>
-      <a href="https://sillygooserecordings.com/shop-premium-apparel" target="_blank">Shop</a>
+      <a href="https://sillygooseproductions.printful.me/" target="_blank">Shop</a>
       <a href="https://journeyingon.com/" target="_blank">Journeying On</a>
       <a href="https://sillygooserecordings.com/contact-silly-goose-recording" target="_blank">Contact</a>
       <a href="tel:5754250347">575.425.0347</a>
@@ -1322,7 +1397,43 @@ sc.addEventListener('mousemove', e => {
   sc.scrollLeft = sl - (e.pageX - sc.offsetLeft - sx);
 });
 
-// Email signup
+// Player carousel
+const carLabels = [
+  '&#9654; BANDCAMP — Oh Universe EP',
+  '&#9654; BANDCAMP — Scorpio Unravelling',
+  '&#9654; BANDCAMP — Burning Palms & Fish Chips',
+  '&#9654; BANDCAMP — Be Back Soon',
+  '&#9654; BANDCAMP — Danger Mouse',
+  '&#9654; SPOTIFY'
+];
+let carIdx = 0;
+const slides = document.querySelectorAll('.car-slide');
+const dotsEl = document.getElementById('carDots');
+const labelEl = document.getElementById('carLabel');
+
+// build dots
+slides.forEach((_, i) => {
+  const d = document.createElement('button');
+  d.className = 'car-dot' + (i === 0 ? ' active' : '');
+  d.onclick = () => carGoTo(i);
+  dotsEl.appendChild(d);
+});
+
+function carGoTo(n) {
+  slides[carIdx].classList.remove('active');
+  dotsEl.children[carIdx].classList.remove('active');
+  carIdx = (n + slides.length) % slides.length;
+  slides[carIdx].classList.add('active');
+  dotsEl.children[carIdx].classList.add('active');
+  labelEl.innerHTML = carLabels[carIdx];
+}
+
+function carMove(dir) { carGoTo(carIdx + dir); }
+
+// init first slide
+slides[0].classList.add('active');
+
+
 function doFlock() {
   const v = document.getElementById('flockEmail').value;
   const msg = document.getElementById('flock-msg');
