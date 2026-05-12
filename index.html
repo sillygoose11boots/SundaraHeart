@@ -1,137 +1,1340 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Sundara Heart — Experimental music transmissions from Santa Fe, NM">
-  <title>Sundara Heart</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
-    body { font-family: 'VT323', monospace; }
-    .heading { font-family: 'Press Start 2P', cursive; }
-    .graffiti { text-shadow: 3px 3px 0 #ff00ff, -2px -2px 0 #00ffff; }
-    .hero-bg { background: linear-gradient(45deg, #0a0a2a, #1a0022, #002211); }
-    section { scroll-margin-top: 80px; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sundara Heart</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Bebas+Neue&family=Permanent+Marker&family=VT323&display=swap" rel="stylesheet">
+<style>
+
+/* ─────────────────────────────────────────
+   SUNDARA HEART — ZINE / RISOGRAPH ENERGY
+   Photocopied flyer meets lo-fi record label.
+   No gradients, no polish, all texture.
+───────────────────────────────────────── */
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+
+:root {
+  --paper:  #e8e0cd;   /* aged paper — warm, slightly yellow */
+  --ink:    #1c1810;   /* not pure black — like old toner */
+  --red:    #c0291a;   /* risograph red */
+  --teal:   #1a7a6e;   /* risograph teal/green */
+  --yellow: #e8c84a;   /* risograph yellow */
+  --muted:  #5a5040;
+  --bebas:  'Bebas Neue', sans-serif;
+  --elite:  'Special Elite', serif;   /* typewriter */
+  --marker: 'Permanent Marker', cursive;
+  --vt:     'VT323', monospace;       /* lo-fi terminal */
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--elite);
+  font-size: 15px;
+  line-height: 1.55;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ── PAPER TEXTURE ─────────────────── */
+/* crosshatch noise to feel like xerox */
+body::before {
+  content:'';
+  position:fixed; inset:0;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 3px,
+      rgba(28,24,16,0.018) 3px,
+      rgba(28,24,16,0.018) 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 5px,
+      rgba(28,24,16,0.012) 5px,
+      rgba(28,24,16,0.012) 6px
+    );
+  pointer-events:none;
+  z-index:9999;
+}
+
+/* ── SLIGHTLY OFF-KILTER HELPER ──────
+   A few elements get a tiny random rotation
+   to feel hand-placed, not pixel-perfect     */
+.tilt-l { transform: rotate(-0.6deg); }
+.tilt-r { transform: rotate(0.8deg); }
+.tilt-ll { transform: rotate(-1.4deg); }
+.tilt-rr { transform: rotate(1.2deg); }
+
+/* ── ROUGH BORDER UTILITY ────────────
+   Simulates cut-out edges                   */
+.rough {
+  outline: 2px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+.rough-red {
+  outline: 2px solid var(--red);
+  box-shadow: 4px 4px 0 var(--red);
+}
+.rough-teal {
+  outline: 2px solid var(--teal);
+  box-shadow: 4px 4px 0 var(--teal);
+}
+
+/* ── STAMP UTILITY ───────────────────
+   Rotated block labels that look rubber-stamped */
+.stamp {
+  display: inline-block;
+  font-family: var(--bebas);
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  padding: 0.2rem 0.6rem;
+  border: 2px solid currentColor;
+  text-transform: uppercase;
+}
+
+/* ── NAV ─────────────────────────────
+   Looks like a folded-over header strip     */
+nav {
+  position: fixed;
+  top:0; left:0; right:0;
+  z-index:500;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.7rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid var(--red);
+}
+
+.nav-sig {
+  font-family: var(--marker);
+  font-size: 1rem;
+  color: var(--yellow);
+  letter-spacing: 0.02em;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  font-family: var(--elite);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: rgba(232,224,205,0.65);
+  text-transform: uppercase;
+  transition: color 0.15s;
+}
+.nav-links a:hover { color: var(--yellow); }
+
+.nav-cta {
+  font-family: var(--bebas);
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  color: var(--ink) !important;
+  background: var(--yellow);
+  padding: 0.25rem 0.75rem;
+  transition: background 0.15s;
+}
+.nav-cta:hover { background: var(--red); color: var(--paper) !important; }
+
+.hbg {
+  display:none;
+  flex-direction:column;
+  gap:4px;
+  background:none; border:none;
+  cursor:pointer; padding:4px;
+}
+.hbg span {
+  display:block; width:22px; height:2px;
+  background:var(--paper);
+  transition:all 0.2s;
+}
+.hbg.open span:nth-child(1) { transform:translateY(6px) rotate(45deg); }
+.hbg.open span:nth-child(2) { opacity:0; }
+.hbg.open span:nth-child(3) { transform:translateY(-6px) rotate(-45deg); }
+
+.mob-menu {
+  display:none;
+  position:fixed;
+  top:48px; left:0; right:0;
+  background:var(--ink);
+  border-bottom:3px solid var(--red);
+  padding:1.5rem;
+  flex-direction:column;
+  gap:1rem;
+  z-index:499;
+}
+.mob-menu.open { display:flex; }
+.mob-menu a {
+  font-family:var(--elite);
+  font-size:0.9rem;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:rgba(232,224,205,0.7);
+  padding-bottom:0.75rem;
+  border-bottom:1px dashed rgba(232,224,205,0.2);
+}
+
+/* ── HERO ─────────────────────────────
+   Feels like an old concert poster slapped
+   on a telephone pole. Dense. Urgent.        */
+#hero {
+  padding-top: 48px;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  position: relative;
+  overflow: hidden;
+}
+
+/* big background text — "ghost" layer */
+.hero-ghost {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -48%) rotate(-3deg);
+  font-family: var(--bebas);
+  font-size: clamp(10rem, 30vw, 22rem);
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(28,24,16,0.07);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  line-height: 1;
+  z-index: 0;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  padding: 3rem 1.5rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: end;
+  max-width: 1100px;
+}
+
+/* LEFT — the main title block */
+.hero-left {}
+
+.hero-kicker {
+  font-family: var(--vt);
+  font-size: 1rem;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+h1.big-name {
+  font-family: var(--bebas);
+  font-size: clamp(5rem, 15vw, 13rem);
+  line-height: 0.85;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+}
+
+h1.big-name .line-red {
+  display: block;
+  color: var(--red);
+  /* offset to the right — slightly misregistered like risograph */
+  position: relative;
+  left: 4px;
+  top: 2px;
+}
+
+/* sticker label dropped beneath title */
+.hero-sticker {
+  display: inline-block;
+  background: var(--yellow);
+  color: var(--ink);
+  font-family: var(--vt);
+  font-size: 1.1rem;
+  padding: 0.3rem 0.8rem;
+  margin-top: 1rem;
+  transform: rotate(-1.5deg);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+/* RIGHT — info column */
+.hero-right {
+  padding-bottom: 0.5rem;
+}
+
+.hero-desc {
+  font-family: var(--elite);
+  font-size: 0.88rem;
+  line-height: 1.85;
+  color: var(--muted);
+  margin-bottom: 1.75rem;
+  max-width: 360px;
+}
+
+.hero-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  align-items: flex-start;
+}
+
+.zine-btn {
+  font-family: var(--bebas);
+  font-size: 1.05rem;
+  letter-spacing: 0.12em;
+  padding: 0.45rem 1.4rem 0.35rem;
+  cursor: pointer;
+  display: inline-block;
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+.zine-btn:active { transform: translate(3px,3px); box-shadow: 0 0 0 !important; }
+
+.zb-fill {
+  background: var(--ink);
+  color: var(--paper);
+  box-shadow: 4px 4px 0 var(--red);
+}
+.zb-fill:hover { background: var(--red); }
+
+.zb-outline {
+  background: transparent;
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  box-shadow: 3px 3px 0 var(--teal);
+}
+.zb-outline:hover { background: var(--teal); color: var(--paper); border-color: var(--teal); }
+
+/* MARQUEE — across the bottom of hero */
+.marquee-strip {
+  border-top: 3px solid var(--ink);
+  border-bottom: 3px solid var(--ink);
+  background: var(--red);
+  overflow: hidden;
+  padding: 0.5rem 0;
+  position: relative;
+  z-index: 2;
+}
+.marquee-track {
+  display:flex;
+  gap:2.5rem;
+  white-space:nowrap;
+  animation: scroll-left 20s linear infinite;
+}
+.marquee-item {
+  font-family: var(--bebas);
+  font-size: 1.1rem;
+  letter-spacing: 0.15em;
+  color: var(--paper);
+  flex-shrink:0;
+}
+.marquee-item::before { content:'★ '; color: var(--yellow); }
+@keyframes scroll-left {
+  from { transform:translateX(0); }
+  to   { transform:translateX(-50%); }
+}
+
+/* ── MUSIC ────────────────────────────
+   Feels like a gig listing poster          */
+#music {
+  padding: 3rem 1.5rem;
+  border-bottom: 3px solid var(--ink);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.section-num {
+  font-family: var(--vt);
+  font-size: 1.1rem;
+  color: var(--muted);
+}
+
+.section-title {
+  font-family: var(--bebas);
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  color: var(--ink);
+}
+
+/* underline hand-drawn feel */
+.section-title span {
+  text-decoration: underline;
+  text-decoration-color: var(--red);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 4px;
+}
+
+.music-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+/* Track listing — looks like a set list taped to a wall */
+.tracklist {
+  border: 2px solid var(--ink);
+  box-shadow: 5px 5px 0 var(--ink);
+}
+
+.tracklist-head {
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--bebas);
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  padding: 0.4rem 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.track {
+  display: grid;
+  grid-template-columns: 1.8rem 1fr auto;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.9rem 1rem;
+  border-bottom: 1px dashed rgba(28,24,16,0.25);
+  transition: background 0.15s;
+}
+.track:last-child { border-bottom: none; }
+.track:hover { background: rgba(192,41,26,0.06); }
+
+.track-n {
+  font-family: var(--vt);
+  font-size: 1rem;
+  color: var(--muted);
+}
+.track-title {
+  font-family: var(--elite);
+  font-size: 0.85rem;
+  color: var(--ink);
+  line-height: 1.3;
+}
+.track-meta {
+  font-family: var(--vt);
+  font-size: 0.8rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.track-arrow {
+  font-size: 0.85rem;
+  color: rgba(28,24,16,0.25);
+  transition: color 0.15s, transform 0.15s;
+}
+.track:hover .track-arrow { color: var(--red); transform: translateX(4px); }
+
+/* Players — look like they're stuck in with tape */
+.players-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.player-card {
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--teal);
+  padding: 1rem;
+}
+
+/* tape strip at top */
+.player-card::before {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 18px;
+  background: rgba(232,200,74,0.7);
+  border: 1px solid rgba(28,24,16,0.2);
+  margin: -1.6rem auto 0.75rem;
+  position: relative;
+}
+
+.player-tag {
+  font-family: var(--vt);
+  font-size: 0.9rem;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.65rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px dashed rgba(28,24,16,0.2);
+}
+
+.player-card iframe {
+  width: 100%; border: none; display: block;
+}
+
+/* ── ART ──────────────────────────────
+   Feels like a gallery handout xeroxed
+   on card stock                            */
+#art {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 3rem 1.5rem;
+  border-top: 4px double var(--red);
+  border-bottom: 4px double var(--red);
+}
+
+.art-inner { max-width: 1100px; margin: 0 auto; }
+
+.art-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.art-header .section-title { color: var(--paper); }
+.art-header .section-title span { text-decoration-color: var(--yellow); }
+
+/* Drag-scroll gallery */
+.art-scroll {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--yellow) var(--ink);
+  padding-bottom: 0.5rem;
+  cursor: grab;
+}
+.art-scroll:active { cursor: grabbing; }
+.art-scroll::-webkit-scrollbar { height: 3px; }
+.art-scroll::-webkit-scrollbar-thumb { background: var(--yellow); }
+
+.art-tile {
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  /* slight tilt alternating */
+  outline: 3px solid rgba(232,224,205,0.2);
+}
+
+.art-tile:nth-child(odd)  { transform: rotate(-0.4deg); }
+.art-tile:nth-child(even) { transform: rotate(0.5deg); }
+
+.art-tile img {
+  display: block;
+  height: 340px;
+  width: auto;
+  object-fit: cover;
+  transition: filter 0.3s ease;
+  filter: contrast(1.05) saturate(0.85);
+}
+.art-tile:hover img { filter: contrast(1.1) saturate(1.05); }
+
+.art-cap {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: var(--red);
+  padding: 0.5rem 0.75rem;
+  font-family: var(--vt);
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--paper);
+  transform: translateY(100%);
+  transition: transform 0.25s ease;
+}
+.art-tile:hover .art-cap { transform: translateY(0); }
+
+/* pullquote */
+.art-pullquote {
+  margin-top: 2.5rem;
+  padding: 1.5rem 2rem;
+  border: 2px solid var(--yellow);
+  background: rgba(232,200,74,0.06);
+  position: relative;
+  transform: rotate(-0.3deg);
+}
+
+/* big quotation mark */
+.art-pullquote::before {
+  content: '"';
+  font-family: var(--marker);
+  font-size: 6rem;
+  color: var(--red);
+  position: absolute;
+  top: -1rem;
+  left: 0.75rem;
+  line-height: 1;
+  opacity: 0.5;
+}
+
+.art-pullquote p {
+  font-family: var(--elite);
+  font-size: 0.92rem;
+  line-height: 1.85;
+  color: rgba(232,224,205,0.8);
+  font-style: italic;
+  max-width: 680px;
+  padding-left: 1rem;
+}
+.art-pullquote cite {
+  display: block;
+  margin-top: 0.75rem;
+  font-family: var(--vt);
+  font-size: 0.95rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  font-style: normal;
+  padding-left: 1rem;
+}
+
+/* ── MEDIUMS ──────────────────────────
+   Like a cut-up list from a classified ad   */
+#mediums {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  border-bottom: 3px solid var(--ink);
+}
+
+.mediums-list {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  border: 2px solid var(--ink);
+  box-shadow: 6px 6px 0 var(--ink);
+}
+
+.medium-item {
+  padding: 1.5rem 1.25rem;
+  border-right: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  transition: background 0.15s;
+  position: relative;
+}
+/* remove right border on last col */
+.medium-item:nth-child(3n) { border-right: none; }
+/* remove bottom border on last row */
+.medium-item:nth-last-child(-n+3) { border-bottom: none; }
+
+.medium-item:hover { background: rgba(192,41,26,0.05); }
+
+.medium-num-stamp {
+  font-family: var(--vt);
+  font-size: 0.95rem;
+  color: var(--red);
+  margin-bottom: 0.4rem;
+  display: block;
+}
+.medium-name {
+  font-family: var(--bebas);
+  font-size: 1.35rem;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  margin-bottom: 0.35rem;
+}
+.medium-desc {
+  font-family: var(--elite);
+  font-size: 0.75rem;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+/* ── ABOUT ────────────────────────────
+   Two-column — sticky typewritten bio      */
+#about {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 3.5rem;
+  align-items: start;
+  border-bottom: 3px solid var(--ink);
+}
+
+.about-card {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 2rem 1.75rem;
+  box-shadow: 6px 6px 0 var(--red);
+  position: sticky;
+  top: 65px;
+  transform: rotate(-0.8deg);
+}
+
+.about-card-label {
+  font-family: var(--vt);
+  font-size: 0.9rem;
+  color: var(--yellow);
+  letter-spacing: 0.15em;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.about-card h2 {
+  font-family: var(--bebas);
+  font-size: 3rem;
+  color: var(--paper);
+  line-height: 0.9;
+  margin-bottom: 1.25rem;
+}
+
+.about-card h2 span { color: var(--red); }
+
+.about-card-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.about-card-links a {
+  font-family: var(--elite);
+  font-size: 0.78rem;
+  color: rgba(232,224,205,0.6);
+  padding: 0.4rem 0;
+  border-bottom: 1px dashed rgba(232,224,205,0.15);
+  display: flex;
+  justify-content: space-between;
+  transition: color 0.15s;
+}
+.about-card-links a:hover { color: var(--yellow); }
+
+.about-body {
+  padding-top: 0.5rem;
+}
+.about-body p {
+  font-family: var(--elite);
+  font-size: 0.88rem;
+  line-height: 1.95;
+  color: var(--muted);
+  margin-bottom: 1.25rem;
+}
+.about-body p strong { color: var(--ink); }
+.about-body p a { color: var(--red); text-decoration: underline; text-underline-offset: 3px; }
+
+/* hand-drawn divider */
+.squiggle {
+  width: 100%;
+  height: 12px;
+  background: none;
+  border: none;
+  border-bottom: 3px wavy var(--red);
+  margin: 1.25rem 0;
+  opacity: 0.4;
+}
+
+/* ── DOULA STRIP ─────────────────────── */
+#doula {
+  background: var(--teal);
+  color: var(--paper);
+  padding: 2.25rem 1.5rem;
+  border-top: 3px solid var(--ink);
+  border-bottom: 3px solid var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.doula-label-stamp {
+  font-family: var(--vt);
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+  color: rgba(232,224,205,0.6);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+.doula-title {
+  font-family: var(--bebas);
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  letter-spacing: 0.06em;
+  color: var(--paper);
+}
+.doula-sub {
+  font-family: var(--elite);
+  font-size: 0.75rem;
+  color: rgba(232,224,205,0.65);
+  margin-top: 0.2rem;
+}
+
+.doula-btn {
+  font-family: var(--bebas);
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+  padding: 0.5rem 1.5rem 0.35rem;
+  background: var(--paper);
+  color: var(--teal);
+  box-shadow: 4px 4px 0 var(--ink);
+  cursor: pointer;
+  display: inline-block;
+  transition: background 0.15s, color 0.15s;
+}
+.doula-btn:hover { background: var(--yellow); color: var(--ink); }
+
+/* ── FLOCK ───────────────────────────── */
+#flock {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+.flock-h {
+  font-family: var(--marker);
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+  transform: rotate(-1deg);
+  display: inline-block;
+}
+
+.flock-sub {
+  font-family: var(--elite);
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-bottom: 2rem;
+  letter-spacing: 0.05em;
+}
+
+.flock-form {
+  display: flex;
+  border: 2.5px solid var(--ink);
+  box-shadow: 5px 5px 0 var(--red);
+  max-width: 460px;
+  margin: 0 auto;
+}
+.flock-form input {
+  flex: 1;
+  background: var(--paper);
+  border: none;
+  padding: 0.85rem 1rem;
+  font-family: var(--elite);
+  font-size: 0.85rem;
+  color: var(--ink);
+  outline: none;
+}
+.flock-form input::placeholder { color: var(--muted); opacity: 0.6; }
+.flock-form button {
+  background: var(--red);
+  border: none;
+  border-left: 2.5px solid var(--ink);
+  padding: 0.85rem 1.25rem;
+  font-family: var(--bebas);
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  color: var(--paper);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+.flock-form button:hover { background: var(--ink); }
+
+#flock-msg {
+  margin-top: 1rem;
+  font-family: var(--vt);
+  font-size: 0.95rem;
+  color: var(--muted);
+  min-height: 1.2em;
+  letter-spacing: 0.08em;
+}
+
+/* ── FOOTER ──────────────────────────── */
+footer {
+  background: var(--ink);
+  color: var(--paper);
+  border-top: 4px solid var(--red);
+  padding: 2.5rem 1.5rem 2rem;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  align-items: end;
+}
+
+.footer-brand {
+  font-family: var(--marker);
+  font-size: 1.6rem;
+  color: var(--yellow);
+  margin-bottom: 0.35rem;
+}
+.footer-sub {
+  font-family: var(--elite);
+  font-size: 0.7rem;
+  color: rgba(232,224,205,0.4);
+  letter-spacing: 0.06em;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem 2rem;
+  justify-content: flex-end;
+}
+.footer-links a {
+  font-family: var(--elite);
+  font-size: 0.72rem;
+  color: rgba(232,224,205,0.45);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition: color 0.15s;
+}
+.footer-links a:hover { color: var(--yellow); }
+
+.footer-copy {
+  grid-column: 1/-1;
+  border-top: 1px dashed rgba(232,224,205,0.15);
+  padding-top: 1.25rem;
+  margin-top: 0.5rem;
+  font-family: var(--vt);
+  font-size: 0.8rem;
+  color: rgba(232,224,205,0.2);
+  letter-spacing: 0.06em;
+}
+
+/* ── RESPONSIVE ──────────────────────── */
+@media (max-width: 860px) {
+  .nav-links { display: none; }
+  .hbg { display: flex; }
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-right { padding-top: 0; }
+  .hero-btns { flex-direction: row; flex-wrap: wrap; }
+  .music-layout { grid-template-columns: 1fr; }
+  .mediums-list { grid-template-columns: 1fr 1fr; }
+  .medium-item:nth-child(3n) { border-right: 2px solid var(--ink); }
+  .medium-item:nth-child(2n) { border-right: none; }
+  .medium-item:nth-last-child(-n+3) { border-bottom: 2px solid var(--ink); }
+  .medium-item:nth-last-child(-n+2) { border-bottom: none; }
+  #about { grid-template-columns: 1fr; gap: 2.5rem; }
+  .about-card { position: static; transform: none; }
+  footer .footer-inner { grid-template-columns: 1fr; }
+  .footer-links { justify-content: flex-start; }
+}
+
+@media (max-width: 540px) {
+  #hero { padding-top: 48px; }
+  .hero-inner { padding: 2rem 1.25rem 1.5rem; }
+  .art-tile img { height: 240px; }
+  .mediums-list { grid-template-columns: 1fr; }
+  .medium-item { border-right: none !important; border-bottom: 2px solid var(--ink) !important; }
+  .medium-item:last-child { border-bottom: none !important; }
+  #doula { flex-direction: column; }
+  .flock-form { flex-direction: column; }
+  .flock-form button { border-left: none; border-top: 2.5px solid var(--ink); }
+}
+
+/* ── REVEAL ──────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+/* special — reveal with tilt preserved */
+.reveal.tilt-l  { transform: translateY(16px) rotate(-0.6deg); }
+.reveal.tilt-r  { transform: translateY(16px) rotate(0.8deg);  }
+.reveal.tilt-ll { transform: translateY(16px) rotate(-1.4deg); }
+.reveal.in.tilt-l  { transform: translateY(0) rotate(-0.6deg); }
+.reveal.in.tilt-r  { transform: translateY(0) rotate(0.8deg);  }
+.reveal.in.tilt-ll { transform: translateY(0) rotate(-1.4deg); }
+
+</style>
 </head>
-<body class="bg-[#0a0a1f] text-[#00ffcc]">
+<body>
 
-  <!-- NAVBAR -->
-  <nav class="bg-black/80 backdrop-blur-md border-b border-[#ff00ff] sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-      <div class="flex items-center gap-3">
-        <span class="text-4xl">🪐</span>
-        <h1 class="heading text-3xl graffiti tracking-widest">SUNDARA HEART</h1>
-      </div>
-      <div class="hidden md:flex gap-10 text-lg">
-        <a href="#listen" class="hover:text-[#ff00ff] transition-colors">LISTEN</a>
-        <a href="#tracks" class="hover:text-[#ff00ff] transition-colors">NEWEST TRACKS</a>
-        <a href="#releases" class="hover:text-[#ff00ff] transition-colors">RELEASES</a>
-        <a href="#about" class="hover:text-[#ff00ff] transition-colors">ABOUT</a>
-      </div>
-      <a href="#listen" class="px-8 py-3 bg-[#ff00ff] text-black font-bold hover:bg-[#00ffff] transition-colors">LISTEN NOW</a>
+<!-- NAV -->
+<nav>
+  <span class="nav-sig">Sundara Heart</span>
+  <ul class="nav-links">
+    <li><a href="#music">Music</a></li>
+    <li><a href="#art">Art</a></li>
+    <li><a href="#mediums">Mediums</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="https://journeyingon.com/" target="_blank">Journeying On</a></li>
+    <li><a href="https://buymeacoffee.com/sundaraheart" target="_blank" class="nav-cta">Buy Me a Coffee</a></li>
+  </ul>
+  <button class="hbg" id="hbg" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mob-menu" id="mobMenu">
+  <a href="#music" onclick="closeMob()">Music</a>
+  <a href="#art" onclick="closeMob()">Art</a>
+  <a href="#mediums" onclick="closeMob()">Mediums</a>
+  <a href="#about" onclick="closeMob()">About</a>
+  <a href="https://journeyingon.com/" target="_blank">Journeying On</a>
+  <a href="https://buymeacoffee.com/sundaraheart" target="_blank">☕ Buy Me a Coffee</a>
+</div>
+
+<!-- ─ HERO ───────────────────────────── -->
+<section id="hero">
+  <div class="hero-ghost" aria-hidden="true">SUNDARA</div>
+  <div class="hero-inner">
+    <div class="hero-left reveal">
+      <span class="hero-kicker">// SILLY GOOSE RECORDINGS — SANTA FE NM //</span>
+      <h1 class="big-name">
+        SUNDARA
+        <span class="line-red">HEART</span>
+      </h1>
+      <span class="hero-sticker">Lo-fi &middot; Ambient &middot; Art &middot; Clay &middot; Wax</span>
     </div>
-  </nav>
-
-  <!-- INTRO / INTRODUCING SUNDARA HEART (exact text from your Music page) -->
-  <section id="hero" class="hero-bg min-h-screen flex items-center pt-20">
-    <div class="max-w-5xl mx-auto px-6 text-center">
-      <div class="inline-block bg-black px-8 py-3 mb-10 border-4 border-[#00ffff] rotate-[-3deg]">
-        <span class="text-2xl tracking-widest">✦ INTRODUCING SUNDARA HEART ✦</span>
-      </div>
-      <h1 class="heading text-8xl md:text-9xl graffiti leading-none mb-8">SUNDARA HEART</h1>
-      <div class="max-w-3xl mx-auto text-xl leading-relaxed text-[#00ffcc]/90">
-        Hailing from UK roots and now rooted in Santa Fe. Sundara Heart is the indie force fusing dreamy lo-fi hip-hop with ambient downtempo grooves. Every release drops hypnotic, nostalgic soundscapes—chill yet electrifying portals that turn reflection into raw escape.<br><br>
-        As songwriter, producer, and AI collaborator, Sundara Heart rewires the process, staying relentlessly fresh and boundary-pushing. New tracks hit regularly, transforming ordinary moments into profound sonic voyages.
-      </div>
-    </div>
-  </section>
-
-  <!-- PLAY THE NEWEST TRACKS! (exact cards from your Music page) -->
-  <section id="tracks" class="py-24 bg-black">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="heading text-6xl text-center mb-16 text-[#ff00ff]">PLAY THE NEWEST TRACKS!</h2>
-      <div class="grid md:grid-cols-3 gap-8">
-        <!-- Track 1 -->
-        <div class="bg-[#1a0022] p-6 border border-[#ff00ff]">
-          <div class="aspect-video bg-gradient-to-br from-purple-900 to-cyan-900 flex items-center justify-center text-6xl mb-4">🌌</div>
-          <h3 class="text-2xl">Oh Universe (Buy Me That Iridescent Green Tesla Truck)</h3>
-          <p class="text-[#00ffcc]/70">by Sundara Heart</p>
-          <a href="https://sundaraheart.bandcamp.com/album/oh-universe-buy-me-that-iridescent-green-truck" target="_blank" class="block mt-6 text-center py-4 bg-[#ff00ff] text-black font-bold">PLAY / BUY</a>
-        </div>
-        <!-- Track 2 -->
-        <div class="bg-[#1a0022] p-6 border border-[#ff00ff]">
-          <div class="aspect-video bg-gradient-to-br from-cyan-900 to-purple-900 flex items-center justify-center text-6xl mb-4">🌌</div>
-          <h3 class="text-2xl">Oh Universe, won't you buy me...</h3>
-          <p class="text-[#00ffcc]/70">by Sundara Heart</p>
-          <a href="https://sundaraheart.bandcamp.com/album/oh-universe-buy-me-that-iridescent-green-truck" target="_blank" class="block mt-6 text-center py-4 bg-[#ff00ff] text-black font-bold">PLAY / BUY</a>
-        </div>
-        <!-- Track 3 -->
-        <div class="bg-[#1a0022] p-6 border border-[#ff00ff]">
-          <div class="aspect-video bg-gradient-to-br from-green-900 to-purple-900 flex items-center justify-center text-6xl mb-4">🚀</div>
-          <h3 class="text-2xl">Oh Universe Buy Me That Iridescent Green Tesla Truck</h3>
-          <p class="text-[#00ffcc]/70">by Sundara Heart</p>
-          <a href="https://sundaraheart.bandcamp.com/album/oh-universe-buy-me-that-iridescent-green-truck" target="_blank" class="block mt-6 text-center py-4 bg-[#ff00ff] text-black font-bold">PLAY / BUY</a>
-        </div>
+    <div class="hero-right reveal" style="transition-delay:0.1s">
+      <p class="hero-desc">
+        Music made with AI collaborators. Art made with fire and bare hands.
+        Encaustic wax, oil, clay, monotype &amp; digital. UK roots.
+        High-desert frequency. Santa Fe, NM.
+      </p>
+      <div class="hero-btns">
+        <a href="#music" class="zine-btn zb-fill">Listen Now</a>
+        <a href="https://sundaraheart.bandcamp.com" target="_blank" class="zine-btn zb-outline">Bandcamp</a>
+        <a href="https://open.spotify.com/artist/1qEfXc96PrJWsHGnFCPbWS" target="_blank" class="zine-btn zb-outline">Spotify</a>
       </div>
     </div>
-  </section>
+  </div>
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <span class="marquee-item">Oh Universe (Buy Me That Iridescent Green Truck)</span>
+      <span class="marquee-item">XXII &mdash; Gobbledy Orbit Meltdown</span>
+      <span class="marquee-item">Be Back Soon</span>
+      <span class="marquee-item">Respected Sky</span>
+      <span class="marquee-item">Itty Bitty Sunshine</span>
+      <span class="marquee-item">Cognitive Dissonance Hues</span>
+      <span class="marquee-item">Where Is My Mind</span>
+      <span class="marquee-item">Oh Universe (Buy Me That Iridescent Green Truck)</span>
+      <span class="marquee-item">XXII &mdash; Gobbledy Orbit Meltdown</span>
+      <span class="marquee-item">Be Back Soon</span>
+      <span class="marquee-item">Respected Sky</span>
+      <span class="marquee-item">Itty Bitty Sunshine</span>
+      <span class="marquee-item">Cognitive Dissonance Hues</span>
+      <span class="marquee-item">Where Is My Mind</span>
+    </div>
+  </div>
+</section>
 
-  <!-- LISTEN SECTION (full album player) -->
-  <section id="listen" class="py-24 bg-[#1a0022]">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="heading text-6xl text-center mb-16 text-[#ff00ff]">LATEST DROP — STREAM & BUY</h2>
-      <div class="grid md:grid-cols-2 gap-16">
+<!-- ─ MUSIC ──────────────────────────── -->
+<section id="music">
+  <div class="section-header reveal">
+    <span class="section-num">[01]</span>
+    <h2 class="section-title"><span>Latest Drops</span></h2>
+  </div>
+
+  <div class="music-layout">
+    <div class="tracklist reveal">
+      <div class="tracklist-head">
+        <span>// SET LIST</span>
+        <span>SILLY GOOSE RECORDINGS</span>
+      </div>
+      <a class="track" href="https://sundaraheart.bandcamp.com/album/oh-universe-buy-me-that-iridescent-green-truck" target="_blank">
+        <span class="track-n">01</span>
         <div>
-          <h3 class="text-4xl mb-8 flex items-center gap-4"><i class="fab fa-bandcamp text-5xl"></i> Bandcamp Player</h3>
-          <iframe style="border: 0; width: 100%; height: 472px;" src="https://bandcamp.com/EmbeddedPlayer/album=oh-universe-buy-me-that-iridescent-green-truck/size=large/bgcol=1a1a2e/linkcol=ff00ff/tracklist=true/artwork=small/transparent=true/" seamless></iframe>
+          <p class="track-title">Oh Universe (Buy Me That Iridescent Green Truck)</p>
+          <p class="track-meta">3-track EP &middot; 2026 &middot; lo-fi / ambient</p>
         </div>
+        <span class="track-arrow">&#8594;</span>
+      </a>
+      <a class="track" href="https://sundaraheart.bandcamp.com" target="_blank">
+        <span class="track-n">02</span>
         <div>
-          <h3 class="text-4xl mb-8">Streaming on Spotify</h3>
-          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/1qEfXc96PrJWsHGnFCPbWS?utm_source=generator" width="100%" height="400" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+          <p class="track-title">XXII</p>
+          <p class="track-meta">Album &middot; electronica &middot; glitch</p>
         </div>
+        <span class="track-arrow">&#8594;</span>
+      </a>
+      <a class="track" href="https://open.spotify.com/artist/1qEfXc96PrJWsHGnFCPbWS" target="_blank">
+        <span class="track-n">03</span>
+        <div>
+          <p class="track-title">Be Back Soon</p>
+          <p class="track-meta">Single &middot; ambient</p>
+        </div>
+        <span class="track-arrow">&#8594;</span>
+      </a>
+      <a class="track" href="https://open.spotify.com/artist/1qEfXc96PrJWsHGnFCPbWS" target="_blank">
+        <span class="track-n">04</span>
+        <div>
+          <p class="track-title">Respected Sky</p>
+          <p class="track-meta">Single &middot; lo-fi</p>
+        </div>
+        <span class="track-arrow">&#8594;</span>
+      </a>
+      <a class="track" href="https://open.spotify.com/artist/1qEfXc96PrJWsHGnFCPbWS" target="_blank">
+        <span class="track-n">05</span>
+        <div>
+          <p class="track-title">Itty Bitty Sunshine</p>
+          <p class="track-meta">Single &middot; downtempo</p>
+        </div>
+        <span class="track-arrow">&#8594;</span>
+      </a>
+      <a class="track" href="https://open.spotify.com/artist/1qEfXc96PrJWsHGnFCPbWS" target="_blank">
+        <span class="track-n">06</span>
+        <div>
+          <p class="track-title">Gobbledy Orbit Meltdown</p>
+          <p class="track-meta">From XXII &middot; electronica</p>
+        </div>
+        <span class="track-arrow">&#8594;</span>
+      </a>
+    </div>
+
+    <div class="players-col reveal" style="transition-delay:0.12s">
+      <div class="player-card tilt-r">
+        <p class="player-tag">&#9654; BANDCAMP &mdash; stream + support</p>
+        <iframe src="https://bandcamp.com/EmbeddedPlayer/album=3025827773/size=large/bgcol=e8e0cd/linkcol=c0291a/artwork=small/transparent=true/" height="120" seamless></iframe>
+      </div>
+      <div class="player-card tilt-l">
+        <p class="player-tag">&#9654; SPOTIFY</p>
+        <iframe style="border-radius:0" src="https://open.spotify.com/embed/artist/1qEfXc96PrJWsHGnFCPbWS?utm_source=generator" height="120" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+      <p style="font-family:var(--elite); font-size:0.72rem; color:var(--muted); line-height:1.75; padding-top:0.75rem; border-top:1px dashed rgba(28,24,16,0.2);">
+        Songwriter &middot; Producer &middot; AI collaborator.<br>
+        New tracks drop regularly.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ─ ART ────────────────────────────── -->
+<div id="art">
+  <div class="art-inner">
+    <div class="art-header">
+      <div class="reveal">
+        <span class="section-num" style="color:rgba(232,224,205,0.4)">[02]</span>
+        <h2 class="section-title">The <span>Work</span></h2>
+      </div>
+      <a href="https://sillygooserecordings.com/paintings-and-clay-offerings" target="_blank"
+         class="zine-btn zb-outline reveal"
+         style="color:var(--paper); border-color:rgba(232,224,205,0.4); box-shadow:3px 3px 0 var(--yellow); font-size:0.85rem">
+        Full Gallery &#8594;
+      </a>
+    </div>
+
+    <div class="art-scroll reveal" id="artScroll">
+      <div class="art-tile">
+        <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=600,fit=crop/fheHS6ke61HzKa6b/newartworksundaraheartuntitledencausticwax-Q5gQxo3r2egyWbme.png" alt="Untitled Encaustic Wax">
+        <div class="art-cap">Untitled &middot; Encaustic Wax</div>
+      </div>
+      <div class="art-tile">
+        <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=600,fit=crop/fheHS6ke61HzKa6b/ileftmysoulsundaraheart-FUXBV2PFP5iRG2MS.jpg" alt="I Left My Soul">
+        <div class="art-cap">I Left My Soul &middot; Mixed Media</div>
+      </div>
+      <div class="art-tile">
+        <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=600,fit=crop/fheHS6ke61HzKa6b/img_5383-gG4iJ4mWUrMH2m3p.JPG" alt="Clay Totem">
+        <div class="art-cap">Clay Totem &middot; Hand-thrown</div>
+      </div>
+      <div class="art-tile">
+        <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=600,fit=crop/fheHS6ke61HzKa6b/girlwithballoonsa-c-sundaraheart-3YIYq9inxsKuKiGi.jpg" alt="Girl With Balloons">
+        <div class="art-cap">Girl With Balloons</div>
+      </div>
+      <div class="art-tile">
+        <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=600,fit=crop/fheHS6ke61HzKa6b/changingdirectionsa-c-sundaraheart-ZqhGPJuVRg6Zarxo.PNG" alt="Changing Directions">
+        <div class="art-cap">Changing Directions</div>
+      </div>
+      <div class="art-tile">
+        <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=600,fit=crop/fheHS6ke61HzKa6b/montypeprinta-c-sundaraheart-ThP3rEcfXpbEbSla.JPG" alt="Monotype Print">
+        <div class="art-cap">Monotype Print</div>
+      </div>
+      <div class="art-tile">
+        <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=600,fit=crop/fheHS6ke61HzKa6b/clsaypiecesbysundaraheart-W20Gz8CFRTGG666Y.JPG" alt="Clay Series">
+        <div class="art-cap">Clay Series</div>
+      </div>
+      <div class="art-tile">
+        <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=600,fit=crop/fheHS6ke61HzKa6b/untitled_artwork-6E7yREWFEr0QBciu.jpg" alt="Digital Untitled">
+        <div class="art-cap">Digital &middot; Untitled</div>
       </div>
     </div>
-  </section>
 
-  <!-- RELEASES GRID (same as before) -->
-  <section id="releases" class="py-24 bg-black">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="heading text-6xl text-center mb-16 text-[#00ffff]">FULL DISCOGRAPHY</h2>
-      <!-- (same grid as previous version — all 7 releases with Bandcamp links) -->
-      <div class="grid md:grid-cols-3 gap-8">
-        <!-- Oh Universe, Llorona, Burning Palms, etc. — exact same cards as last code -->
-        <!-- (I kept them identical to save space — copy from previous message if needed) -->
-      </div>
+    <blockquote class="art-pullquote reveal">
+      <p>"I create because the universe is pure chaos until I wrestle it into something that breathes. I chase raw emotion through thick oils that drip like desert sunsets, encaustic wax that burns and glows, acrylic explosions, digital glitches that feel alive, and hand-thrown clay pieces you can actually grip."</p>
+      <cite>&mdash; Sundara Heart</cite>
+    </blockquote>
+  </div>
+</div>
+
+<!-- ─ MEDIUMS ─────────────────────────── -->
+<section id="mediums">
+  <div class="section-header reveal">
+    <span class="section-num">[03]</span>
+    <h2 class="section-title">How It <span>Gets Made</span></h2>
+  </div>
+
+  <div class="mediums-list reveal" style="transition-delay:0.08s">
+    <div class="medium-item">
+      <span class="medium-num-stamp">&mdash;01/</span>
+      <p class="medium-name">Encaustic Wax</p>
+      <p class="medium-desc">Heated beeswax fused with pigment. Layered, burned, scraped until it breathes.</p>
     </div>
-  </section>
-
-  <!-- SINGLE ABOUT SECTION (exact text from your About page screenshot) -->
-  <section id="about" class="py-24 bg-[#1a0022]">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 class="heading text-6xl text-center mb-16 text-[#ff00ff]">About Sundara HeART</h2>
-      <div class="text-xl leading-relaxed text-[#00ffcc]/90">
-        Hi, I’m <strong>Sundara Heart</strong> — a high-desert mystic, painter, clay sorcerer, sonic alchemist, and INELDA-trained death doula, based in Santa Fe, New Mexico.<br><br>
-        I create because the universe is pure chaos until I wrestle it into something that breathes. I chase raw emotion through thick oils that drip like desert sunsets, encaustic wax that burns and glows, acrylic explosions, digital glitches that feel alive, and hand-thrown clay pieces you can actually grip — vessels that hold stories, rituals, and late-night revelations.<br><br>
-        Then I throw it all into sound. My music is experimental electronica and glitch-soaked soundscapes — think <em>XXII</em> with its orbit-melting tracks like “Gobbledy Orbit Meltdown,” “Cognitive Dissonance Hues,” and “Where Is My Mind,” plus fresh singles like <em>Be Back Soon</em>, <em>Respected Sky</em>, and <em>Itty Bitty Sunshine</em> that hit like cosmic static straight from the ether. (Stream it on <a href="https://open.spotify.com/artist/1qEfXc96PrJWsHGnFCPbWS" target="_blank" class="underline">Spotify</a> and feel the frequency shift.)<br><br>
-        But I don’t stop at the studio. Through <a href="https://journeyingon.com/" target="_blank" class="underline">Journeying On</a>, I work as a death doula — guiding souls and families across life’s fiercest threshold with the same creative fire, turning endings into sacred, beautiful art.<br><br>
-        And because the work wants to live everywhere, I’ve spun it all into merch — apparel, prints, talismans, and everyday objects drenched in the exact colors, symbols, and wild energy of my paintings, sculptures, and songs.<br><br>
-        So whether you need a painting that sets your wall on fire, a clay piece that becomes your daily altar, a track that rewires your brain at 2 a.m., doula support for the big transition, or merch that lets you carry the magic with you…<br><br>
-        Step in. Let it hit different. I hope my work leaves stardust on your soul.
-      </div>
+    <div class="medium-item">
+      <span class="medium-num-stamp">&mdash;02/</span>
+      <p class="medium-name">Oil Paint</p>
+      <p class="medium-desc">Thick, slow-drying. Dripping like desert sunsets. Emotion trapped in pigment.</p>
     </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="bg-[#0a0a1f] py-16 border-t-4 border-[#ff00ff]">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-      <p class="text-2xl mb-8">Santa Fe, New Mexico</p>
-      <a href="tel:5754250347" class="inline-block text-4xl border-4 border-[#00ffff] px-12 py-6 hover:bg-[#00ffff] hover:text-black transition-all">575.425.0347</a>
-      <p class="mt-12 text-sm opacity-70">© 2026 Sundara Heart</p>
+    <div class="medium-item">
+      <span class="medium-num-stamp">&mdash;03/</span>
+      <p class="medium-name">Clay</p>
+      <p class="medium-desc">Hand-thrown vessels. Objects you can grip. Totems for ritual and daily life.</p>
     </div>
-  </footer>
+    <div class="medium-item">
+      <span class="medium-num-stamp">&mdash;04/</span>
+      <p class="medium-name">Monotype Print</p>
+      <p class="medium-desc">One-of-a-kind impressions. The press decides what survives.</p>
+    </div>
+    <div class="medium-item">
+      <span class="medium-num-stamp">&mdash;05/</span>
+      <p class="medium-name">Digital Glitch</p>
+      <p class="medium-desc">Corrupted imagery that feels more honest than the original. Signal and noise.</p>
+    </div>
+    <div class="medium-item">
+      <span class="medium-num-stamp">&mdash;06/</span>
+      <p class="medium-name">Lo-fi Music</p>
+      <p class="medium-desc">Written, produced, and co-created with AI. Hypnotic. Nostalgic. Unruly.</p>
+    </div>
+  </div>
+</section>
 
+<!-- ─ ABOUT ───────────────────────────── -->
+<section id="about">
+  <div class="about-card reveal tilt-ll">
+    <span class="about-card-label">// ARTIST FILE</span>
+    <h2>SUNDARA<br><span>HEART</span></h2>
+    <ul class="about-card-links">
+      <li><a href="https://open.spotify.com/artist/1qEfXc96PrJWsHGnFCPbWS" target="_blank">Spotify &#8599;</a></li>
+      <li><a href="https://sundaraheart.bandcamp.com" target="_blank">Bandcamp &#8599;</a></li>
+      <li><a href="https://sillygooserecordings.com/shop-premium-apparel" target="_blank">Shop Merch &#8599;</a></li>
+      <li><a href="https://sillygooserecordings.com/contact-silly-goose-recording" target="_blank">Contact &#8599;</a></li>
+      <li><a href="https://buymeacoffee.com/sundaraheart" target="_blank">Buy Me a Coffee &#8599;</a></li>
+    </ul>
+  </div>
+
+  <div class="about-body reveal" style="transition-delay:0.1s">
+    <p>
+      <strong>Sundara Heart</strong> is a multidisciplinary artist and producer based in Santa Fe, New Mexico, with UK roots. She operates under the label <strong>Silly Goose Recordings</strong>.
+    </p>
+    <hr class="squiggle">
+    <p>
+      Her music fuses dreamy lo-fi hip-hop with ambient downtempo grooves. As songwriter, producer, and <strong>AI collaborator</strong>, she rewires the creative process — staying relentlessly fresh. New tracks drop regularly, transforming ordinary moments into profound sonic voyages.
+    </p>
+    <p>
+      Her visual practice spans encaustic wax painting, oil painting, clay sculpture, monotype printing, and digital art. Each medium is a different form of the same compulsion: wrestling the chaos of the universe into something that breathes.
+    </p>
+    <hr class="squiggle">
+    <p>
+      She also works as an <strong>INELDA-trained death doula</strong> through her separate practice, <a href="https://journeyingon.com/" target="_blank">Journeying On</a> — guiding people and families through end-of-life with the same creative presence she brings to everything.
+    </p>
+    <p>
+      Commissions, collabs, and inquiries always welcome.<br>
+      <a href="https://sillygooserecordings.com/contact-silly-goose-recording" target="_blank">sillygooserecordings.com</a> &nbsp;/&nbsp; <a href="tel:5754250347">575.425.0347</a>
+    </p>
+  </div>
+</section>
+
+<!-- ─ DOULA STRIP ─────────────────────── -->
+<div id="doula">
+  <div class="reveal">
+    <span class="doula-label-stamp">[ SEPARATE PRACTICE ]</span>
+    <p class="doula-title">Death Doula &mdash; Journeying On</p>
+    <p class="doula-sub">INELDA-trained &middot; Santa Fe, NM &middot; Virtual sessions available nationwide</p>
+  </div>
+  <a href="https://journeyingon.com/" target="_blank" class="doula-btn reveal">Visit journeyingon.com &#8594;</a>
+</div>
+
+<!-- ─ FLOCK ───────────────────────────── -->
+<div id="flock">
+  <h2 class="flock-h reveal">Join the Flock.</h2>
+  <p class="flock-sub reveal">Free download + first access to new drops. No noise. Just signal.</p>
+  <div class="flock-form reveal">
+    <input type="email" id="flockEmail" placeholder="your@email.com">
+    <button onclick="doFlock()">Join &#8594;</button>
+  </div>
+  <p id="flock-msg"></p>
+</div>
+
+<!-- ─ FOOTER ─────────────────────────── -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <p class="footer-brand">Sundara Heart</p>
+      <p class="footer-sub">Silly Goose Recordings &middot; Santa Fe, NM &middot; &copy; 2026</p>
+    </div>
+    <div class="footer-links">
+      <a href="https://open.spotify.com/artist/1qEfXc96PrJWsHGnFCPbWS" target="_blank">Spotify</a>
+      <a href="https://sundaraheart.bandcamp.com" target="_blank">Bandcamp</a>
+      <a href="https://sillygooserecordings.com/shop-premium-apparel" target="_blank">Shop</a>
+      <a href="https://journeyingon.com/" target="_blank">Journeying On</a>
+      <a href="https://sillygooserecordings.com/contact-silly-goose-recording" target="_blank">Contact</a>
+      <a href="tel:5754250347">575.425.0347</a>
+    </div>
+    <p class="footer-copy">sillygooserecordings.com &nbsp;&middot;&nbsp; Plain HTML. No trackers. No noise.</p>
+  </div>
+</footer>
+
+<script>
+// Hamburger
+const hbg = document.getElementById('hbg');
+const mob = document.getElementById('mobMenu');
+hbg.addEventListener('click', () => {
+  hbg.classList.toggle('open');
+  mob.classList.toggle('open');
+});
+function closeMob() {
+  hbg.classList.remove('open');
+  mob.classList.remove('open');
+}
+
+// Scroll reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Drag-to-scroll art gallery
+const sc = document.getElementById('artScroll');
+let down = false, sx, sl;
+sc.addEventListener('mousedown', e => { down = true; sx = e.pageX - sc.offsetLeft; sl = sc.scrollLeft; });
+sc.addEventListener('mouseleave', () => down = false);
+sc.addEventListener('mouseup', () => down = false);
+sc.addEventListener('mousemove', e => {
+  if (!down) return;
+  e.preventDefault();
+  sc.scrollLeft = sl - (e.pageX - sc.offsetLeft - sx);
+});
+
+// Email signup
+function doFlock() {
+  const v = document.getElementById('flockEmail').value;
+  const msg = document.getElementById('flock-msg');
+  if (v && v.includes('@')) {
+    msg.textContent = ">> you're in. check your inbox for the free download.";
+    msg.style.color = 'var(--teal)';
+  } else {
+    msg.textContent = '>> need a valid email to join the flock.';
+    msg.style.color = 'var(--red)';
+  }
+}
+</script>
 </body>
 </html>
