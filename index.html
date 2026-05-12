@@ -1295,7 +1295,7 @@ footer {
       <li><a href="https://open.spotify.com/artist/1qEfXc96PrJWsHGnFCPbWS" target="_blank">Spotify &#8599;</a></li>
       <li><a href="https://sundaraheart.bandcamp.com" target="_blank">Bandcamp &#8599;</a></li>
       <li><a href="https://sillygooseproductions.printful.me/" target="_blank">Shop Merch &#8599;</a></li>
-      <li><a href="https://sillygooserecordings.com/contact-silly-goose-recording" target="_blank">Contact &#8599;</a></li>
+      <li><a href="#flock">Contact &#8599;</a></li>
       <li><a href="https://buymeacoffee.com/sundaraheart" target="_blank">Buy Me a Coffee &#8599;</a></li>
     </ul>
   </div>
@@ -1357,7 +1357,7 @@ footer {
       <a href="https://sundaraheart.bandcamp.com" target="_blank">Bandcamp</a>
       <a href="https://sillygooseproductions.printful.me/" target="_blank">Shop</a>
       <a href="https://journeyingon.com/" target="_blank">Journeying On</a>
-      <a href="https://sillygooserecordings.com/contact-silly-goose-recording" target="_blank">Contact</a>
+      <a href="#flock">Contact</a>
       <a href="tel:5754250347">575.425.0347</a>
     </div>
     <p class="footer-copy">sillygooserecordings.com &nbsp;&middot;&nbsp; Plain HTML. No trackers. No noise.</p>
@@ -1438,7 +1438,7 @@ function doFlock() {
   const v = document.getElementById('flockEmail').value;
   const msg = document.getElementById('flock-msg');
   if (v && v.includes('@')) {
-    msg.textContent = ">> you're in. check your inbox for the free download.";
+    msg.textContent = ">> you're in. talk soon.";
     msg.style.color = 'var(--teal)';
   } else {
     msg.textContent = '>> need a valid email to join the flock.';
