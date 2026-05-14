@@ -29,3 +29,5 @@ const carLabels=[`&#9654; BANDCAMP — Oh Universe EP`,`&#9654; BANDCAMP — Sco
 slides.forEach((_,i)=>{let d=document.createElement(`button`);d.className=`car-dot`+(i===0?` active`:``),d.onclick=()=>carGoTo(i),dotsEl.appendChild(d)});function carGoTo(n){slides[carIdx].classList.remove(`active`),dotsEl.children[carIdx].classList.remove(`active`),carIdx=(n+slides.length)%slides.length,slides[carIdx].classList.add(`active`),dotsEl.children[carIdx].classList.add(`active`),labelEl.innerHTML=carLabels[carIdx]}function carMove(dir){carGoTo(carIdx+dir)}
 // init first slide
 slides[0].classList.add(`active`);</script>
+</body>
+</html>
