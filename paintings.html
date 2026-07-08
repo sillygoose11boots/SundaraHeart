@@ -113,6 +113,24 @@ footer{background:var(--ink);color:var(--paper);border-top:4px solid var(--red);
 
 @media (width<=860px){.nav-links{display:none}.hbg{display:flex}}
 @media (width<=540px){#page-hero{padding-top:5.5rem}.paint-grid{grid-template-columns:1fr}footer .footer-inner{grid-template-columns:1fr}.footer-links{justify-content:flex-start}}
+.flock-h{font-family:var(--marker);color:var(--ink);margin-bottom:.5rem;font-size:clamp(2rem,6vw,3.5rem);display:inline-block;transform:rotate(-1deg)}
+.flock-sub{font-family:var(--elite);color:var(--muted);letter-spacing:.05em;margin-bottom:2rem;font-size:.82rem}
+#flock{text-align:center;max-width:700px;margin:0 auto;padding:4rem 1.5rem}
+.contact-wrap{text-align:left;max-width:640px;margin:2rem auto 0}
+.contact-form{flex-direction:column;gap:1.25rem;display:flex}
+.contact-row{grid-template-columns:1fr 1fr;gap:1.25rem;display:grid}
+.contact-field{flex-direction:column;gap:.4rem;display:flex}
+.contact-label{font-family:var(--vt);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-size:.85rem}
+.contact-input{font-family:var(--elite);color:var(--ink);background:var(--paper);border:2px solid var(--ink);resize:none;outline:none;width:100%;padding:.75rem 1rem;font-size:.85rem;transition:border-color .15s}
+.contact-input:focus{border-color:var(--red)}
+.contact-input::placeholder{color:var(--muted);opacity:.6}
+.contact-btn{font-family:var(--bebas);letter-spacing:.12em;background:var(--red);color:var(--paper);cursor:pointer;box-shadow:4px 4px 0 var(--ink);border:none;align-self:flex-start;padding:.6rem 2rem .45rem;font-size:1.1rem;transition:background .15s,transform .1s}
+.contact-btn:hover{background:var(--ink)}
+.contact-btn:active{transform:translate(3px,3px);box-shadow:0 0}
+@media (width<=560px){.contact-row{grid-template-columns:1fr}}
+.contact-thanks{text-align:center;padding:3rem 1rem}
+.contact-thanks p:first-child{font-family:var(--vt);color:var(--red);letter-spacing:.2em;margin-bottom:.75rem;font-size:1.2rem}
+.contact-thanks p{font-family:var(--elite);color:var(--muted);font-size:.95rem;line-height:1.8}
 </style>
 </head>
 <body>
@@ -142,7 +160,7 @@ footer{background:var(--ink);color:var(--paper);border-top:4px solid var(--red);
 <section id="page-hero">
 <span class="hero-kicker">// NEW WORK - ENCAUSTIC WAX &amp; MIXED MEDIA ON WOOD //</span>
 <h1 class="page-title">PAINT<span>ings</span></h1>
-<p class="page-desc">Five new pieces. Encaustic wax and mixed media, built up in layers on wood and canvas panel until it felt done. Museum-quality materials, archival pigment, made to last. Every original is one-of-a-kind - once it's gone, it's gone. Prints made to order on request. <strong>See something you love? Don't wait - <a href="index.html#flock" style="color:var(--red);text-decoration:underline">reach out</a> before it's spoken for.</strong></p>
+<p class="page-desc">Five new pieces. Encaustic wax and mixed media, built up in layers on wood and canvas panel until it felt done. Museum-quality materials, archival pigment, made to last. Every original is one-of-a-kind - once it's gone, it's gone. Prints made to order on request. <strong>See something you love? Don't wait - <a href="#flock" style="color:var(--red);text-decoration:underline">reach out</a> before it's spoken for.</strong></p>
 </section>
 
 <div class="note-strip">ORIGINALS SHIP INSURED · PRINTS MADE TO ORDER ON ARCHIVAL PAPER</div>
@@ -164,7 +182,7 @@ footer{background:var(--ink);color:var(--paper);border-top:4px solid var(--red);
     <div class="buy-block">
       <div class="buy-row">
         <span class="buy-label">Original</span>
-        <a class="buy-btn" href="index.html#flock" target="_blank">Inquire</a>
+        <a class="buy-btn" href="#flock">Inquire</a>
       </div>
       <div class="buy-row">
         <span class="buy-label">Canvas Print · 20×30"</span>
@@ -194,7 +212,7 @@ footer{background:var(--ink);color:var(--paper);border-top:4px solid var(--red);
     <div class="buy-block">
       <div class="buy-row">
         <span class="buy-label">Original</span>
-        <a class="buy-btn" href="index.html#flock" target="_blank">Inquire</a>
+        <a class="buy-btn" href="#flock">Inquire</a>
       </div>
     </div>
   </div>
@@ -214,7 +232,7 @@ footer{background:var(--ink);color:var(--paper);border-top:4px solid var(--red);
     <div class="buy-block">
       <div class="buy-row">
         <span class="buy-label">Original</span>
-        <a class="buy-btn" href="index.html#flock" target="_blank">Inquire</a>
+        <a class="buy-btn" href="#flock">Inquire</a>
       </div>
       <div class="buy-row">
         <span class="buy-label">Print · 11×14"</span>
@@ -244,7 +262,7 @@ footer{background:var(--ink);color:var(--paper);border-top:4px solid var(--red);
     <div class="buy-block">
       <div class="buy-row">
         <span class="buy-label">Original</span>
-        <a class="buy-btn" href="index.html#flock" target="_blank">Inquire</a>
+        <a class="buy-btn" href="#flock">Inquire</a>
       </div>
       <div class="buy-row">
         <span class="buy-label">Canvas Print</span>
@@ -274,7 +292,7 @@ footer{background:var(--ink);color:var(--paper);border-top:4px solid var(--red);
     <div class="buy-block">
       <div class="buy-row">
         <span class="buy-label">Original</span>
-        <a class="buy-btn" href="index.html#flock" target="_blank">Inquire</a>
+        <a class="buy-btn" href="#flock">Inquire</a>
       </div>
     </div>
   </div>
@@ -294,7 +312,7 @@ footer{background:var(--ink);color:var(--paper);border-top:4px solid var(--red);
     <div class="buy-block">
       <div class="buy-row">
         <span class="buy-label">Original</span>
-        <a class="buy-btn" href="index.html#flock" target="_blank">Inquire</a>
+        <a class="buy-btn" href="#flock">Inquire</a>
       </div>
     </div>
   </div>
@@ -302,6 +320,12 @@ footer{background:var(--ink);color:var(--paper);border-top:4px solid var(--red);
 
 </div>
 </section>
+
+<div id="flock">
+<h2 class="flock-h reveal">Have a Question?</h2>
+<p class="flock-sub reveal">Inquiries about originals, prints, or commissions - all welcome.</p>
+<div class="contact-wrap"><form action="https://formspree.io/f/mnjwypyd" class="contact-form" id="contact-form" method="POST"><div class="contact-row"><div class="contact-field"><label class="contact-label" for="contact-name">Name</label><input class="contact-input" id="contact-name" name="name" placeholder="Your name" required=""/></div><div class="contact-field"><label class="contact-label" for="contact-email">Email</label><input class="contact-input" id="contact-email" name="email" placeholder="your@email.com" required="" type="email"/></div></div><div class="contact-field"><label class="contact-label" for="contact-subject">Subject</label><input class="contact-input" id="contact-subject" name="subject" placeholder="Which piece are you asking about?"/></div><div class="contact-field"><label class="contact-label" for="contact-message">Message</label><textarea class="contact-input" id="contact-message" name="message" placeholder="What's on your mind..." required="" rows="5"></textarea></div><button class="contact-btn">Send It &#8594;</button></form></div>
+</div>
 
 <footer>
 <div class="footer-inner">
@@ -315,7 +339,7 @@ footer{background:var(--ink);color:var(--paper);border-top:4px solid var(--red);
 <a href="https://sundaraheart.bandcamp.com" target="_blank">Bandcamp</a>
 <a href="https://sillygooseproductions.printful.me/" target="_blank">Shop</a>
 <a href="https://journeyingon.com/" target="_blank">Journeying On</a>
-<a href="index.html#flock">Contact</a>
+<a href="#flock">Contact</a>
 </div>
 <div class="footer-copy">sillygooserecordings.com · Plain HTML. No trackers. No noise.</div>
 </div>
@@ -326,6 +350,35 @@ const hbg = document.getElementById('hbg');
 const mobMenu = document.getElementById('mobMenu');
 hbg.addEventListener('click', () => { hbg.classList.toggle('open'); mobMenu.classList.toggle('open'); });
 function closeMob(){ hbg.classList.remove('open'); mobMenu.classList.remove('open'); }
+</script>
+
+<script>
+var contactForm = document.getElementById('contact-form');
+if (contactForm) {
+  contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var btn = contactForm.querySelector('.contact-btn');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    var data = new FormData(contactForm);
+    fetch('https://formspree.io/f/mnjwypyd', {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    }).then(function(r) {
+      if (r.ok) {
+        contactForm.innerHTML = '<div class="contact-thanks"><p>MESSAGE RECEIVED.</p><p>Thanks for reaching out - I will get back to you soon.</p></div>';
+        setTimeout(function() { window.scrollTo({ top: 0, behavior: 'smooth' }); }, 2000);
+      } else {
+        btn.textContent = 'Something went wrong - try again';
+        btn.disabled = false;
+      }
+    }).catch(function() {
+      btn.textContent = 'Something went wrong - try again';
+      btn.disabled = false;
+    });
+  });
+}
 </script>
 
 </body>
