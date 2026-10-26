@@ -29,6 +29,10 @@
 <style>
 *,:before,:after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
+.song-gate{border-top:1px dashed #1c181040;padding-top:.85rem;margin-top:.6rem;gap:.6rem}
+.song-gate .contact-btn{font-size:1rem;padding:.5rem 1.4rem .4rem}
+.gate-thanks{font-family:var(--vt);font-size:1.15rem;letter-spacing:.05em;color:var(--teal);background:var(--paper);border:2px dashed var(--teal);padding:.7rem .9rem}
+
 :root{--paper:#e8e0cd;--ink:#1c1810;--red:#c0291a;--teal:#1a7a6e;--yellow:#e8c84a;--muted:#5a5040;--bebas:"Bebas Neue",sans-serif;--elite:"Special Elite",serif;--marker:"Permanent Marker",cursive;--vt:"VT323",monospace}
 body{background:var(--paper);color:var(--ink);font-family:var(--elite);font-size:15px;line-height:1.55;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
@@ -235,15 +239,14 @@ html{scroll-behavior:smooth}
      The MailerLite automation emails the download link(s). File list lives outside the page (release-filenames.md). ============ -->
 <section id="get-music">
 <div class="gate-card">
-  <span class="feature-kicker">&#9733; THE WHOLE CATALOGUE, FREE &#9733;</span>
-  <h2 class="gate-title">Get The Music.</h2>
-  <p class="gate-sub">Enter your email and we'll send your download link. Every song, MP3 and WAV, free.</p>
-  <p class="gate-pick" id="gate-pick" aria-live="polite"></p>
-  <form action="#" class="contact-form email-gate" data-mailerlite="TODO" data-song="ALL" novalidate style="max-width:520px;gap:.75rem">
-    <input type="hidden" name="song" id="gate-song" value=""/>
+  <span class="feature-kicker">&#9733; DOWNLOAD THE WHOLE COLLECTION &#9733;</span>
+  <h2 class="gate-title">Download The Whole Collection.</h2>
+  <p class="gate-sub">Every song, MP3 and WAV, free. Enter your email and we'll send you one link for the whole collection.</p>
+    <form action="#" class="contact-form email-gate" data-mailerlite="TODO" data-song="ALL" data-collection="all" novalidate style="max-width:520px;gap:.75rem">
+    <input type="hidden" name="collection" value="all"/>
     <div class="contact-field"><label class="contact-label" for="gate-all-email">Email</label><input class="contact-input" id="gate-all-email" name="email" placeholder="your@email.com" required="" type="email" autocomplete="email"/></div>
-    <button class="contact-btn" type="submit">Send me the music</button>
-    <p class="dl-meta" style="font-size:.85rem">No spam, ever. Unsubscribe anytime. I Am A Robot and the new EP arrive Oct 31.</p>
+    <button class="contact-btn" type="submit">Send me the whole collection</button>
+    <p class="dl-meta" style="font-size:.85rem">No spam, ever. Unsubscribe anytime. I Am A Robot and the new EP arrive Oct 31. Want just one song? Hit "Get this song" on its card below.</p>
   </form>
 </div>
 </section>
@@ -309,7 +312,7 @@ html{scroll-behavior:smooth}
     <h3 class="dl-title">Melt Like The Snow</h3>
     <p class="dl-meta">Single · Oct 9, 2026 · 4:33</p>
     <p class="dl-line">A soft, glowing song for the first snow of winter.</p>
-    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="Melt Like The Snow">Get this song</a></div>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music">Get this song</a></div>
   </div>
 </article>
 <!-- Child Of The Future
@@ -320,7 +323,7 @@ html{scroll-behavior:smooth}
     <h3 class="dl-title">Child Of The Future</h3>
     <p class="dl-meta">Single · 3:03</p>
     <p class="dl-line"><!-- TODO: Sundara one-liner --></p>
-    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="Child Of The Future">Get this song</a></div>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music">Get this song</a></div>
   </div>
 </article>
 <!-- At The Beach
@@ -331,7 +334,7 @@ html{scroll-behavior:smooth}
     <h3 class="dl-title">At The Beach</h3>
     <p class="dl-meta">Single · 3:12</p>
     <p class="dl-line"><!-- TODO: Sundara one-liner --></p>
-    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="At The Beach">Get this song</a></div>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music">Get this song</a></div>
   </div>
 </article>
 <!-- Everything Broken Still Has Wings
@@ -342,7 +345,7 @@ html{scroll-behavior:smooth}
     <h3 class="dl-title">Everything Broken Still Has Wings</h3>
     <p class="dl-meta">Single · 2:05</p>
     <p class="dl-line"><!-- TODO: Sundara one-liner --></p>
-    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="Everything Broken Still Has Wings">Get this song</a></div>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music">Get this song</a></div>
   </div>
 </article>
 <!-- I did not speak Spanish then -->
@@ -352,7 +355,7 @@ html{scroll-behavior:smooth}
     <h3 class="dl-title">I did not speak Spanish then</h3>
     <p class="dl-meta">Single · Sep 4, 2026 · 3:07</p>
     <p class="dl-line">Todos los días tengo más ángeles conmigo.</p>
-    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="I did not speak Spanish then">Get this song</a></div>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music">Get this song</a></div>
   </div>
 </article>
 <!-- God Is An Abbreviation For... -->
@@ -362,7 +365,7 @@ html{scroll-behavior:smooth}
     <h3 class="dl-title">God Is An Abbreviation For...</h3>
     <p class="dl-meta">Single · Aug 29, 2026 · 3:59</p>
     <p class="dl-line">Questioning the big fella upstairs and what the word God means to me.</p>
-    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="God Is An Abbreviation For...">Get this song</a></div>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music">Get this song</a></div>
   </div>
 </article>
 <!-- To Be Me -->
@@ -372,7 +375,7 @@ html{scroll-behavior:smooth}
     <h3 class="dl-title">To Be Me</h3>
     <p class="dl-meta">Single · Jul 31, 2026 · 3:25</p>
     <p class="dl-line">Haunting and hypnotic, more stripped-back, somehow more authentic and profound.</p>
-    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="To Be Me">Get this song</a></div>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music">Get this song</a></div>
   </div>
 </article>
 <!-- I&#x27;m Swimming &amp; There Is No Water -->
@@ -382,7 +385,7 @@ html{scroll-behavior:smooth}
     <h3 class="dl-title">I&#x27;m Swimming &amp; There Is No Water</h3>
     <p class="dl-meta">Single · Jul 17, 2026 · 2:31</p>
     <p class="dl-line">A dreamy, atmospheric track about moving through life with nothing holding you up.</p>
-    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="I&#x27;m Swimming &amp; There Is No Water">Get this song</a></div>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music">Get this song</a></div>
   </div>
 </article>
 <!-- This Mortal Coil (Duet Version) -->
@@ -392,7 +395,7 @@ html{scroll-behavior:smooth}
     <h3 class="dl-title">This Mortal Coil (Duet Version)</h3>
     <p class="dl-meta">Single · Jul 14, 2026 · 2:55</p>
     <p class="dl-line">He sings my words like he&#x27;s going to a funeral or a war.</p>
-    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="This Mortal Coil (Duet Version)">Get this song</a></div>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music">Get this song</a></div>
   </div>
 </article>
 <!-- This Mortal Coil -->
@@ -402,7 +405,7 @@ html{scroll-behavior:smooth}
     <h3 class="dl-title">This Mortal Coil</h3>
     <p class="dl-meta">Single · Jul 7, 2026 · 3:08</p>
     <p class="dl-line">A soft haunt about mortality and the anger we inherit.</p>
-    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="This Mortal Coil">Get this song</a></div>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music">Get this song</a></div>
   </div>
 </article>
 <!-- At Sea (One Can&#x27;t Be Tamed) -->
@@ -412,7 +415,7 @@ html{scroll-behavior:smooth}
     <h3 class="dl-title">At Sea (One Can&#x27;t Be Tamed)</h3>
     <p class="dl-meta">Single · Jul 3, 2026 · 3:29</p>
     <p class="dl-line">A reflection on freedom, and how none of us were made to be tamed.</p>
-    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="At Sea (One Can&#x27;t Be Tamed)">Get this song</a></div>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music">Get this song</a></div>
   </div>
 </article>
 <!-- Painted From The Heart -->
@@ -422,7 +425,7 @@ html{scroll-behavior:smooth}
     <h3 class="dl-title">Painted From The Heart</h3>
     <p class="dl-meta">Single · Jun 15, 2026 · 3:40</p>
     <p class="dl-line">A song about painting from the heart, Yorkshire roots, and still learning how to see.</p>
-    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="Painted From The Heart">Get this song</a></div>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music">Get this song</a></div>
   </div>
 </article>
 <!-- Faith In DOG -->
@@ -432,7 +435,7 @@ html{scroll-behavior:smooth}
     <h3 class="dl-title">Faith In DOG</h3>
     <p class="dl-meta">Single · Jun 5, 2026 · 3:40</p>
     <p class="dl-line"><!-- TODO: Sundara one-liner (no Bandcamp about text) --></p>
-    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="Faith In DOG">Get this song</a></div>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music">Get this song</a></div>
   </div>
 </article>
 <!-- Bearded Lady -->
@@ -442,7 +445,7 @@ html{scroll-behavior:smooth}
     <h3 class="dl-title">Bearded Lady</h3>
     <p class="dl-meta">Single · May 19, 2026 · 4:04</p>
     <p class="dl-line">Journal pages turned into atmospheric DnB. Rage, grief, bipolar truths, and a bearded apparition.</p>
-    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="Bearded Lady">Get this song</a></div>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music">Get this song</a></div>
   </div>
 </article>
 <!-- Mother of Liberation: Green Tara Remixes (EP) -->
@@ -456,7 +459,7 @@ html{scroll-behavior:smooth}
       <li class="dl-track"><span class="dl-track-name"><span class="dl-track-num">01</span> Green Tara Heartbeat <span class="dl-track-dur">5:04</span></span></li>
       <li class="dl-track"><span class="dl-track-name"><span class="dl-track-num">02</span> Om Tare Tu Tare Itty Bitty Sunshine Remix <span class="dl-track-dur">3:44</span></span></li>
     </ol>
-    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="Mother of Liberation: Green Tara Remixes">Get this EP</a></div>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music">Get this EP</a></div>
   </div>
 </article>
 <!-- Girl From North Carolina -->
@@ -466,7 +469,7 @@ html{scroll-behavior:smooth}
     <h3 class="dl-title">Girl From North Carolina</h3>
     <p class="dl-meta">Single · May 15, 2026 · 1:56</p>
     <p class="dl-line">High-vibe, a bit sultry but warm and nostalgic. Like letting old memories dance.</p>
-    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="Girl From North Carolina">Get this song</a></div>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music">Get this song</a></div>
   </div>
 </article>
 <!-- Scorpio Unravelling -->
@@ -476,7 +479,7 @@ html{scroll-behavior:smooth}
     <h3 class="dl-title">Scorpio Unravelling</h3>
     <p class="dl-meta">Single · Apr 20, 2026 · 2:32</p>
     <p class="dl-line">A gentle, smoky confessional piece about pain release, self-awareness, and the curious voyage ahead.</p>
-    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="Scorpio Unravelling">Get this song</a></div>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music">Get this song</a></div>
   </div>
 </article>
 <!-- Has The Empire Fallen? -->
@@ -486,7 +489,7 @@ html{scroll-behavior:smooth}
     <h3 class="dl-title">Has The Empire Fallen?</h3>
     <p class="dl-meta">Single · Mar 20, 2026 · 1:50</p>
     <p class="dl-line">Nostalgic, a bit daft, a bit sad, but it grooves. Has the empire really fallen?</p>
-    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="Has The Empire Fallen?">Get this song</a></div>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music">Get this song</a></div>
   </div>
 </article>
 <!-- Oh Universe (Buy Me That Iridescent Green Truck) (EP) -->
@@ -501,7 +504,7 @@ html{scroll-behavior:smooth}
       <li class="dl-track"><span class="dl-track-name"><span class="dl-track-num">02</span> DnB Anthem <span class="dl-track-dur">2:53</span></span></li>
       <li class="dl-track"><span class="dl-track-name"><span class="dl-track-num">03</span> Wu-Tang Style <span class="dl-track-dur">3:30</span></span></li>
     </ol>
-    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="Oh Universe (Buy Me That Iridescent Green Truck)">Get this EP</a></div>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music">Get this EP</a></div>
   </div>
 </article>
 <!-- Llorona del Río: Echoes of the Frontier (EP) -->
@@ -516,7 +519,7 @@ html{scroll-behavior:smooth}
       <li class="dl-track"><span class="dl-track-name"><span class="dl-track-num">02</span> La Llorona (Cover) <span class="dl-track-dur">4:37</span></span></li>
       <li class="dl-track"><span class="dl-track-name"><span class="dl-track-num">03</span> La Llorona Del Río <span class="dl-track-dur">3:05</span></span></li>
     </ol>
-    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="Llorona del Río: Echoes of the Frontier">Get this EP</a></div>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music">Get this EP</a></div>
   </div>
 </article>
 <!-- Burning Palms and Fish &amp; Chips -->
@@ -526,7 +529,7 @@ html{scroll-behavior:smooth}
     <h3 class="dl-title">Burning Palms and Fish &amp; Chips</h3>
     <p class="dl-meta">Single · Feb 14, 2026 · 2:51</p>
     <p class="dl-line">Fish &amp; chips, wine buzz, glowing palms. Raw beat poetry explodes with bongos.</p>
-    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="Burning Palms and Fish &amp; Chips">Get this song</a></div>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music">Get this song</a></div>
   </div>
 </article>
 <!-- Danger Mouse -->
@@ -546,7 +549,7 @@ html{scroll-behavior:smooth}
     <h3 class="dl-title">Be Back Soon</h3>
     <p class="dl-meta">Single · Jan 11, 2026 · 4:26</p>
     <p class="dl-line">A liquid drum &amp; bass farewell to childhood nostalgia, reimagining the classic Button Moon lines.</p>
-    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="Be Back Soon">Get this song</a></div>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music">Get this song</a></div>
   </div>
 </article>
 <!-- 3i Rising -->
@@ -556,7 +559,7 @@ html{scroll-behavior:smooth}
     <h3 class="dl-title">3i Rising</h3>
     <p class="dl-meta">Single · Dec 11, 2025 · 3:20</p>
     <p class="dl-line">Channels the interstellar calm of Comet 3I/ATLAS. A transmission for starseeds &amp; healers.</p>
-    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="3i Rising">Get this song</a></div>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music">Get this song</a></div>
   </div>
 </article>
 <!-- Respected Sky -->
@@ -566,7 +569,7 @@ html{scroll-behavior:smooth}
     <h3 class="dl-title">Respected Sky</h3>
     <p class="dl-meta">Single · Sep 28, 2025 · 3:40</p>
     <p class="dl-line">It&#x27;s catharsis you can dance to, turning heaviness into movement, darkness into defiant light.</p>
-    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="Respected Sky">Get this song</a></div>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music">Get this song</a></div>
   </div>
 </article>
 <!-- Monks Shadow -->
@@ -576,7 +579,7 @@ html{scroll-behavior:smooth}
     <h3 class="dl-title">Monks Shadow</h3>
     <p class="dl-meta">Single · 2:21</p>
     <p class="dl-line"><!-- TODO: Sundara one-liner (no Bandcamp about text) --></p>
-    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="Monks Shadow">Get this song</a></div>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music">Get this song</a></div>
   </div>
 </article>
 </div>
@@ -616,6 +619,8 @@ html{scroll-behavior:smooth}
 <div class="footer-links">
 <a href="index.html">Home</a>
 <a href="https://open.spotify.com/artist/1qEfXc96PrJWsHGnFCPbWS" target="_blank">Spotify</a>
+<a href="https://www.youtube.com/@sundaraheart" target="_blank">YouTube</a>
+<a href="https://www.tiktok.com/@sundaraheart" target="_blank">TikTok</a>
 <a href="index.html#flock">Contact</a>
 </div>
 <div class="footer-copy">sillygooserecordings.com · Plain HTML. No trackers. No noise.</div>
@@ -624,24 +629,46 @@ html{scroll-behavior:smooth}
 
 <script>
 
-// ===== SHARED EMAIL GATE: "Get this song" buttons jump to the one gate =====
+// ===== PER-SONG EMAIL FORMS: "Get this song" opens a small form on that card =====
+// Each form posts email + song (the card's data-song base name) so MailerLite can email that song's link.
+var formN = 0;
 document.querySelectorAll('a.get-song').forEach(function(a){
   a.addEventListener('click', function(e){
     e.preventDefault();
-    var t = a.getAttribute('data-title');
-    document.getElementById('gate-song').value = t;
-    document.getElementById('gate-pick').textContent = 'You picked: ' + t + ' (the link unlocks everything)';
-    var card = document.querySelector('#get-music .gate-card');
-    document.getElementById('get-music').scrollIntoView({behavior:'smooth', block:'start'});
-    card.classList.remove('flash'); void card.offsetWidth; card.classList.add('flash');
-    setTimeout(function(){ document.getElementById('gate-all-email').focus({preventScroll:true}); }, 500);
+    var card = a.closest('.dl-card');
+    var box = card.querySelector('.song-gate');
+    if (box) { box.hidden = !box.hidden; if (!box.hidden) box.querySelector('input[type=email]') && box.querySelector('input[type=email]').focus(); return; }
+    var song = card.getAttribute('data-song');
+    var title = card.querySelector('.dl-title').textContent;
+    var id = 'song-gate-' + (++formN);
+    var f = document.createElement('form');
+    f.className = 'contact-form email-gate song-gate';
+    f.action = '#'; f.setAttribute('novalidate', '');
+    f.setAttribute('data-mailerlite', 'TODO');
+    f.setAttribute('data-song', song);
+    f.innerHTML = '<input type="hidden" name="song" value="' + song + '"/>' +
+      '<div class="contact-field"><label class="contact-label" for="' + id + '">Email for ' + title.replace(/</g,'&lt;') + '</label>' +
+      '<input class="contact-input" id="' + id + '" name="email" placeholder="your@email.com" required type="email" autocomplete="email"/></div>' +
+      '<button class="contact-btn" type="submit">' + (card.classList.contains('dl-album') ? 'Send me this EP' : 'Send me this song') + '</button>' +
+      '<p class="dl-meta" style="font-size:.8rem">No spam, ever. Unsubscribe anytime.</p>';
+    a.parentNode.insertAdjacentElement('afterend', f);
+    wireGate(f);
+    f.querySelector('input[type=email]').focus();
   });
 });
 
-// Email gates are not wired yet: block submit so nothing is sent anywhere.
-document.querySelectorAll('form[data-mailerlite="TODO"]').forEach(function(f) {
-  f.addEventListener('submit', function(e) { e.preventDefault(); });
-});
+
+// Email gates are not wired yet: block submit so nothing is sent anywhere, show a friendly note.
+function wireGate(f){
+  f.addEventListener('submit', function(e){
+    e.preventDefault();
+    var em = f.querySelector('input[type=email]');
+    if (!em.value || !em.checkValidity()) { em.focus(); em.style.borderColor = 'var(--red)'; return; }
+    var later = /Oct 31/.test(f.querySelector('button').textContent);
+    f.innerHTML = '<p class="gate-thanks">' + (later ? 'You\'re on the list. Check your inbox on Oct 31.' : 'Check your inbox. Your download link is on its way.') + '</p>';
+  });
+}
+document.querySelectorAll('form[data-mailerlite="TODO"]').forEach(wireGate);
 
 
 // ===== FIND A SONG (plain JS filter) =====
