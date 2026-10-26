@@ -160,6 +160,7 @@ footer{background:var(--ink);color:var(--paper);border-top:4px solid var(--red);
 .cover-todo span{font-family:var(--bebas);font-size:2rem;line-height:.95;letter-spacing:.03em;color:var(--yellow)}
 .cover-todo small{font-family:var(--vt);font-size:.9rem;color:#e8e0cd66;letter-spacing:.1em}
 .dl-new{font-family:var(--vt);letter-spacing:.1em;color:var(--paper);background:var(--red);padding:.25rem .6rem;font-size:.85rem;position:absolute;top:.6rem;left:.6rem;z-index:1}
+.dl-explicit{font-family:var(--vt);letter-spacing:.1em;color:var(--paper);background:var(--ink);border:1px solid var(--paper);padding:.25rem .6rem;font-size:.85rem;position:absolute;top:.6rem;left:.6rem;z-index:1}
 .dl-body{padding:1rem 1.1rem 1.2rem;display:flex;flex-direction:column;gap:.35rem;flex:1}
 .dl-title{font-family:var(--bebas);font-size:1.55rem;letter-spacing:.04em;line-height:1}
 .dl-meta{font-family:var(--vt);color:var(--muted);font-size:.95rem}
@@ -258,6 +259,31 @@ footer{background:var(--ink);color:var(--paper);border-top:4px solid var(--red);
      Small print: "No spam, ever. Unsubscribe anytime."
      Then swap each song's MP3/WAV buttons for the gate. -->
 <div class="dl-grid">
+<!-- I Don't Know How To Love (EP, EXPLICIT) | files: I-Am-A-Robot-Explicit.mp3, I-Am-A-Robot-Explicit.wav, I-Am-A-Robot-Deep-House-Version.mp3, I-Am-A-Robot-Deep-House-Version.wav
+     Releases Sat Oct 31, 2026 with the clean I Am A Robot. Keep it visually secondary to the featured clean single.
+     NOT downloadable before Oct 31, 2026: email gate only, no live download links.
+     AFTER OCT 31: remove the email gate form below and give each track its own buttons, like the other EP cards:
+       <span class="dl-track-btns"><a class="dl-mini" data-file="I-Am-A-Robot-Explicit.mp3" download="I-Am-A-Robot-Explicit.mp3" href="#">MP3</a><a class="dl-mini dl-mini-alt" data-file="I-Am-A-Robot-Explicit.wav" download="I-Am-A-Robot-Explicit.wav" href="#">WAV</a></span>
+       <span class="dl-track-btns"><a class="dl-mini" data-file="I-Am-A-Robot-Deep-House-Version.mp3" download="I-Am-A-Robot-Deep-House-Version.mp3" href="#">MP3</a><a class="dl-mini dl-mini-alt" data-file="I-Am-A-Robot-Deep-House-Version.wav" download="I-Am-A-Robot-Deep-House-Version.wav" href="#">WAV</a></span>
+     (the AUDIO_BASE script fills in href from data-file). -->
+<article class="dl-card dl-album" data-song="I-Dont-Know-How-To-Love" data-search="i don't know how to love | i dont know how to love | i am a robot explicit | i am a robot deep house version | explicit">
+  <div class="dl-cover"><span class="dl-explicit">EXPLICIT</span><img src="covers/400/I-Dont-Know-How-To-Love.jpg" srcset="covers/400/I-Dont-Know-How-To-Love.jpg 400w, covers/I-Dont-Know-How-To-Love.jpg 800w" sizes="(max-width:600px) 92vw, (max-width:900px) 46vw, 340px" width="800" height="800" loading="lazy" decoding="async" alt="I Don't Know How To Love cover art"/></div>
+  <div class="dl-body">
+    <h3 class="dl-title">I Don't Know How To Love</h3>
+    <p class="dl-meta">EP · Explicit · Out Sat Oct 31, 2026 · 2 tracks</p>
+    <p class="dl-line">The explicit cut of I Am A Robot, plus a deep house version.</p>
+    <ol class="dl-tracks">
+      <li class="dl-track"><span class="dl-track-name"><span class="dl-track-num">01</span> I Am A Robot (Explicit) <span class="dl-track-dur">2:06</span></span></li>
+      <li class="dl-track"><span class="dl-track-name"><span class="dl-track-num">02</span> I Am A Robot (Deep House Version) <span class="dl-track-dur">2:43</span></span></li>
+    </ol>
+    <!-- EMAIL GATE (visual only). NOT wired to MailerLite yet; submit is blocked by preventDefault in the script below. -->
+    <form action="#" class="contact-form email-gate" data-mailerlite="TODO" data-song="I-Dont-Know-How-To-Love" novalidate style="border-top:1px dashed #1c181040;padding-top:.85rem;margin-top:.4rem;gap:.75rem">
+      <div class="contact-field"><label class="contact-label" for="gate-love-email">Email</label><input class="contact-input" id="gate-love-email" name="email" placeholder="your@email.com" required="" type="email" autocomplete="email"/></div>
+      <button class="contact-btn" type="submit">Send it Oct 31</button>
+      <p class="dl-meta" style="font-size:.85rem">No spam, ever. Unsubscribe anytime.</p>
+    </form>
+  </div>
+</article>
 <!-- Melt Like The Snow | files: Melt-Like-The-Snow.mp3, Melt-Like-The-Snow.wav -->
 <article class="dl-card" data-song="Melt-Like-The-Snow" data-search="melt like the snow">
   <div class="dl-cover"><span class="dl-new">&#9733; NEW</span><div class="cover-todo" aria-label="Melt Like The Snow cover art coming soon"><span>Melt Like The Snow</span><small>// COVER TODO</small></div></div>
@@ -268,6 +294,48 @@ footer{background:var(--ink);color:var(--paper);border-top:4px solid var(--red);
     <div class="dl-btns">
       <a class="dl-btn" data-file="Melt-Like-The-Snow.mp3" download="Melt-Like-The-Snow.mp3" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Melt-Like-The-Snow.mp3">Download MP3</a>
       <a class="dl-btn dl-btn-alt" data-file="Melt-Like-The-Snow.wav" download="Melt-Like-The-Snow.wav" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Melt-Like-The-Snow.wav">Download WAV</a>
+    </div>
+  </div>
+</article>
+<!-- Child Of The Future | files: Child-Of-The-Future.mp3, Child-Of-The-Future.wav
+     TODO: Sundara one-liner. TODO: cover art (no Bandcamp release yet). -->
+<article class="dl-card" data-song="Child-Of-The-Future" data-search="child of the future">
+  <div class="dl-cover"><span class="dl-new">&#9733; NEW</span><div class="cover-todo" aria-label="Child Of The Future cover art coming soon"><span>Child Of The Future</span><small>// COVER TODO</small></div></div>
+  <div class="dl-body">
+    <h3 class="dl-title">Child Of The Future</h3>
+    <p class="dl-meta">Single · 3:03</p>
+    <p class="dl-line"><!-- TODO: Sundara one-liner --></p>
+    <div class="dl-btns">
+      <a class="dl-btn" data-file="Child-Of-The-Future.mp3" download="Child-Of-The-Future.mp3" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Child-Of-The-Future.mp3">Download MP3</a>
+      <a class="dl-btn dl-btn-alt" data-file="Child-Of-The-Future.wav" download="Child-Of-The-Future.wav" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Child-Of-The-Future.wav">Download WAV</a>
+    </div>
+  </div>
+</article>
+<!-- At The Beach | files: At-The-Beach.mp3, At-The-Beach.wav
+     TODO: Sundara one-liner. TODO: cover art (no Bandcamp release yet). -->
+<article class="dl-card" data-song="At-The-Beach" data-search="at the beach">
+  <div class="dl-cover"><span class="dl-new">&#9733; NEW</span><div class="cover-todo" aria-label="At The Beach cover art coming soon"><span>At The Beach</span><small>// COVER TODO</small></div></div>
+  <div class="dl-body">
+    <h3 class="dl-title">At The Beach</h3>
+    <p class="dl-meta">Single · 3:12</p>
+    <p class="dl-line"><!-- TODO: Sundara one-liner --></p>
+    <div class="dl-btns">
+      <a class="dl-btn" data-file="At-The-Beach.mp3" download="At-The-Beach.mp3" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/At-The-Beach.mp3">Download MP3</a>
+      <a class="dl-btn dl-btn-alt" data-file="At-The-Beach.wav" download="At-The-Beach.wav" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/At-The-Beach.wav">Download WAV</a>
+    </div>
+  </div>
+</article>
+<!-- Everything Broken Still Has Wings | files: Everything-Broken-Still-Has-Wings.mp3, Everything-Broken-Still-Has-Wings.wav
+     TODO: Sundara one-liner. TODO: cover art (no Bandcamp release yet). -->
+<article class="dl-card" data-song="Everything-Broken-Still-Has-Wings" data-search="everything broken still has wings">
+  <div class="dl-cover"><span class="dl-new">&#9733; NEW</span><div class="cover-todo" aria-label="Everything Broken Still Has Wings cover art coming soon"><span>Everything Broken Still Has Wings</span><small>// COVER TODO</small></div></div>
+  <div class="dl-body">
+    <h3 class="dl-title">Everything Broken Still Has Wings</h3>
+    <p class="dl-meta">Single · 2:05</p>
+    <p class="dl-line"><!-- TODO: Sundara one-liner --></p>
+    <div class="dl-btns">
+      <a class="dl-btn" data-file="Everything-Broken-Still-Has-Wings.mp3" download="Everything-Broken-Still-Has-Wings.mp3" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Everything-Broken-Still-Has-Wings.mp3">Download MP3</a>
+      <a class="dl-btn dl-btn-alt" data-file="Everything-Broken-Still-Has-Wings.wav" download="Everything-Broken-Still-Has-Wings.wav" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Everything-Broken-Still-Has-Wings.wav">Download WAV</a>
     </div>
   </div>
 </article>
@@ -409,7 +477,7 @@ footer{background:var(--ink);color:var(--paper);border-top:4px solid var(--red);
     <p class="dl-meta">EP · May 17, 2026 · 2 tracks</p>
     <p class="dl-line">This little EP is Drum &amp; Bass as devotional practice.</p>
     <ol class="dl-tracks">
-      <li class="dl-track"><span class="dl-track-name"><span class="dl-track-num">01</span> Green Tara Heartbeat <span class="dl-track-dur">4:00</span></span><span class="dl-track-btns"><a class="dl-mini" data-file="Green-Tara-Heartbeat.mp3" download="Green-Tara-Heartbeat.mp3" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Green-Tara-Heartbeat.mp3">MP3</a><a class="dl-mini dl-mini-alt" data-file="Green-Tara-Heartbeat.wav" download="Green-Tara-Heartbeat.wav" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Green-Tara-Heartbeat.wav">WAV</a></span></li>
+      <li class="dl-track"><span class="dl-track-name"><span class="dl-track-num">01</span> Green Tara Heartbeat <span class="dl-track-dur">5:04</span></span><span class="dl-track-btns"><a class="dl-mini" data-file="Green-Tara-Heartbeat.mp3" download="Green-Tara-Heartbeat.mp3" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Green-Tara-Heartbeat.mp3">MP3</a><a class="dl-mini dl-mini-alt" data-file="Green-Tara-Heartbeat.wav" download="Green-Tara-Heartbeat.wav" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Green-Tara-Heartbeat.wav">WAV</a></span></li>
       <li class="dl-track"><span class="dl-track-name"><span class="dl-track-num">02</span> Om Tare Tu Tare Itty Bitty Sunshine Remix <span class="dl-track-dur">2:28</span></span><span class="dl-track-btns"><a class="dl-mini" data-file="Om-Tare-Tu-Tare-Itty-Bitty-Sunshine-Remix.mp3" download="Om-Tare-Tu-Tare-Itty-Bitty-Sunshine-Remix.mp3" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Om-Tare-Tu-Tare-Itty-Bitty-Sunshine-Remix.mp3">MP3</a><a class="dl-mini dl-mini-alt" data-file="Om-Tare-Tu-Tare-Itty-Bitty-Sunshine-Remix.wav" download="Om-Tare-Tu-Tare-Itty-Bitty-Sunshine-Remix.wav" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Om-Tare-Tu-Tare-Itty-Bitty-Sunshine-Remix.wav">WAV</a></span></li>
     </ol>
   </div>
