@@ -190,6 +190,15 @@ footer{background:var(--ink);color:var(--paper);border-top:4px solid var(--red);
 .song-count{font-family:var(--vt);color:var(--muted);font-size:.9rem;letter-spacing:.06em}
 .no-match{font-family:var(--elite);color:var(--muted);font-size:.9rem;padding:1rem 0;display:none}
 @media (max-width:600px){.song-find{max-width:none;margin-left:0}}
+#get-music{padding:3rem 1.5rem 1rem;max-width:1100px;margin:0 auto}
+.gate-card{background:var(--yellow);border:3px solid var(--ink);box-shadow:8px 8px 0 var(--ink);padding:2rem 1.75rem;display:flex;flex-direction:column;gap:.6rem;transform:rotate(-.3deg)}
+.gate-title{font-family:var(--bebas);font-size:clamp(2.2rem,6vw,3.6rem);letter-spacing:.04em;line-height:.95;color:var(--ink)}
+.gate-sub{font-family:var(--elite);color:var(--ink);font-size:.9rem;line-height:1.6;max-width:560px}
+.gate-pick{font-family:var(--vt);color:var(--red);font-size:1.05rem;letter-spacing:.06em;min-height:1.2em}
+.gate-card.flash{animation:gflash .9s}
+@keyframes gflash{0%,100%{box-shadow:8px 8px 0 var(--ink)}50%{box-shadow:8px 8px 0 var(--red)}}
+.dl-soon{font-family:var(--vt);letter-spacing:.1em;color:var(--muted);border:2px dashed var(--muted);padding:.3rem .8rem;font-size:.95rem}
+html{scroll-behavior:smooth}
 </style>
 </head>
 <body>
@@ -216,13 +225,30 @@ footer{background:var(--ink);color:var(--paper);border-top:4px solid var(--red);
 <section id="page-hero">
 <span class="hero-kicker">// SILLY GOOSE RECORDINGS - FREE DOWNLOADS //</span>
 <h1 class="page-title">FREE <span>Music.</span></h1>
-<p class="page-desc">Every song, free. Take it, play it loud, pass it on. MP3 for your phone, WAV if you want the full thing.</p>
+<p class="page-desc">Every song, free. Take it, play it loud, pass it on. MP3 for your phone, WAV if you want the full thing. Leave your email and the link lands in your inbox.</p>
 <p class="ai-note">Written by Sundara, produced in collaboration with AI.</p>
 </section>
 
 <div class="note-strip">FREE FOREVER · MP3 + WAV · STRAIGHT TO YOUR INBOX</div>
 
-<!-- ============ FEATURED: I AM A ROBOT | files: I-Am-A-Robot.mp3, I-Am-A-Robot.wav ============ -->
+<!-- ============ SHARED EMAIL GATE: every download goes out by email. NOT wired to MailerLite yet (data-mailerlite="TODO", submit blocked).
+     The MailerLite automation emails the download link(s). File list lives outside the page (release-filenames.md). ============ -->
+<section id="get-music">
+<div class="gate-card">
+  <span class="feature-kicker">&#9733; THE WHOLE CATALOGUE, FREE &#9733;</span>
+  <h2 class="gate-title">Get The Music.</h2>
+  <p class="gate-sub">Enter your email and we'll send your download link. Every song, MP3 and WAV, free.</p>
+  <p class="gate-pick" id="gate-pick" aria-live="polite"></p>
+  <form action="#" class="contact-form email-gate" data-mailerlite="TODO" data-song="ALL" novalidate style="max-width:520px;gap:.75rem">
+    <input type="hidden" name="song" id="gate-song" value=""/>
+    <div class="contact-field"><label class="contact-label" for="gate-all-email">Email</label><input class="contact-input" id="gate-all-email" name="email" placeholder="your@email.com" required="" type="email" autocomplete="email"/></div>
+    <button class="contact-btn" type="submit">Send me the music</button>
+    <p class="dl-meta" style="font-size:.85rem">No spam, ever. Unsubscribe anytime. I Am A Robot and the new EP arrive Oct 31.</p>
+  </form>
+</div>
+</section>
+
+<!-- ============ FEATURED: I AM A ROBOT ============ -->
 <section class="feature" id="featured">
 <article class="feature-card" data-song="I-Am-A-Robot">
   <img alt="I Am A Robot cover art" src="i-am-a-robot-cover.jpg" width="800" height="800"/>
@@ -253,19 +279,11 @@ footer{background:var(--ink);color:var(--paper);border-top:4px solid var(--red);
 <span class="song-count" id="song-count" aria-live="polite"></span>
 </div>
 </div>
-<!-- LATER (when per-song email gate is wired to MailerLite): add one shared note here, styled like the I Am A Robot gate:
-     Prompt: "Pop in your email and I'll send the download straight to you."
-     Button: "Send it to me"
-     Small print: "No spam, ever. Unsubscribe anytime."
-     Then swap each song's MP3/WAV buttons for the gate. -->
 <div class="dl-grid">
-<!-- I Don't Know How To Love (EP, EXPLICIT) | files: I-Am-A-Robot-Explicit.mp3, I-Am-A-Robot-Explicit.wav, I-Am-A-Robot-Deep-House-Version.mp3, I-Am-A-Robot-Deep-House-Version.wav
+<!-- I Don't Know How To Love (EP, EXPLICIT)
      Releases Sat Oct 31, 2026 with the clean I Am A Robot. Keep it visually secondary to the featured clean single.
      NOT downloadable before Oct 31, 2026: email gate only, no live download links.
-     AFTER OCT 31: remove the email gate form below and give each track its own buttons, like the other EP cards:
-       <span class="dl-track-btns"><a class="dl-mini" data-file="I-Am-A-Robot-Explicit.mp3" download="I-Am-A-Robot-Explicit.mp3" href="#">MP3</a><a class="dl-mini dl-mini-alt" data-file="I-Am-A-Robot-Explicit.wav" download="I-Am-A-Robot-Explicit.wav" href="#">WAV</a></span>
-       <span class="dl-track-btns"><a class="dl-mini" data-file="I-Am-A-Robot-Deep-House-Version.mp3" download="I-Am-A-Robot-Deep-House-Version.mp3" href="#">MP3</a><a class="dl-mini dl-mini-alt" data-file="I-Am-A-Robot-Deep-House-Version.wav" download="I-Am-A-Robot-Deep-House-Version.wav" href="#">WAV</a></span>
-     (the AUDIO_BASE script fills in href from data-file). -->
+     AFTER OCT 31: the shared email gate covers this EP too (link goes out by email). -->
 <article class="dl-card dl-album" data-song="I-Dont-Know-How-To-Love" data-search="i don't know how to love | i dont know how to love | i am a robot explicit | i am a robot deep house version | explicit">
   <div class="dl-cover"><span class="dl-explicit">EXPLICIT</span><img src="covers/400/I-Dont-Know-How-To-Love.jpg" srcset="covers/400/I-Dont-Know-How-To-Love.jpg 400w, covers/I-Dont-Know-How-To-Love.jpg 800w" sizes="(max-width:600px) 92vw, (max-width:900px) 46vw, 340px" width="800" height="800" loading="lazy" decoding="async" alt="I Don't Know How To Love cover art"/></div>
   <div class="dl-body">
@@ -284,20 +302,17 @@ footer{background:var(--ink);color:var(--paper);border-top:4px solid var(--red);
     </form>
   </div>
 </article>
-<!-- Melt Like The Snow | files: Melt-Like-The-Snow.mp3, Melt-Like-The-Snow.wav -->
+<!-- Melt Like The Snow -->
 <article class="dl-card" data-song="Melt-Like-The-Snow" data-search="melt like the snow">
   <div class="dl-cover"><span class="dl-new">&#9733; NEW</span><div class="cover-todo" aria-label="Melt Like The Snow cover art coming soon"><span>Melt Like The Snow</span><small>// COVER TODO</small></div></div>
   <div class="dl-body">
     <h3 class="dl-title">Melt Like The Snow</h3>
     <p class="dl-meta">Single · Oct 9, 2026 · 4:33</p>
     <p class="dl-line">A soft, glowing song for the first snow of winter.</p>
-    <div class="dl-btns">
-      <a class="dl-btn" data-file="Melt-Like-The-Snow.mp3" download="Melt-Like-The-Snow.mp3" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Melt-Like-The-Snow.mp3">Download MP3</a>
-      <a class="dl-btn dl-btn-alt" data-file="Melt-Like-The-Snow.wav" download="Melt-Like-The-Snow.wav" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Melt-Like-The-Snow.wav">Download WAV</a>
-    </div>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="Melt Like The Snow">Get this song</a></div>
   </div>
 </article>
-<!-- Child Of The Future | files: Child-Of-The-Future.mp3, Child-Of-The-Future.wav
+<!-- Child Of The Future
      TODO: Sundara one-liner. TODO: cover art (no Bandcamp release yet). -->
 <article class="dl-card" data-song="Child-Of-The-Future" data-search="child of the future">
   <div class="dl-cover"><span class="dl-new">&#9733; NEW</span><div class="cover-todo" aria-label="Child Of The Future cover art coming soon"><span>Child Of The Future</span><small>// COVER TODO</small></div></div>
@@ -305,13 +320,10 @@ footer{background:var(--ink);color:var(--paper);border-top:4px solid var(--red);
     <h3 class="dl-title">Child Of The Future</h3>
     <p class="dl-meta">Single · 3:03</p>
     <p class="dl-line"><!-- TODO: Sundara one-liner --></p>
-    <div class="dl-btns">
-      <a class="dl-btn" data-file="Child-Of-The-Future.mp3" download="Child-Of-The-Future.mp3" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Child-Of-The-Future.mp3">Download MP3</a>
-      <a class="dl-btn dl-btn-alt" data-file="Child-Of-The-Future.wav" download="Child-Of-The-Future.wav" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Child-Of-The-Future.wav">Download WAV</a>
-    </div>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="Child Of The Future">Get this song</a></div>
   </div>
 </article>
-<!-- At The Beach | files: At-The-Beach.mp3, At-The-Beach.wav
+<!-- At The Beach
      TODO: Sundara one-liner. TODO: cover art (no Bandcamp release yet). -->
 <article class="dl-card" data-song="At-The-Beach" data-search="at the beach">
   <div class="dl-cover"><span class="dl-new">&#9733; NEW</span><div class="cover-todo" aria-label="At The Beach cover art coming soon"><span>At The Beach</span><small>// COVER TODO</small></div></div>
@@ -319,13 +331,10 @@ footer{background:var(--ink);color:var(--paper);border-top:4px solid var(--red);
     <h3 class="dl-title">At The Beach</h3>
     <p class="dl-meta">Single · 3:12</p>
     <p class="dl-line"><!-- TODO: Sundara one-liner --></p>
-    <div class="dl-btns">
-      <a class="dl-btn" data-file="At-The-Beach.mp3" download="At-The-Beach.mp3" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/At-The-Beach.mp3">Download MP3</a>
-      <a class="dl-btn dl-btn-alt" data-file="At-The-Beach.wav" download="At-The-Beach.wav" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/At-The-Beach.wav">Download WAV</a>
-    </div>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="At The Beach">Get this song</a></div>
   </div>
 </article>
-<!-- Everything Broken Still Has Wings | files: Everything-Broken-Still-Has-Wings.mp3, Everything-Broken-Still-Has-Wings.wav
+<!-- Everything Broken Still Has Wings
      TODO: Sundara one-liner. TODO: cover art (no Bandcamp release yet). -->
 <article class="dl-card" data-song="Everything-Broken-Still-Has-Wings" data-search="everything broken still has wings">
   <div class="dl-cover"><span class="dl-new">&#9733; NEW</span><div class="cover-todo" aria-label="Everything Broken Still Has Wings cover art coming soon"><span>Everything Broken Still Has Wings</span><small>// COVER TODO</small></div></div>
@@ -333,143 +342,110 @@ footer{background:var(--ink);color:var(--paper);border-top:4px solid var(--red);
     <h3 class="dl-title">Everything Broken Still Has Wings</h3>
     <p class="dl-meta">Single · 2:05</p>
     <p class="dl-line"><!-- TODO: Sundara one-liner --></p>
-    <div class="dl-btns">
-      <a class="dl-btn" data-file="Everything-Broken-Still-Has-Wings.mp3" download="Everything-Broken-Still-Has-Wings.mp3" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Everything-Broken-Still-Has-Wings.mp3">Download MP3</a>
-      <a class="dl-btn dl-btn-alt" data-file="Everything-Broken-Still-Has-Wings.wav" download="Everything-Broken-Still-Has-Wings.wav" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Everything-Broken-Still-Has-Wings.wav">Download WAV</a>
-    </div>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="Everything Broken Still Has Wings">Get this song</a></div>
   </div>
 </article>
-<!-- I did not speak Spanish then | files: I-Did-Not-Speak-Spanish-Then.mp3, I-Did-Not-Speak-Spanish-Then.wav -->
+<!-- I did not speak Spanish then -->
 <article class="dl-card" data-song="I-Did-Not-Speak-Spanish-Then" data-search="i did not speak spanish then">
   <div class="dl-cover"><span class="dl-new">&#9733; NEW</span><img src="covers/400/I-Did-Not-Speak-Spanish-Then.jpg" srcset="covers/400/I-Did-Not-Speak-Spanish-Then.jpg 400w, covers/I-Did-Not-Speak-Spanish-Then.jpg 800w" sizes="(max-width:600px) 92vw, (max-width:900px) 46vw, 340px" width="800" height="800" loading="lazy" decoding="async" alt="I did not speak Spanish then cover art"/></div>
   <div class="dl-body">
     <h3 class="dl-title">I did not speak Spanish then</h3>
     <p class="dl-meta">Single · Sep 4, 2026 · 3:07</p>
     <p class="dl-line">Todos los días tengo más ángeles conmigo.</p>
-    <div class="dl-btns">
-      <a class="dl-btn" data-file="I-Did-Not-Speak-Spanish-Then.mp3" download="I-Did-Not-Speak-Spanish-Then.mp3" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/I-Did-Not-Speak-Spanish-Then.mp3">Download MP3</a>
-      <a class="dl-btn dl-btn-alt" data-file="I-Did-Not-Speak-Spanish-Then.wav" download="I-Did-Not-Speak-Spanish-Then.wav" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/I-Did-Not-Speak-Spanish-Then.wav">Download WAV</a>
-    </div>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="I did not speak Spanish then">Get this song</a></div>
   </div>
 </article>
-<!-- God Is An Abbreviation For... | files: God-Is-An-Abbreviation-For.mp3, God-Is-An-Abbreviation-For.wav -->
+<!-- God Is An Abbreviation For... -->
 <article class="dl-card" data-song="God-Is-An-Abbreviation-For" data-search="god is an abbreviation for...">
   <div class="dl-cover"><span class="dl-new">&#9733; NEW</span><img src="covers/400/God-Is-An-Abbreviation-For.jpg" srcset="covers/400/God-Is-An-Abbreviation-For.jpg 400w, covers/God-Is-An-Abbreviation-For.jpg 800w" sizes="(max-width:600px) 92vw, (max-width:900px) 46vw, 340px" width="800" height="800" loading="lazy" decoding="async" alt="God Is An Abbreviation For... cover art"/></div>
   <div class="dl-body">
     <h3 class="dl-title">God Is An Abbreviation For...</h3>
     <p class="dl-meta">Single · Aug 29, 2026 · 3:59</p>
     <p class="dl-line">Questioning the big fella upstairs and what the word God means to me.</p>
-    <div class="dl-btns">
-      <a class="dl-btn" data-file="God-Is-An-Abbreviation-For.mp3" download="God-Is-An-Abbreviation-For.mp3" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/God-Is-An-Abbreviation-For.mp3">Download MP3</a>
-      <a class="dl-btn dl-btn-alt" data-file="God-Is-An-Abbreviation-For.wav" download="God-Is-An-Abbreviation-For.wav" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/God-Is-An-Abbreviation-For.wav">Download WAV</a>
-    </div>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="God Is An Abbreviation For...">Get this song</a></div>
   </div>
 </article>
-<!-- To Be Me | files: To-Be-Me.mp3, To-Be-Me.wav -->
+<!-- To Be Me -->
 <article class="dl-card" data-song="To-Be-Me" data-search="to be me">
   <div class="dl-cover"><img src="covers/400/To-Be-Me.jpg" srcset="covers/400/To-Be-Me.jpg 400w, covers/To-Be-Me.jpg 800w" sizes="(max-width:600px) 92vw, (max-width:900px) 46vw, 340px" width="800" height="800" loading="lazy" decoding="async" alt="To Be Me cover art"/></div>
   <div class="dl-body">
     <h3 class="dl-title">To Be Me</h3>
     <p class="dl-meta">Single · Jul 31, 2026 · 3:25</p>
     <p class="dl-line">Haunting and hypnotic, more stripped-back, somehow more authentic and profound.</p>
-    <div class="dl-btns">
-      <a class="dl-btn" data-file="To-Be-Me.mp3" download="To-Be-Me.mp3" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/To-Be-Me.mp3">Download MP3</a>
-      <a class="dl-btn dl-btn-alt" data-file="To-Be-Me.wav" download="To-Be-Me.wav" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/To-Be-Me.wav">Download WAV</a>
-    </div>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="To Be Me">Get this song</a></div>
   </div>
 </article>
-<!-- I&#x27;m Swimming &amp; There Is No Water | files: Im-Swimming-And-There-Is-No-Water.mp3, Im-Swimming-And-There-Is-No-Water.wav -->
+<!-- I&#x27;m Swimming &amp; There Is No Water -->
 <article class="dl-card" data-song="Im-Swimming-And-There-Is-No-Water" data-search="i&#x27;m swimming &amp; there is no water">
   <div class="dl-cover"><img src="covers/400/Im-Swimming-And-There-Is-No-Water.jpg" srcset="covers/400/Im-Swimming-And-There-Is-No-Water.jpg 400w, covers/Im-Swimming-And-There-Is-No-Water.jpg 800w" sizes="(max-width:600px) 92vw, (max-width:900px) 46vw, 340px" width="800" height="800" loading="lazy" decoding="async" alt="I&#x27;m Swimming &amp; There Is No Water cover art"/></div>
   <div class="dl-body">
     <h3 class="dl-title">I&#x27;m Swimming &amp; There Is No Water</h3>
     <p class="dl-meta">Single · Jul 17, 2026 · 2:31</p>
     <p class="dl-line">A dreamy, atmospheric track about moving through life with nothing holding you up.</p>
-    <div class="dl-btns">
-      <a class="dl-btn" data-file="Im-Swimming-And-There-Is-No-Water.mp3" download="Im-Swimming-And-There-Is-No-Water.mp3" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Im-Swimming-And-There-Is-No-Water.mp3">Download MP3</a>
-      <a class="dl-btn dl-btn-alt" data-file="Im-Swimming-And-There-Is-No-Water.wav" download="Im-Swimming-And-There-Is-No-Water.wav" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Im-Swimming-And-There-Is-No-Water.wav">Download WAV</a>
-    </div>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="I&#x27;m Swimming &amp; There Is No Water">Get this song</a></div>
   </div>
 </article>
-<!-- This Mortal Coil (Duet Version) | files: This-Mortal-Coil-Duet-Version.mp3, This-Mortal-Coil-Duet-Version.wav -->
+<!-- This Mortal Coil (Duet Version) -->
 <article class="dl-card" data-song="This-Mortal-Coil-Duet-Version" data-search="this mortal coil (duet version)">
   <div class="dl-cover"><img src="covers/400/This-Mortal-Coil-Duet-Version.jpg" srcset="covers/400/This-Mortal-Coil-Duet-Version.jpg 400w, covers/This-Mortal-Coil-Duet-Version.jpg 800w" sizes="(max-width:600px) 92vw, (max-width:900px) 46vw, 340px" width="800" height="800" loading="lazy" decoding="async" alt="This Mortal Coil (Duet Version) cover art"/></div>
   <div class="dl-body">
     <h3 class="dl-title">This Mortal Coil (Duet Version)</h3>
     <p class="dl-meta">Single · Jul 14, 2026 · 2:55</p>
     <p class="dl-line">He sings my words like he&#x27;s going to a funeral or a war.</p>
-    <div class="dl-btns">
-      <a class="dl-btn" data-file="This-Mortal-Coil-Duet-Version.mp3" download="This-Mortal-Coil-Duet-Version.mp3" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/This-Mortal-Coil-Duet-Version.mp3">Download MP3</a>
-      <a class="dl-btn dl-btn-alt" data-file="This-Mortal-Coil-Duet-Version.wav" download="This-Mortal-Coil-Duet-Version.wav" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/This-Mortal-Coil-Duet-Version.wav">Download WAV</a>
-    </div>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="This Mortal Coil (Duet Version)">Get this song</a></div>
   </div>
 </article>
-<!-- This Mortal Coil | files: This-Mortal-Coil.mp3, This-Mortal-Coil.wav -->
+<!-- This Mortal Coil -->
 <article class="dl-card" data-song="This-Mortal-Coil" data-search="this mortal coil">
   <div class="dl-cover"><img src="covers/400/This-Mortal-Coil.jpg" srcset="covers/400/This-Mortal-Coil.jpg 400w, covers/This-Mortal-Coil.jpg 800w" sizes="(max-width:600px) 92vw, (max-width:900px) 46vw, 340px" width="800" height="800" loading="lazy" decoding="async" alt="This Mortal Coil cover art"/></div>
   <div class="dl-body">
     <h3 class="dl-title">This Mortal Coil</h3>
     <p class="dl-meta">Single · Jul 7, 2026 · 3:08</p>
     <p class="dl-line">A soft haunt about mortality and the anger we inherit.</p>
-    <div class="dl-btns">
-      <a class="dl-btn" data-file="This-Mortal-Coil.mp3" download="This-Mortal-Coil.mp3" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/This-Mortal-Coil.mp3">Download MP3</a>
-      <a class="dl-btn dl-btn-alt" data-file="This-Mortal-Coil.wav" download="This-Mortal-Coil.wav" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/This-Mortal-Coil.wav">Download WAV</a>
-    </div>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="This Mortal Coil">Get this song</a></div>
   </div>
 </article>
-<!-- At Sea (One Can&#x27;t Be Tamed) | files: At-Sea-One-Cant-Be-Tamed.mp3, At-Sea-One-Cant-Be-Tamed.wav -->
+<!-- At Sea (One Can&#x27;t Be Tamed) -->
 <article class="dl-card" data-song="At-Sea-One-Cant-Be-Tamed" data-search="at sea (one can&#x27;t be tamed)">
   <div class="dl-cover"><img src="covers/400/At-Sea-One-Cant-Be-Tamed.jpg" srcset="covers/400/At-Sea-One-Cant-Be-Tamed.jpg 400w, covers/At-Sea-One-Cant-Be-Tamed.jpg 800w" sizes="(max-width:600px) 92vw, (max-width:900px) 46vw, 340px" width="800" height="800" loading="lazy" decoding="async" alt="At Sea (One Can&#x27;t Be Tamed) cover art"/></div>
   <div class="dl-body">
     <h3 class="dl-title">At Sea (One Can&#x27;t Be Tamed)</h3>
     <p class="dl-meta">Single · Jul 3, 2026 · 3:29</p>
     <p class="dl-line">A reflection on freedom, and how none of us were made to be tamed.</p>
-    <div class="dl-btns">
-      <a class="dl-btn" data-file="At-Sea-One-Cant-Be-Tamed.mp3" download="At-Sea-One-Cant-Be-Tamed.mp3" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/At-Sea-One-Cant-Be-Tamed.mp3">Download MP3</a>
-      <a class="dl-btn dl-btn-alt" data-file="At-Sea-One-Cant-Be-Tamed.wav" download="At-Sea-One-Cant-Be-Tamed.wav" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/At-Sea-One-Cant-Be-Tamed.wav">Download WAV</a>
-    </div>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="At Sea (One Can&#x27;t Be Tamed)">Get this song</a></div>
   </div>
 </article>
-<!-- Painted From The Heart | files: Painted-From-The-Heart.mp3, Painted-From-The-Heart.wav -->
+<!-- Painted From The Heart -->
 <article class="dl-card" data-song="Painted-From-The-Heart" data-search="painted from the heart">
   <div class="dl-cover"><img src="covers/400/Painted-From-The-Heart.jpg" srcset="covers/400/Painted-From-The-Heart.jpg 400w, covers/Painted-From-The-Heart.jpg 800w" sizes="(max-width:600px) 92vw, (max-width:900px) 46vw, 340px" width="800" height="800" loading="lazy" decoding="async" alt="Painted From The Heart cover art"/></div>
   <div class="dl-body">
     <h3 class="dl-title">Painted From The Heart</h3>
     <p class="dl-meta">Single · Jun 15, 2026 · 3:40</p>
     <p class="dl-line">A song about painting from the heart, Yorkshire roots, and still learning how to see.</p>
-    <div class="dl-btns">
-      <a class="dl-btn" data-file="Painted-From-The-Heart.mp3" download="Painted-From-The-Heart.mp3" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Painted-From-The-Heart.mp3">Download MP3</a>
-      <a class="dl-btn dl-btn-alt" data-file="Painted-From-The-Heart.wav" download="Painted-From-The-Heart.wav" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Painted-From-The-Heart.wav">Download WAV</a>
-    </div>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="Painted From The Heart">Get this song</a></div>
   </div>
 </article>
-<!-- Faith In DOG | files: Faith-In-Dog.mp3, Faith-In-Dog.wav -->
+<!-- Faith In DOG -->
 <article class="dl-card" data-song="Faith-In-Dog" data-search="faith in dog">
   <div class="dl-cover"><img src="covers/400/Faith-In-Dog.jpg" srcset="covers/400/Faith-In-Dog.jpg 400w, covers/Faith-In-Dog.jpg 800w" sizes="(max-width:600px) 92vw, (max-width:900px) 46vw, 340px" width="800" height="800" loading="lazy" decoding="async" alt="Faith In DOG cover art"/></div>
   <div class="dl-body">
     <h3 class="dl-title">Faith In DOG</h3>
     <p class="dl-meta">Single · Jun 5, 2026 · 3:40</p>
     <p class="dl-line"><!-- TODO: Sundara one-liner (no Bandcamp about text) --></p>
-    <div class="dl-btns">
-      <a class="dl-btn" data-file="Faith-In-Dog.mp3" download="Faith-In-Dog.mp3" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Faith-In-Dog.mp3">Download MP3</a>
-      <a class="dl-btn dl-btn-alt" data-file="Faith-In-Dog.wav" download="Faith-In-Dog.wav" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Faith-In-Dog.wav">Download WAV</a>
-    </div>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="Faith In DOG">Get this song</a></div>
   </div>
 </article>
-<!-- Bearded Lady | files: Bearded-Lady.mp3, Bearded-Lady.wav -->
+<!-- Bearded Lady -->
 <article class="dl-card" data-song="Bearded-Lady" data-search="bearded lady">
   <div class="dl-cover"><img src="covers/400/Bearded-Lady.jpg" srcset="covers/400/Bearded-Lady.jpg 400w, covers/Bearded-Lady.jpg 800w" sizes="(max-width:600px) 92vw, (max-width:900px) 46vw, 340px" width="800" height="800" loading="lazy" decoding="async" alt="Bearded Lady cover art"/></div>
   <div class="dl-body">
     <h3 class="dl-title">Bearded Lady</h3>
     <p class="dl-meta">Single · May 19, 2026 · 4:04</p>
     <p class="dl-line">Journal pages turned into atmospheric DnB. Rage, grief, bipolar truths, and a bearded apparition.</p>
-    <div class="dl-btns">
-      <a class="dl-btn" data-file="Bearded-Lady.mp3" download="Bearded-Lady.mp3" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Bearded-Lady.mp3">Download MP3</a>
-      <a class="dl-btn dl-btn-alt" data-file="Bearded-Lady.wav" download="Bearded-Lady.wav" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Bearded-Lady.wav">Download WAV</a>
-    </div>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="Bearded Lady">Get this song</a></div>
   </div>
 </article>
-<!-- Mother of Liberation: Green Tara Remixes (EP) | files: per track below -->
+<!-- Mother of Liberation: Green Tara Remixes (EP) -->
 <article class="dl-card dl-album" data-song="Mother-Of-Liberation-Green-Tara-Remixes" data-search="mother of liberation: green tara remixes | green tara heartbeat | om tare tu tare itty bitty sunshine remix">
   <div class="dl-cover"><img src="covers/400/Mother-Of-Liberation-Green-Tara-Remixes.jpg" srcset="covers/400/Mother-Of-Liberation-Green-Tara-Remixes.jpg 400w, covers/Mother-Of-Liberation-Green-Tara-Remixes.jpg 800w" sizes="(max-width:600px) 92vw, (max-width:900px) 46vw, 340px" width="800" height="800" loading="lazy" decoding="async" alt="Mother of Liberation: Green Tara Remixes cover art"/></div>
   <div class="dl-body">
@@ -477,51 +453,43 @@ footer{background:var(--ink);color:var(--paper);border-top:4px solid var(--red);
     <p class="dl-meta">EP · May 17, 2026 · 2 tracks</p>
     <p class="dl-line">This little EP is Drum &amp; Bass as devotional practice.</p>
     <ol class="dl-tracks">
-      <li class="dl-track"><span class="dl-track-name"><span class="dl-track-num">01</span> Green Tara Heartbeat <span class="dl-track-dur">5:04</span></span><span class="dl-track-btns"><a class="dl-mini" data-file="Green-Tara-Heartbeat.mp3" download="Green-Tara-Heartbeat.mp3" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Green-Tara-Heartbeat.mp3">MP3</a><a class="dl-mini dl-mini-alt" data-file="Green-Tara-Heartbeat.wav" download="Green-Tara-Heartbeat.wav" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Green-Tara-Heartbeat.wav">WAV</a></span></li>
-      <li class="dl-track"><span class="dl-track-name"><span class="dl-track-num">02</span> Om Tare Tu Tare Itty Bitty Sunshine Remix <span class="dl-track-dur">3:44</span></span><span class="dl-track-btns"><a class="dl-mini" data-file="Om-Tare-Tu-Tare-Itty-Bitty-Sunshine-Remix.mp3" download="Om-Tare-Tu-Tare-Itty-Bitty-Sunshine-Remix.mp3" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Om-Tare-Tu-Tare-Itty-Bitty-Sunshine-Remix.mp3">MP3</a><a class="dl-mini dl-mini-alt" data-file="Om-Tare-Tu-Tare-Itty-Bitty-Sunshine-Remix.wav" download="Om-Tare-Tu-Tare-Itty-Bitty-Sunshine-Remix.wav" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Om-Tare-Tu-Tare-Itty-Bitty-Sunshine-Remix.wav">WAV</a></span></li>
+      <li class="dl-track"><span class="dl-track-name"><span class="dl-track-num">01</span> Green Tara Heartbeat <span class="dl-track-dur">5:04</span></span></li>
+      <li class="dl-track"><span class="dl-track-name"><span class="dl-track-num">02</span> Om Tare Tu Tare Itty Bitty Sunshine Remix <span class="dl-track-dur">3:44</span></span></li>
     </ol>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="Mother of Liberation: Green Tara Remixes">Get this EP</a></div>
   </div>
 </article>
-<!-- Girl From North Carolina | files: Girl-From-North-Carolina.mp3, Girl-From-North-Carolina.wav -->
+<!-- Girl From North Carolina -->
 <article class="dl-card" data-song="Girl-From-North-Carolina" data-search="girl from north carolina">
   <div class="dl-cover"><img src="covers/400/Girl-From-North-Carolina.jpg" srcset="covers/400/Girl-From-North-Carolina.jpg 400w, covers/Girl-From-North-Carolina.jpg 800w" sizes="(max-width:600px) 92vw, (max-width:900px) 46vw, 340px" width="800" height="800" loading="lazy" decoding="async" alt="Girl From North Carolina cover art"/></div>
   <div class="dl-body">
     <h3 class="dl-title">Girl From North Carolina</h3>
     <p class="dl-meta">Single · May 15, 2026 · 1:56</p>
     <p class="dl-line">High-vibe, a bit sultry but warm and nostalgic. Like letting old memories dance.</p>
-    <div class="dl-btns">
-      <a class="dl-btn" data-file="Girl-From-North-Carolina.mp3" download="Girl-From-North-Carolina.mp3" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Girl-From-North-Carolina.mp3">Download MP3</a>
-      <a class="dl-btn dl-btn-alt" data-file="Girl-From-North-Carolina.wav" download="Girl-From-North-Carolina.wav" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Girl-From-North-Carolina.wav">Download WAV</a>
-    </div>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="Girl From North Carolina">Get this song</a></div>
   </div>
 </article>
-<!-- Scorpio Unravelling | files: Scorpio-Unravelling.mp3, Scorpio-Unravelling.wav -->
+<!-- Scorpio Unravelling -->
 <article class="dl-card" data-song="Scorpio-Unravelling" data-search="scorpio unravelling">
   <div class="dl-cover"><img src="covers/400/Scorpio-Unravelling.jpg" srcset="covers/400/Scorpio-Unravelling.jpg 400w, covers/Scorpio-Unravelling.jpg 800w" sizes="(max-width:600px) 92vw, (max-width:900px) 46vw, 340px" width="800" height="800" loading="lazy" decoding="async" alt="Scorpio Unravelling cover art"/></div>
   <div class="dl-body">
     <h3 class="dl-title">Scorpio Unravelling</h3>
     <p class="dl-meta">Single · Apr 20, 2026 · 2:32</p>
     <p class="dl-line">A gentle, smoky confessional piece about pain release, self-awareness, and the curious voyage ahead.</p>
-    <div class="dl-btns">
-      <a class="dl-btn" data-file="Scorpio-Unravelling.mp3" download="Scorpio-Unravelling.mp3" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Scorpio-Unravelling.mp3">Download MP3</a>
-      <a class="dl-btn dl-btn-alt" data-file="Scorpio-Unravelling.wav" download="Scorpio-Unravelling.wav" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Scorpio-Unravelling.wav">Download WAV</a>
-    </div>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="Scorpio Unravelling">Get this song</a></div>
   </div>
 </article>
-<!-- Has The Empire Fallen? | files: Has-The-Empire-Fallen.mp3, Has-The-Empire-Fallen.wav -->
+<!-- Has The Empire Fallen? -->
 <article class="dl-card" data-song="Has-The-Empire-Fallen" data-search="has the empire fallen?">
   <div class="dl-cover"><img src="covers/400/Has-The-Empire-Fallen.jpg" srcset="covers/400/Has-The-Empire-Fallen.jpg 400w, covers/Has-The-Empire-Fallen.jpg 800w" sizes="(max-width:600px) 92vw, (max-width:900px) 46vw, 340px" width="800" height="800" loading="lazy" decoding="async" alt="Has The Empire Fallen? cover art"/></div>
   <div class="dl-body">
     <h3 class="dl-title">Has The Empire Fallen?</h3>
     <p class="dl-meta">Single · Mar 20, 2026 · 1:50</p>
     <p class="dl-line">Nostalgic, a bit daft, a bit sad, but it grooves. Has the empire really fallen?</p>
-    <div class="dl-btns">
-      <a class="dl-btn" data-file="Has-The-Empire-Fallen.mp3" download="Has-The-Empire-Fallen.mp3" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Has-The-Empire-Fallen.mp3">Download MP3</a>
-      <a class="dl-btn dl-btn-alt" data-file="Has-The-Empire-Fallen.wav" download="Has-The-Empire-Fallen.wav" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Has-The-Empire-Fallen.wav">Download WAV</a>
-    </div>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="Has The Empire Fallen?">Get this song</a></div>
   </div>
 </article>
-<!-- Oh Universe (Buy Me That Iridescent Green Truck) (EP) | files: per track below -->
+<!-- Oh Universe (Buy Me That Iridescent Green Truck) (EP) -->
 <article class="dl-card dl-album" data-song="Oh-Universe-Buy-Me-That-Iridescent-Green-Truck" data-search="oh universe (buy me that iridescent green truck) | blues version | dnb anthem | wu-tang style">
   <div class="dl-cover"><img src="covers/400/Oh-Universe-Buy-Me-That-Iridescent-Green-Truck.jpg" srcset="covers/400/Oh-Universe-Buy-Me-That-Iridescent-Green-Truck.jpg 400w, covers/Oh-Universe-Buy-Me-That-Iridescent-Green-Truck.jpg 800w" sizes="(max-width:600px) 92vw, (max-width:900px) 46vw, 340px" width="800" height="800" loading="lazy" decoding="async" alt="Oh Universe (Buy Me That Iridescent Green Truck) cover art"/></div>
   <div class="dl-body">
@@ -529,13 +497,14 @@ footer{background:var(--ink);color:var(--paper);border-top:4px solid var(--red);
     <p class="dl-meta">EP · Mar 9, 2026 · 3 tracks</p>
     <p class="dl-line">One honest take turned into a 3-track EP. One dream. Three vibes. For everyone.</p>
     <ol class="dl-tracks">
-      <li class="dl-track"><span class="dl-track-name"><span class="dl-track-num">01</span> Blues Version <span class="dl-track-dur">5:51</span></span><span class="dl-track-btns"><a class="dl-mini" data-file="Oh-Universe-Buy-Me-That-Iridescent-Green-Truck-Blues-Version.mp3" download="Oh-Universe-Buy-Me-That-Iridescent-Green-Truck-Blues-Version.mp3" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Oh-Universe-Buy-Me-That-Iridescent-Green-Truck-Blues-Version.mp3">MP3</a><a class="dl-mini dl-mini-alt" data-file="Oh-Universe-Buy-Me-That-Iridescent-Green-Truck-Blues-Version.wav" download="Oh-Universe-Buy-Me-That-Iridescent-Green-Truck-Blues-Version.wav" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Oh-Universe-Buy-Me-That-Iridescent-Green-Truck-Blues-Version.wav">WAV</a></span></li>
-      <li class="dl-track"><span class="dl-track-name"><span class="dl-track-num">02</span> DnB Anthem <span class="dl-track-dur">2:53</span></span><span class="dl-track-btns"><a class="dl-mini" data-file="Oh-Universe-Buy-Me-That-Iridescent-Green-Truck-Dnb-Anthem.mp3" download="Oh-Universe-Buy-Me-That-Iridescent-Green-Truck-Dnb-Anthem.mp3" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Oh-Universe-Buy-Me-That-Iridescent-Green-Truck-Dnb-Anthem.mp3">MP3</a><a class="dl-mini dl-mini-alt" data-file="Oh-Universe-Buy-Me-That-Iridescent-Green-Truck-Dnb-Anthem.wav" download="Oh-Universe-Buy-Me-That-Iridescent-Green-Truck-Dnb-Anthem.wav" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Oh-Universe-Buy-Me-That-Iridescent-Green-Truck-Dnb-Anthem.wav">WAV</a></span></li>
-      <li class="dl-track"><span class="dl-track-name"><span class="dl-track-num">03</span> Wu-Tang Style <span class="dl-track-dur">3:30</span></span><span class="dl-track-btns"><a class="dl-mini" data-file="Oh-Universe-Buy-Me-That-Iridescent-Green-Truck-Wu-Tang-Style.mp3" download="Oh-Universe-Buy-Me-That-Iridescent-Green-Truck-Wu-Tang-Style.mp3" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Oh-Universe-Buy-Me-That-Iridescent-Green-Truck-Wu-Tang-Style.mp3">MP3</a><a class="dl-mini dl-mini-alt" data-file="Oh-Universe-Buy-Me-That-Iridescent-Green-Truck-Wu-Tang-Style.wav" download="Oh-Universe-Buy-Me-That-Iridescent-Green-Truck-Wu-Tang-Style.wav" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Oh-Universe-Buy-Me-That-Iridescent-Green-Truck-Wu-Tang-Style.wav">WAV</a></span></li>
+      <li class="dl-track"><span class="dl-track-name"><span class="dl-track-num">01</span> Blues Version <span class="dl-track-dur">5:51</span></span></li>
+      <li class="dl-track"><span class="dl-track-name"><span class="dl-track-num">02</span> DnB Anthem <span class="dl-track-dur">2:53</span></span></li>
+      <li class="dl-track"><span class="dl-track-name"><span class="dl-track-num">03</span> Wu-Tang Style <span class="dl-track-dur">3:30</span></span></li>
     </ol>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="Oh Universe (Buy Me That Iridescent Green Truck)">Get this EP</a></div>
   </div>
 </article>
-<!-- Llorona del Río: Echoes of the Frontier (EP) | files: per track below -->
+<!-- Llorona del Río: Echoes of the Frontier (EP) -->
 <article class="dl-card dl-album" data-song="Llorona-Del-Rio-Echoes-Of-The-Frontier" data-search="llorona del río: echoes of the frontier | lágrimas en la línea | la llorona (cover) | la llorona del río">
   <div class="dl-cover"><img src="covers/400/Llorona-Del-Rio-Echoes-Of-The-Frontier-EP.jpg" srcset="covers/400/Llorona-Del-Rio-Echoes-Of-The-Frontier-EP.jpg 400w, covers/Llorona-Del-Rio-Echoes-Of-The-Frontier-EP.jpg 800w" sizes="(max-width:600px) 92vw, (max-width:900px) 46vw, 340px" width="800" height="800" loading="lazy" decoding="async" alt="Llorona del Río: Echoes of the Frontier cover art"/></div>
   <div class="dl-body">
@@ -543,88 +512,71 @@ footer{background:var(--ink);color:var(--paper);border-top:4px solid var(--red);
     <p class="dl-meta">EP · Feb 27, 2026 · 3 tracks</p>
     <p class="dl-line"><!-- TODO: Sundara one-liner (no Bandcamp about text) --></p>
     <ol class="dl-tracks">
-      <li class="dl-track"><span class="dl-track-name"><span class="dl-track-num">01</span> Lágrimas en la Línea <span class="dl-track-dur">3:27</span></span><span class="dl-track-btns"><a class="dl-mini" data-file="Lagrimas-En-La-Linea.mp3" download="Lagrimas-En-La-Linea.mp3" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Lagrimas-En-La-Linea.mp3">MP3</a><a class="dl-mini dl-mini-alt" data-file="Lagrimas-En-La-Linea.wav" download="Lagrimas-En-La-Linea.wav" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Lagrimas-En-La-Linea.wav">WAV</a></span></li>
-      <li class="dl-track"><span class="dl-track-name"><span class="dl-track-num">02</span> La Llorona (Cover) <span class="dl-track-dur">4:37</span></span><span class="dl-track-btns"><a class="dl-mini" data-file="La-Llorona-Cover.mp3" download="La-Llorona-Cover.mp3" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/La-Llorona-Cover.mp3">MP3</a><a class="dl-mini dl-mini-alt" data-file="La-Llorona-Cover.wav" download="La-Llorona-Cover.wav" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/La-Llorona-Cover.wav">WAV</a></span></li>
-      <li class="dl-track"><span class="dl-track-name"><span class="dl-track-num">03</span> La Llorona Del Río <span class="dl-track-dur">3:05</span></span><span class="dl-track-btns"><a class="dl-mini" data-file="La-Llorona-Del-Rio.mp3" download="La-Llorona-Del-Rio.mp3" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/La-Llorona-Del-Rio.mp3">MP3</a><a class="dl-mini dl-mini-alt" data-file="La-Llorona-Del-Rio.wav" download="La-Llorona-Del-Rio.wav" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/La-Llorona-Del-Rio.wav">WAV</a></span></li>
+      <li class="dl-track"><span class="dl-track-name"><span class="dl-track-num">01</span> Lágrimas en la Línea <span class="dl-track-dur">3:27</span></span></li>
+      <li class="dl-track"><span class="dl-track-name"><span class="dl-track-num">02</span> La Llorona (Cover) <span class="dl-track-dur">4:37</span></span></li>
+      <li class="dl-track"><span class="dl-track-name"><span class="dl-track-num">03</span> La Llorona Del Río <span class="dl-track-dur">3:05</span></span></li>
     </ol>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="Llorona del Río: Echoes of the Frontier">Get this EP</a></div>
   </div>
 </article>
-<!-- Burning Palms and Fish &amp; Chips | files: Burning-Palms-And-Fish-And-Chips.mp3, Burning-Palms-And-Fish-And-Chips.wav -->
+<!-- Burning Palms and Fish &amp; Chips -->
 <article class="dl-card" data-song="Burning-Palms-And-Fish-And-Chips" data-search="burning palms and fish &amp; chips">
   <div class="dl-cover"><img src="covers/400/Burning-Palms-And-Fish-Chips.jpg" srcset="covers/400/Burning-Palms-And-Fish-Chips.jpg 400w, covers/Burning-Palms-And-Fish-Chips.jpg 800w" sizes="(max-width:600px) 92vw, (max-width:900px) 46vw, 340px" width="800" height="800" loading="lazy" decoding="async" alt="Burning Palms and Fish &amp; Chips cover art"/></div>
   <div class="dl-body">
     <h3 class="dl-title">Burning Palms and Fish &amp; Chips</h3>
     <p class="dl-meta">Single · Feb 14, 2026 · 2:51</p>
     <p class="dl-line">Fish &amp; chips, wine buzz, glowing palms. Raw beat poetry explodes with bongos.</p>
-    <div class="dl-btns">
-      <a class="dl-btn" data-file="Burning-Palms-And-Fish-And-Chips.mp3" download="Burning-Palms-And-Fish-And-Chips.mp3" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Burning-Palms-And-Fish-And-Chips.mp3">Download MP3</a>
-      <a class="dl-btn dl-btn-alt" data-file="Burning-Palms-And-Fish-And-Chips.wav" download="Burning-Palms-And-Fish-And-Chips.wav" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Burning-Palms-And-Fish-And-Chips.wav">Download WAV</a>
-    </div>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="Burning Palms and Fish &amp; Chips">Get this song</a></div>
   </div>
 </article>
-<!-- Danger Mouse | files: Danger-Mouse.mp3, Danger-Mouse.wav -->
+<!-- Danger Mouse -->
 <article class="dl-card" data-song="Danger-Mouse" data-search="danger mouse">
   <div class="dl-cover"><img src="covers/400/Danger-Mouse.jpg" srcset="covers/400/Danger-Mouse.jpg 400w, covers/Danger-Mouse.jpg 800w" sizes="(max-width:600px) 92vw, (max-width:900px) 46vw, 340px" width="800" height="800" loading="lazy" decoding="async" alt="Danger Mouse cover art"/></div>
   <div class="dl-body">
     <h3 class="dl-title">Danger Mouse</h3>
     <p class="dl-meta">Single · Jan 23, 2026 · 3:35</p>
     <p class="dl-line">Reimagining the iconic kids&#x27; cartoon Danger Mouse as a late-night, sexy R&amp;B groove.</p>
-    <div class="dl-btns">
-      <a class="dl-btn" data-file="Danger-Mouse.mp3" download="Danger-Mouse.mp3" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Danger-Mouse.mp3">Download MP3</a>
-      <a class="dl-btn dl-btn-alt" data-file="Danger-Mouse.wav" download="Danger-Mouse.wav" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Danger-Mouse.wav">Download WAV</a>
-    </div>
+    <div class="dl-btns"><span class="dl-soon">Coming soon</span></div>
   </div>
 </article>
-<!-- Be Back Soon | files: Be-Back-Soon.mp3, Be-Back-Soon.wav -->
+<!-- Be Back Soon -->
 <article class="dl-card" data-song="Be-Back-Soon" data-search="be back soon">
   <div class="dl-cover"><img src="covers/400/Be-Back-Soon.jpg" srcset="covers/400/Be-Back-Soon.jpg 400w, covers/Be-Back-Soon.jpg 800w" sizes="(max-width:600px) 92vw, (max-width:900px) 46vw, 340px" width="800" height="800" loading="lazy" decoding="async" alt="Be Back Soon cover art"/></div>
   <div class="dl-body">
     <h3 class="dl-title">Be Back Soon</h3>
     <p class="dl-meta">Single · Jan 11, 2026 · 4:26</p>
     <p class="dl-line">A liquid drum &amp; bass farewell to childhood nostalgia, reimagining the classic Button Moon lines.</p>
-    <div class="dl-btns">
-      <a class="dl-btn" data-file="Be-Back-Soon.mp3" download="Be-Back-Soon.mp3" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Be-Back-Soon.mp3">Download MP3</a>
-      <a class="dl-btn dl-btn-alt" data-file="Be-Back-Soon.wav" download="Be-Back-Soon.wav" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Be-Back-Soon.wav">Download WAV</a>
-    </div>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="Be Back Soon">Get this song</a></div>
   </div>
 </article>
-<!-- 3i Rising | files: 3i-Rising.mp3, 3i-Rising.wav -->
+<!-- 3i Rising -->
 <article class="dl-card" data-song="3i-Rising" data-search="3i rising">
   <div class="dl-cover"><img src="covers/400/3i-Rising.jpg" srcset="covers/400/3i-Rising.jpg 400w, covers/3i-Rising.jpg 800w" sizes="(max-width:600px) 92vw, (max-width:900px) 46vw, 340px" width="800" height="800" loading="lazy" decoding="async" alt="3i Rising cover art"/></div>
   <div class="dl-body">
     <h3 class="dl-title">3i Rising</h3>
     <p class="dl-meta">Single · Dec 11, 2025 · 3:20</p>
     <p class="dl-line">Channels the interstellar calm of Comet 3I/ATLAS. A transmission for starseeds &amp; healers.</p>
-    <div class="dl-btns">
-      <a class="dl-btn" data-file="3i-Rising.mp3" download="3i-Rising.mp3" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/3i-Rising.mp3">Download MP3</a>
-      <a class="dl-btn dl-btn-alt" data-file="3i-Rising.wav" download="3i-Rising.wav" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/3i-Rising.wav">Download WAV</a>
-    </div>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="3i Rising">Get this song</a></div>
   </div>
 </article>
-<!-- Respected Sky | files: Respected-Sky.mp3, Respected-Sky.wav -->
+<!-- Respected Sky -->
 <article class="dl-card" data-song="Respected-Sky" data-search="respected sky">
   <div class="dl-cover"><img src="covers/400/Respected-Sky.jpg" srcset="covers/400/Respected-Sky.jpg 400w, covers/Respected-Sky.jpg 800w" sizes="(max-width:600px) 92vw, (max-width:900px) 46vw, 340px" width="800" height="800" loading="lazy" decoding="async" alt="Respected Sky cover art"/></div>
   <div class="dl-body">
     <h3 class="dl-title">Respected Sky</h3>
     <p class="dl-meta">Single · Sep 28, 2025 · 3:40</p>
     <p class="dl-line">It&#x27;s catharsis you can dance to, turning heaviness into movement, darkness into defiant light.</p>
-    <div class="dl-btns">
-      <a class="dl-btn" data-file="Respected-Sky.mp3" download="Respected-Sky.mp3" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Respected-Sky.mp3">Download MP3</a>
-      <a class="dl-btn dl-btn-alt" data-file="Respected-Sky.wav" download="Respected-Sky.wav" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Respected-Sky.wav">Download WAV</a>
-    </div>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="Respected Sky">Get this song</a></div>
   </div>
 </article>
-<!-- Monks Shadow | files: Monks-Shadow.mp3, Monks-Shadow.wav -->
+<!-- Monks Shadow -->
 <article class="dl-card" data-song="Monks-Shadow" data-search="monks shadow">
   <div class="dl-cover"><img src="covers/400/Monks-Shadow.jpg" srcset="covers/400/Monks-Shadow.jpg 400w, covers/Monks-Shadow.jpg 800w" sizes="(max-width:600px) 92vw, (max-width:900px) 46vw, 340px" width="800" height="800" loading="lazy" decoding="async" alt="Monks Shadow cover art"/></div>
   <div class="dl-body">
     <h3 class="dl-title">Monks Shadow</h3>
     <p class="dl-meta">Single · 2:21</p>
     <p class="dl-line"><!-- TODO: Sundara one-liner (no Bandcamp about text) --></p>
-    <div class="dl-btns">
-      <a class="dl-btn" data-file="Monks-Shadow.mp3" download="Monks-Shadow.mp3" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Monks-Shadow.mp3">Download MP3</a>
-      <a class="dl-btn dl-btn-alt" data-file="Monks-Shadow.wav" download="Monks-Shadow.wav" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Monks-Shadow.wav">Download WAV</a>
-    </div>
+    <div class="dl-btns"><a class="dl-btn get-song" href="#get-music" data-title="Monks Shadow">Get this song</a></div>
   </div>
 </article>
 </div>
@@ -671,13 +623,19 @@ footer{background:var(--ink);color:var(--paper);border-top:4px solid var(--red);
 </footer>
 
 <script>
-// ===== AUDIO HOSTING =====
-// All download buttons are built from this one base URL + each button's data-file.
-// Plan: GitHub Release tagged "free-downloads" in this repo; upload assets with the exact filenames in data-file.
-// Audio is NOT committed to the repo.
-var AUDIO_BASE = 'https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/';
-document.querySelectorAll('a[data-file]').forEach(function(a) {
-  a.href = AUDIO_BASE + a.getAttribute('data-file');
+
+// ===== SHARED EMAIL GATE: "Get this song" buttons jump to the one gate =====
+document.querySelectorAll('a.get-song').forEach(function(a){
+  a.addEventListener('click', function(e){
+    e.preventDefault();
+    var t = a.getAttribute('data-title');
+    document.getElementById('gate-song').value = t;
+    document.getElementById('gate-pick').textContent = 'You picked: ' + t + ' (the link unlocks everything)';
+    var card = document.querySelector('#get-music .gate-card');
+    document.getElementById('get-music').scrollIntoView({behavior:'smooth', block:'start'});
+    card.classList.remove('flash'); void card.offsetWidth; card.classList.add('flash');
+    setTimeout(function(){ document.getElementById('gate-all-email').focus({preventScroll:true}); }, 500);
+  });
 });
 
 // Email gates are not wired yet: block submit so nothing is sent anywhere.
