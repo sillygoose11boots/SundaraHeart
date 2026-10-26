@@ -201,12 +201,12 @@ footer{background:var(--ink);color:var(--paper);border-top:4px solid var(--red);
 
 <section id="page-hero">
 <span class="hero-kicker">// SILLY GOOSE RECORDINGS - FREE DOWNLOADS //</span>
-<h1 class="page-title">FREE <span>Music</span></h1>
+<h1 class="page-title">FREE <span>Music.</span></h1>
 <p class="page-desc">Every song, free. Take it, play it loud, pass it on. MP3 for your phone, WAV if you want the full thing.</p>
 <p class="ai-note">Written by Sundara, produced in collaboration with AI.</p>
 </section>
 
-<div class="note-strip">FREE FOREVER · MP3 + WAV · NO SIGN-UP NEEDED</div>
+<div class="note-strip">FREE FOREVER · MP3 + WAV · STRAIGHT TO YOUR INBOX</div>
 
 <!-- ============ FEATURED: I AM A ROBOT | files: I-Am-A-Robot.mp3, I-Am-A-Robot.wav ============ -->
 <section class="feature" id="featured">
@@ -216,17 +216,28 @@ footer{background:var(--ink);color:var(--paper);border-top:4px solid var(--red);
     <span class="feature-kicker">&#9733; FEATURED DOWNLOAD &#9733;</span>
     <h2 class="feature-title">I Am A Robot</h2>
     <p class="feature-meta">New single · Clean version · Out Sat Oct 31, 2026</p>
-    <p class="feature-line">The newest one. Free to download from day one.</p>
-    <div class="dl-btns">
-      <a class="dl-btn" data-file="I-Am-A-Robot.mp3" download="I-Am-A-Robot.mp3" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/I-Am-A-Robot.mp3">Download MP3</a>
-      <a class="dl-btn dl-btn-alt" data-file="I-Am-A-Robot.wav" download="I-Am-A-Robot.wav" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/I-Am-A-Robot.wav">Download WAV</a>
-    </div>
+    <!-- AFTER OCT 31: swap this line to "The newest one. Free to download, yours to keep."
+         and the button text below to "Send it to me". -->
+    <p class="feature-line">The newest one. Leave your email and it lands in your inbox on Halloween.</p>
+    <!-- EMAIL GATE (visual only). NOT wired to MailerLite yet: set the real MailerLite form action
+         and replace data-mailerlite="TODO" when the form is built. Submit is blocked by preventDefault below.
+         I Am A Robot audio must NOT be downloadable before Oct 31, 2026. -->
+    <form action="#" class="contact-form email-gate" data-mailerlite="TODO" data-song="I-Am-A-Robot" novalidate style="max-width:460px;border-top:1px dashed #1c181040;padding-top:.85rem;margin-top:.4rem;gap:.75rem">
+      <div class="contact-field"><label class="contact-label" for="gate-robot-email">Email</label><input class="contact-input" id="gate-robot-email" name="email" placeholder="your@email.com" required="" type="email" autocomplete="email"/></div>
+      <button class="contact-btn" type="submit">Send it Oct 31</button>
+      <p class="dl-meta" style="font-size:.85rem">No spam, ever. Unsubscribe anytime.</p>
+    </form>
   </div>
 </article>
 </section>
 
 <section id="songs">
 <div class="section-header"><h2 class="section-title">All <span>Songs</span></h2></div>
+<!-- LATER (when per-song email gate is wired to MailerLite): add one shared note here, styled like the I Am A Robot gate:
+     Prompt: "Pop in your email and I'll send the download straight to you."
+     Button: "Send it to me"
+     Small print: "No spam, ever. Unsubscribe anytime."
+     Then swap each song's MP3/WAV buttons for the gate. -->
 <div class="dl-grid">
 <!-- Melt Like The Snow | files: Melt-Like-The-Snow.mp3, Melt-Like-The-Snow.wav -->
 <article class="dl-card" data-song="Melt-Like-The-Snow">
@@ -234,7 +245,7 @@ footer{background:var(--ink);color:var(--paper);border-top:4px solid var(--red);
   <div class="dl-body">
     <h3 class="dl-title">Melt Like The Snow</h3>
     <p class="dl-meta">Single · Oct 9, 2026 · 4:33</p>
-    <p class="dl-line"><!-- TODO: Sundara one-liner -->The newest single. Out now.</p>
+    <p class="dl-line">A soft, glowing song for the first snow of winter.</p>
     <div class="dl-btns">
       <a class="dl-btn" data-file="Melt-Like-The-Snow.mp3" download="Melt-Like-The-Snow.mp3" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Melt-Like-The-Snow.mp3">Download MP3</a>
       <a class="dl-btn dl-btn-alt" data-file="Melt-Like-The-Snow.wav" download="Melt-Like-The-Snow.wav" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Melt-Like-The-Snow.wav">Download WAV</a>
@@ -247,7 +258,7 @@ footer{background:var(--ink);color:var(--paper);border-top:4px solid var(--red);
   <div class="dl-body">
     <h3 class="dl-title">I did not speak Spanish then</h3>
     <p class="dl-meta">Single · 2026</p>
-    <p class="dl-line"><!-- TODO: Sundara one-liner -->Free download. Silly Goose Recordings.</p>
+    <p class="dl-line">Todos los días tengo más ángeles conmigo.</p>
     <div class="dl-btns">
       <a class="dl-btn" data-file="I-Did-Not-Speak-Spanish-Then.mp3" download="I-Did-Not-Speak-Spanish-Then.mp3" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/I-Did-Not-Speak-Spanish-Then.mp3">Download MP3</a>
       <a class="dl-btn dl-btn-alt" data-file="I-Did-Not-Speak-Spanish-Then.wav" download="I-Did-Not-Speak-Spanish-Then.wav" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/I-Did-Not-Speak-Spanish-Then.wav">Download WAV</a>
@@ -260,7 +271,7 @@ footer{background:var(--ink);color:var(--paper);border-top:4px solid var(--red);
   <div class="dl-body">
     <h3 class="dl-title">God Is An Abbreviation For...</h3>
     <p class="dl-meta">Single · 2026</p>
-    <p class="dl-line"><!-- TODO: Sundara one-liner -->Free download. Silly Goose Recordings.</p>
+    <p class="dl-line"><!-- TODO: Sundara one-liner --></p>
     <div class="dl-btns">
       <a class="dl-btn" data-file="God-Is-An-Abbreviation-For.mp3" download="God-Is-An-Abbreviation-For.mp3" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/God-Is-An-Abbreviation-For.mp3">Download MP3</a>
       <a class="dl-btn dl-btn-alt" data-file="God-Is-An-Abbreviation-For.wav" download="God-Is-An-Abbreviation-For.wav" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/God-Is-An-Abbreviation-For.wav">Download WAV</a>
@@ -273,7 +284,7 @@ footer{background:var(--ink);color:var(--paper);border-top:4px solid var(--red);
   <div class="dl-body">
     <h3 class="dl-title">To Be Me</h3>
     <p class="dl-meta">Single · 2026</p>
-    <p class="dl-line"><!-- TODO: Sundara one-liner -->Free download. Silly Goose Recordings.</p>
+    <p class="dl-line"><!-- TODO: Sundara one-liner --></p>
     <div class="dl-btns">
       <a class="dl-btn" data-file="To-Be-Me.mp3" download="To-Be-Me.mp3" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/To-Be-Me.mp3">Download MP3</a>
       <a class="dl-btn dl-btn-alt" data-file="To-Be-Me.wav" download="To-Be-Me.wav" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/To-Be-Me.wav">Download WAV</a>
@@ -286,7 +297,7 @@ footer{background:var(--ink);color:var(--paper);border-top:4px solid var(--red);
   <div class="dl-body">
     <h3 class="dl-title">I'm Swimming &amp; There Is No Water</h3>
     <p class="dl-meta">Single · 2026</p>
-    <p class="dl-line"><!-- TODO: Sundara one-liner -->Free download. Silly Goose Recordings.</p>
+    <p class="dl-line"><!-- TODO: Sundara one-liner --></p>
     <div class="dl-btns">
       <a class="dl-btn" data-file="Im-Swimming-And-There-Is-No-Water.mp3" download="Im-Swimming-And-There-Is-No-Water.mp3" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Im-Swimming-And-There-Is-No-Water.mp3">Download MP3</a>
       <a class="dl-btn dl-btn-alt" data-file="Im-Swimming-And-There-Is-No-Water.wav" download="Im-Swimming-And-There-Is-No-Water.wav" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Im-Swimming-And-There-Is-No-Water.wav">Download WAV</a>
@@ -299,7 +310,7 @@ footer{background:var(--ink);color:var(--paper);border-top:4px solid var(--red);
   <div class="dl-body">
     <h3 class="dl-title">This Mortal Coil (Duet Version)</h3>
     <p class="dl-meta">Single · 2026</p>
-    <p class="dl-line"><!-- TODO: Sundara one-liner -->The duet version of This Mortal Coil.</p>
+    <p class="dl-line">He sings my words like he's going to a funeral or a war.</p>
     <div class="dl-btns">
       <a class="dl-btn" data-file="This-Mortal-Coil-Duet-Version.mp3" download="This-Mortal-Coil-Duet-Version.mp3" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/This-Mortal-Coil-Duet-Version.mp3">Download MP3</a>
       <a class="dl-btn dl-btn-alt" data-file="This-Mortal-Coil-Duet-Version.wav" download="This-Mortal-Coil-Duet-Version.wav" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/This-Mortal-Coil-Duet-Version.wav">Download WAV</a>
@@ -312,7 +323,7 @@ footer{background:var(--ink);color:var(--paper);border-top:4px solid var(--red);
   <div class="dl-body">
     <h3 class="dl-title">This Mortal Coil</h3>
     <p class="dl-meta">Single · 2026</p>
-    <p class="dl-line"><!-- TODO: Sundara one-liner -->The original single version.</p>
+    <p class="dl-line">A soft haunt about mortality and the anger we inherit.</p>
     <div class="dl-btns">
       <a class="dl-btn" data-file="This-Mortal-Coil.mp3" download="This-Mortal-Coil.mp3" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/This-Mortal-Coil.mp3">Download MP3</a>
       <a class="dl-btn dl-btn-alt" data-file="This-Mortal-Coil.wav" download="This-Mortal-Coil.wav" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/This-Mortal-Coil.wav">Download WAV</a>
@@ -325,7 +336,7 @@ footer{background:var(--ink);color:var(--paper);border-top:4px solid var(--red);
   <div class="dl-body">
     <h3 class="dl-title">At Sea (One Can't Be Tamed)</h3>
     <p class="dl-meta">Single · 2026</p>
-    <p class="dl-line"><!-- TODO: Sundara one-liner -->Free download. Silly Goose Recordings.</p>
+    <p class="dl-line"><!-- TODO: Sundara one-liner --></p>
     <div class="dl-btns">
       <a class="dl-btn" data-file="At-Sea-One-Cant-Be-Tamed.mp3" download="At-Sea-One-Cant-Be-Tamed.mp3" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/At-Sea-One-Cant-Be-Tamed.mp3">Download MP3</a>
       <a class="dl-btn dl-btn-alt" data-file="At-Sea-One-Cant-Be-Tamed.wav" download="At-Sea-One-Cant-Be-Tamed.wav" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/At-Sea-One-Cant-Be-Tamed.wav">Download WAV</a>
@@ -338,7 +349,7 @@ footer{background:var(--ink);color:var(--paper);border-top:4px solid var(--red);
   <div class="dl-body">
     <h3 class="dl-title">Painted From The Heart</h3>
     <p class="dl-meta">Single · 2026</p>
-    <p class="dl-line"><!-- TODO: Sundara one-liner -->Free download. Silly Goose Recordings.</p>
+    <p class="dl-line"><!-- TODO: Sundara one-liner --></p>
     <div class="dl-btns">
       <a class="dl-btn" data-file="Painted-From-The-Heart.mp3" download="Painted-From-The-Heart.mp3" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Painted-From-The-Heart.mp3">Download MP3</a>
       <a class="dl-btn dl-btn-alt" data-file="Painted-From-The-Heart.wav" download="Painted-From-The-Heart.wav" href="https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/Painted-From-The-Heart.wav">Download WAV</a>
@@ -352,19 +363,19 @@ footer{background:var(--ink);color:var(--paper);border-top:4px solid var(--red);
 <div>
 <span class="tip-label">[ KEEP IT FREE ]</span>
 <p class="tip-title">Tip Jar</p>
-<p class="tip-sub">Everything here is free. If a song stays with you, a tip keeps the next one coming.</p>
+<p class="tip-sub">Everything here is free, and it stays free. If a song stays with you, a tip helps me make the next one.</p>
 </div>
 <div class="tip-btns" style="display:flex;flex-wrap:wrap;gap:12px;">
 <a class="tip-btn" href="https://buymeacoffee.com/sundaraheart" target="_blank" rel="noopener">&#9749; Buy Me a Coffee</a>
-<a class="tip-btn" href="https://x.com/sundaraheart" target="_blank" rel="noopener">Tip with X Money &middot; @sundaraheart</a>
+<a class="tip-btn" href="https://x.com/sundaraheart" target="_blank" rel="noopener">Tip on X Money</a>
 </div>
 </div>
 
 <!-- TODO (optional): email signup so fans hear about new songs.
-     Needs a list provider (e.g. Buttondown, Mailchimp, or a Formspree form). No live endpoint yet - uncomment and set action when chosen.
+     Provider: MailerLite (free plan). No live endpoint yet; uncomment and set the MailerLite form action when built.
 <div id="flock">
 <h2 class="flock-h">Hear It First.</h2>
-<p class="flock-sub">New songs in your inbox when they drop. Nothing else.</p>
+<p class="flock-sub">New songs in your inbox the day they drop. Nothing else.</p>
 <form action="TODO-EMAIL-SIGNUP-ENDPOINT" class="contact-form" method="POST" style="max-width:460px;margin:0 auto">
 <div class="contact-field"><label class="contact-label" for="signup-email">Email</label><input class="contact-input" id="signup-email" name="email" placeholder="your@email.com" required="" type="email"/></div>
 <button class="contact-btn" type="submit">Sign Me Up &#8594;</button>
@@ -381,8 +392,6 @@ footer{background:var(--ink);color:var(--paper);border-top:4px solid var(--red);
 <div class="footer-links">
 <a href="index.html">Home</a>
 <a href="https://open.spotify.com/artist/1qEfXc96PrJWsHGnFCPbWS" target="_blank">Spotify</a>
-<a href="https://sundaraheart.bandcamp.com" target="_blank">Bandcamp</a>
-<a href="https://sillygooseproductions.printful.me/" target="_blank">Shop</a>
 <a href="index.html#flock">Contact</a>
 </div>
 <div class="footer-copy">sillygooserecordings.com · Plain HTML. No trackers. No noise.</div>
@@ -397,6 +406,11 @@ footer{background:var(--ink);color:var(--paper);border-top:4px solid var(--red);
 var AUDIO_BASE = 'https://github.com/sillygoose11boots/SundaraHeart/releases/download/free-downloads/';
 document.querySelectorAll('a[data-file]').forEach(function(a) {
   a.href = AUDIO_BASE + a.getAttribute('data-file');
+});
+
+// Email gates are not wired yet: block submit so nothing is sent anywhere.
+document.querySelectorAll('form[data-mailerlite="TODO"]').forEach(function(f) {
+  f.addEventListener('submit', function(e) { e.preventDefault(); });
 });
 
 const hbg = document.getElementById('hbg');
