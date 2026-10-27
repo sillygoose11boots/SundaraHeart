@@ -194,7 +194,7 @@ footer{background:var(--ink);color:var(--paper);border-top:4px solid var(--red);
 .song-count{font-family:var(--vt);color:var(--muted);font-size:.9rem;letter-spacing:.06em}
 .no-match{font-family:var(--elite);color:var(--muted);font-size:.9rem;padding:1rem 0;display:none}
 @media (max-width:600px){.song-find{max-width:none;margin-left:0}}
-#get-music{padding:3rem 1.5rem 1rem;max-width:1100px;margin:0 auto}
+#get-music{padding:3rem 1.5rem 3.5rem;max-width:1100px;margin:0 auto}
 .gate-card{background:var(--yellow);border:3px solid var(--ink);box-shadow:8px 8px 0 var(--ink);padding:2rem 1.75rem;display:flex;flex-direction:column;gap:.6rem;transform:rotate(-.3deg)}
 .gate-title{font-family:var(--bebas);font-size:clamp(2.2rem,6vw,3.6rem);letter-spacing:.04em;line-height:.95;color:var(--ink)}
 .gate-sub{font-family:var(--elite);color:var(--ink);font-size:.9rem;line-height:1.6;max-width:560px}
@@ -234,29 +234,6 @@ html{scroll-behavior:smooth}
 </section>
 
 <div class="note-strip">FREE FOREVER · MP3 + WAV · STRAIGHT TO YOUR INBOX</div>
-
-<!-- ============ SHARED EMAIL GATE: every download goes out by email. NOT wired to MailerLite yet (data-mailerlite="on", submit blocked).
-     The MailerLite automation emails the download link(s). File list lives outside the page (release-filenames.md). ============ -->
-<section id="get-music">
-<div class="gate-card">
-  <span class="feature-kicker">&#9733; DOWNLOAD THE WHOLE COLLECTION &#9733;</span>
-  <h2 class="gate-title">Download The Whole Collection.</h2>
-  <p class="gate-sub">Every song, MP3 and WAV, free. Enter your email and we'll send you one link for the whole collection.</p>
-    <form action="#" class="contact-form email-gate" data-mailerlite="on" data-song="ALL" data-collection="all" novalidate style="max-width:520px;gap:.75rem">
-    <input type="hidden" name="collection" value="all"/>
-    <div class="contact-field"><label class="contact-label" for="gate-all-email">Email</label><input class="contact-input" id="gate-all-email" name="email" placeholder="your@email.com" required="" type="email" autocomplete="email"/></div>
-    <button class="contact-btn" type="submit">Send me the whole collection</button>
-    <p class="dl-meta" style="font-size:.85rem">No spam, ever. Unsubscribe anytime. I Am A Robot and the new EP arrive Oct 31. Want just one song? Hit "Get this song" on its card below.</p>
-  </form>
-  <div class="gate-tips" style="margin-top:1.25rem;padding-top:1rem;border-top:2px dashed rgba(28,24,16,.35)">
-    <p class="dl-meta" style="font-size:1.15rem;line-height:1.55;margin-bottom:.9rem">No obligation to pay, ever. The music is free. If it moves you, sharing a song from <a href="https://open.spotify.com/artist/1qEfXc96PrJWsHGnFCPbWS" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">Spotify</a> or <a href="https://www.youtube.com/@sundaraheart" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">YouTube</a>, or following me on <a href="https://www.tiktok.com/@sundaraheart" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">TikTok</a>, <a href="https://www.youtube.com/@sundaraheart" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">YouTube</a> or <a href="https://x.com/sundaraheart" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">X</a> for new releases, means the world. And if you'd like to tip, I'm so grateful.</p>
-    <div style="display:flex;flex-wrap:wrap;gap:.75rem">
-      <a class="tip-btn" style="background:var(--ink);color:var(--paper);box-shadow:4px 4px 0 var(--red)" href="https://buymeacoffee.com/sundaraheart" target="_blank" rel="noopener">&#9749; Buy Me a Coffee</a>
-      <a class="tip-btn" style="background:var(--ink);color:var(--paper);box-shadow:4px 4px 0 var(--red)" href="https://x.com/sundaraheart" target="_blank" rel="noopener">Tip on X Money (tap the $ on my profile)</a>
-    </div>
-  </div>
-</div>
-</section>
 
 <!-- ============ FEATURED: I AM A ROBOT ============ -->
 <section class="feature" id="featured">
@@ -603,6 +580,30 @@ html{scroll-behavior:smooth}
 <a class="tip-btn" href="https://x.com/sundaraheart" target="_blank" rel="noopener">Tip on X Money (tap the $ on my profile)</a>
 </div>
 </div>
+
+<!-- ============ SHARED EMAIL GATE: every download goes out by email. NOT wired to MailerLite yet (data-mailerlite="on", submit blocked).
+     The MailerLite automation emails the download link(s). File list lives outside the page (release-filenames.md). ============ -->
+<section id="get-music">
+<div class="section-header"><h2 class="section-title">Want <span>Everything?</span></h2></div>
+<div class="gate-card">
+  <span class="feature-kicker">&#9733; DOWNLOAD THE WHOLE COLLECTION &#9733;</span>
+  <h2 class="gate-title">Download The Whole Collection.</h2>
+  <p class="gate-sub">Every song, MP3 and WAV, free. Enter your email and we'll send you one link for the whole collection.</p>
+    <form action="#" class="contact-form email-gate" data-mailerlite="on" data-song="ALL" data-collection="all" novalidate style="max-width:520px;gap:.75rem">
+    <input type="hidden" name="collection" value="all"/>
+    <div class="contact-field"><label class="contact-label" for="gate-all-email">Email</label><input class="contact-input" id="gate-all-email" name="email" placeholder="your@email.com" required="" type="email" autocomplete="email"/></div>
+    <button class="contact-btn" type="submit">Send me the whole collection</button>
+    <p class="dl-meta" style="font-size:.85rem">No spam, ever. Unsubscribe anytime. I Am A Robot and the new EP arrive Oct 31. Want just one song? Hit "Get this song" on its card above.</p>
+  </form>
+  <div class="gate-tips" style="margin-top:1.25rem;padding-top:1rem;border-top:2px dashed rgba(28,24,16,.35)">
+    <p class="dl-meta" style="font-size:1.15rem;line-height:1.55;margin-bottom:.9rem">No obligation to pay, ever. The music is free. If it moves you, sharing a song from <a href="https://open.spotify.com/artist/1qEfXc96PrJWsHGnFCPbWS" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">Spotify</a> or <a href="https://www.youtube.com/@sundaraheart" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">YouTube</a>, or following me on <a href="https://www.tiktok.com/@sundaraheart" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">TikTok</a>, <a href="https://www.youtube.com/@sundaraheart" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">YouTube</a> or <a href="https://x.com/sundaraheart" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">X</a> for new releases, means the world. And if you'd like to tip, I'm so grateful.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:.75rem">
+      <a class="tip-btn" style="background:var(--ink);color:var(--paper);box-shadow:4px 4px 0 var(--red)" href="https://buymeacoffee.com/sundaraheart" target="_blank" rel="noopener">&#9749; Buy Me a Coffee</a>
+      <a class="tip-btn" style="background:var(--ink);color:var(--paper);box-shadow:4px 4px 0 var(--red)" href="https://x.com/sundaraheart" target="_blank" rel="noopener">Tip on X Money (tap the $ on my profile)</a>
+    </div>
+  </div>
+</div>
+</section>
 
 <!-- TODO (optional): email signup so fans hear about new songs.
      Provider: MailerLite (free plan). No live endpoint yet; uncomment and set the MailerLite form action when built.
