@@ -235,14 +235,14 @@ html{scroll-behavior:smooth}
 
 <div class="note-strip">FREE FOREVER · MP3 + WAV · STRAIGHT TO YOUR INBOX</div>
 
-<!-- ============ SHARED EMAIL GATE: every download goes out by email. NOT wired to MailerLite yet (data-mailerlite="TODO", submit blocked).
+<!-- ============ SHARED EMAIL GATE: every download goes out by email. NOT wired to MailerLite yet (data-mailerlite="on", submit blocked).
      The MailerLite automation emails the download link(s). File list lives outside the page (release-filenames.md). ============ -->
 <section id="get-music">
 <div class="gate-card">
   <span class="feature-kicker">&#9733; DOWNLOAD THE WHOLE COLLECTION &#9733;</span>
   <h2 class="gate-title">Download The Whole Collection.</h2>
   <p class="gate-sub">Every song, MP3 and WAV, free. Enter your email and we'll send you one link for the whole collection.</p>
-    <form action="#" class="contact-form email-gate" data-mailerlite="TODO" data-song="ALL" data-collection="all" novalidate style="max-width:520px;gap:.75rem">
+    <form action="#" class="contact-form email-gate" data-mailerlite="on" data-song="ALL" data-collection="all" novalidate style="max-width:520px;gap:.75rem">
     <input type="hidden" name="collection" value="all"/>
     <div class="contact-field"><label class="contact-label" for="gate-all-email">Email</label><input class="contact-input" id="gate-all-email" name="email" placeholder="your@email.com" required="" type="email" autocomplete="email"/></div>
     <button class="contact-btn" type="submit">Send me the whole collection</button>
@@ -269,10 +269,9 @@ html{scroll-behavior:smooth}
     <!-- AFTER OCT 31: swap this line to "The newest one. Free to download, yours to keep."
          and the button text below to "Send it to me". -->
     <p class="feature-line">The newest one. Leave your email and it lands in your inbox on Halloween.</p>
-    <!-- EMAIL GATE (visual only). NOT wired to MailerLite yet: set the real MailerLite form action
-         and replace data-mailerlite="TODO" when the form is built. Submit is blocked by preventDefault below.
+    <!-- EMAIL GATE: posts to MailerLite (script below). MailerLite sends the "arrives Oct 31" email.
          I Am A Robot audio must NOT be downloadable before Oct 31, 2026. -->
-    <form action="#" class="contact-form email-gate" data-mailerlite="TODO" data-song="I-Am-A-Robot" novalidate style="max-width:460px;border-top:1px dashed #1c181040;padding-top:.85rem;margin-top:.4rem;gap:.75rem">
+    <form action="#" class="contact-form email-gate" data-mailerlite="on" data-song="I-Am-A-Robot" novalidate style="max-width:460px;border-top:1px dashed #1c181040;padding-top:.85rem;margin-top:.4rem;gap:.75rem">
       <div class="contact-field"><label class="contact-label" for="gate-robot-email">Email</label><input class="contact-input" id="gate-robot-email" name="email" placeholder="your@email.com" required="" type="email" autocomplete="email"/></div>
       <button class="contact-btn" type="submit">Send it Oct 31</button>
       <p class="dl-meta" style="font-size:.85rem">No spam, ever. Unsubscribe anytime.</p>
@@ -304,8 +303,8 @@ html{scroll-behavior:smooth}
       <li class="dl-track"><span class="dl-track-name"><span class="dl-track-num">01</span> I Am A Robot (Explicit) <span class="dl-track-dur">2:06</span></span></li>
       <li class="dl-track"><span class="dl-track-name"><span class="dl-track-num">02</span> I Am A Robot (Deep House Version) <span class="dl-track-dur">2:43</span></span></li>
     </ol>
-    <!-- EMAIL GATE (visual only). NOT wired to MailerLite yet; submit is blocked by preventDefault in the script below. -->
-    <form action="#" class="contact-form email-gate" data-mailerlite="TODO" data-song="I-Dont-Know-How-To-Love" novalidate style="border-top:1px dashed #1c181040;padding-top:.85rem;margin-top:.4rem;gap:.75rem">
+    <!-- EMAIL GATE: posts to MailerLite (script below). -->
+    <form action="#" class="contact-form email-gate" data-mailerlite="on" data-song="I-Dont-Know-How-To-Love" novalidate style="border-top:1px dashed #1c181040;padding-top:.85rem;margin-top:.4rem;gap:.75rem">
       <div class="contact-field"><label class="contact-label" for="gate-love-email">Email</label><input class="contact-input" id="gate-love-email" name="email" placeholder="your@email.com" required="" type="email" autocomplete="email"/></div>
       <button class="contact-btn" type="submit">Send it Oct 31</button>
       <p class="dl-meta" style="font-size:.85rem">No spam, ever. Unsubscribe anytime.</p>
@@ -651,7 +650,7 @@ document.querySelectorAll('a.get-song').forEach(function(a){
     var f = document.createElement('form');
     f.className = 'contact-form email-gate song-gate';
     f.action = '#'; f.setAttribute('novalidate', '');
-    f.setAttribute('data-mailerlite', 'TODO');
+    f.setAttribute('data-mailerlite', 'on');
     f.setAttribute('data-song', song);
     f.innerHTML = '<input type="hidden" name="song" value="' + song + '"/>' +
       '<div class="contact-field"><label class="contact-label" for="' + id + '">Email for ' + title.replace(/</g,'&lt;') + '</label>' +
@@ -665,17 +664,49 @@ document.querySelectorAll('a.get-song').forEach(function(a){
 });
 
 
-// Email gates are not wired yet: block submit so nothing is sent anywhere, show a friendly note.
+// ===== EMAIL GATES -> MAILERLITE =====
+// Every form posts to one MailerLite embedded form. MailerLite then emails a link to get.html?song=<last_song>.
+// fields[last_song] = which song (or ALL). groups[] = that song's MailerLite group, so every song a fan asks for is kept.
+// No API key here: this is MailerLite's public signup address, the same one their own embed code uses.
+var ML_ACCOUNT = '2744488';
+var ML_FORM_ID = 'PENDING'; // set to the embedded form ID once it is created in MailerLite
+var ML_GROUPS = {"ALL": "202437480163574881","I-Am-A-Robot": "202437480773846017","I-Dont-Know-How-To-Love": "202437481379923286","Melt-Like-The-Snow": "202437481998583278","Child-Of-The-Future": "202437482572154444","At-The-Beach": "202437483180328089","Everything-Broken-Still-Has-Wings": "202437483765433740","I-Did-Not-Speak-Spanish-Then": "202437484366268077","God-Is-An-Abbreviation-For": "202437484935645089","To-Be-Me": "202437485522847639","Im-Swimming-And-There-Is-No-Water": "202437486118438818","This-Mortal-Coil-Duet-Version": "202437486693058517","This-Mortal-Coil": "202437487244609383","At-Sea-One-Cant-Be-Tamed": "202437487861172087","Painted-From-The-Heart": "202437488488220566","Faith-In-Dog": "202437489085908990","Bearded-Lady": "202437489698277144","Mother-Of-Liberation-Green-Tara-Remixes": "202437490228856193","Girl-From-North-Carolina": "202437490871633761","Scorpio-Unravelling": "202437491432621248","Has-The-Empire-Fallen": "202437492031358692","Oh-Universe-Buy-Me-That-Iridescent-Green-Truck": "202437492644775253","Llorona-Del-Rio-Echoes-Of-The-Frontier": "202437493240366274","Burning-Palms-And-Fish-And-Chips": "202437493820229485","Be-Back-Soon": "202437494421063470","3i-Rising": "202437495029236818","Respected-Sky": "202437495654188319","Monks-Shadow": "202437496243487934"};
+var ML_ALL_GROUP = '202437479582663789';
 function wireGate(f){
   f.addEventListener('submit', function(e){
     e.preventDefault();
     var em = f.querySelector('input[type=email]');
     if (!em.value || !em.checkValidity()) { em.focus(); em.style.borderColor = 'var(--red)'; return; }
+    var song = f.getAttribute('data-song') || 'ALL';
     var later = /Oct 31/.test(f.querySelector('button').textContent);
-    f.innerHTML = '<p class="gate-thanks">' + (later ? 'You\'re on the list. Check your inbox on Oct 31.' : 'Check your inbox. Your download link is on its way.') + '</p>';
+    var btn = f.querySelector('button');
+    var note = f.querySelector('.gate-err');
+    if (!note) { note = document.createElement('p'); note.className = 'dl-meta gate-err'; note.style.color = 'var(--red)'; f.appendChild(note); }
+    note.textContent = '';
+    if (ML_FORM_ID === 'PENDING') { note.textContent = 'Email delivery is switching on very soon. Please try again in a little while.'; return; }
+    var body = new URLSearchParams();
+    body.append('fields[email]', em.value.trim());
+    body.append('fields[last_song]', song);
+    body.append('groups[]', ML_ALL_GROUP);
+    if (ML_GROUPS[song]) body.append('groups[]', ML_GROUPS[song]);
+    body.append('ml-submit', '1');
+    body.append('anticsrf', 'true');
+    btn.disabled = true; btn.textContent = 'Sending...';
+    fetch('https://assets.mailerlite.com/jsonp/' + ML_ACCOUNT + '/forms/' + ML_FORM_ID + '/subscribe', { method: 'POST', body: body })
+      .then(function(r){ return r.json().catch(function(){ return { success: r.ok }; }); })
+      .then(function(d){
+        if (!d || !d.success) throw new Error('not ok');
+        f.innerHTML = '<p class="gate-thanks">' + (later
+          ? 'You\'re on the list. Check your inbox on Oct 31.'
+          : 'Check your inbox in a minute or two. Your download link is on its way. Already had a download email from me today? Use the link in that one: it opens every song.') + '</p>';
+      })
+      .catch(function(){
+        btn.disabled = false; btn.textContent = later ? 'Send it Oct 31' : 'Try again';
+        note.textContent = 'That did not go through. Check the email address and try again.';
+      });
   });
 }
-document.querySelectorAll('form[data-mailerlite="TODO"]').forEach(wireGate);
+document.querySelectorAll('form.email-gate').forEach(wireGate);
 
 
 // ===== FIND A SONG (plain JS filter) =====
