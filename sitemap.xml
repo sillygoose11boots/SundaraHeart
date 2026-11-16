@@ -1,27 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://sundaraheart.com/</loc>
-    <lastmod>2026-11-15</lastmod>
+    <lastmod>2026-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://sundaraheart.com/img/shop/this-mortal-coil-duet-tee.jpg</image:loc>
+      <image:title>This Mortal Coil (Duet) Tee</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://sundaraheart.com/img/shop/itty-bitty-sunshine-tee.jpg</image:loc>
+      <image:title>Itty Bitty Sunshine Tee</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://sundaraheart.com/img/shop/moon-juice-hoodie-lifestyle.jpg</image:loc>
+      <image:title>Moon Juice Hoodie</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://sundaraheart.com/img/shop/i-am-a-robot-tee.jpg</image:loc>
+      <image:title>I Am A Robot Tee</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://sundaraheart.com/img/shop/santas-secret-mug.jpg</image:loc>
+      <image:title>Santa's Secret Mug</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://sundaraheart.com/downloads.html</loc>
-    <lastmod>2026-11-15</lastmod>
+    <lastmod>2026-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://sundaraheart.com/videos.html</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://sundaraheart.com/paintings.html</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-11-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://sundaraheart.com/img/gallery/rose-to-freedom.jpg</image:loc>
+      <image:title>Rose to Freedom</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://sundaraheart.com/img/gallery/pueblocita-chiquita.jpg</image:loc>
+      <image:title>Pueblocita Chiquita</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://sundaraheart.com/img/gallery/pueblocita-chiquita-ii.jpg</image:loc>
+      <image:title>Pueblocita Chiquita II</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://sundaraheart.com/img/gallery/self-v.jpg</image:loc>
+      <image:title>Self V</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://sundaraheart.com/img/gallery/nowhere-to-grow.jpg</image:loc>
+      <image:title>Nowhere To Grow</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://sundaraheart.com/img/gallery/im-swimming-iii.jpg</image:loc>
+      <image:title>I'm Swimming and There Is No Water III</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://sundaraheart.com/img/gallery/im-swimming-iv.jpg</image:loc>
+      <image:title>I'm Swimming and There Is No Water IV</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://sundaraheart.com/img/gallery/la-nuit-bleu.jpg</image:loc>
+      <image:title>La Nuit Bleu</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://sundaraheart.com/img/gallery/i-left-my-soul.jpg</image:loc>
+      <image:title>I Left My Soul…</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://sundaraheart.com/img/gallery/table-and-chairs.jpg</image:loc>
+      <image:title>Table and Chairs</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://sundaraheart.com/img/gallery/the-greater-part-of-the-soul.jpg</image:loc>
+      <image:title>The Greater Part of the Soul Lives Outside of the Body</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://sundaraheart.com/img/gallery/silk-shawl.jpg</image:loc>
+      <image:title>Silk Shawl</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://sundaraheart.com/img/gallery/journey-into-the-cosmos.jpg</image:loc>
+      <image:title>Journey Into The Cosmos</image:title>
+    </image:image>
   </url>
 </urlset>
