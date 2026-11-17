@@ -44,25 +44,18 @@
     <lastmod>2026-11-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+
     <image:image>
-      <image:loc>https://sundaraheart.com/img/gallery/mt-rush-no-more.jpg</image:loc>
-      <image:title>Mt Rush No More</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://sundaraheart.com/img/gallery/taos-canyon.jpg</image:loc>
-      <image:title>Taos Canyon</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://sundaraheart.com/img/gallery/feeling-blue.jpg</image:loc>
-      <image:title>Feeling Blue</image:title>
+      <image:loc>https://sundaraheart.com/img/gallery/rose-to-freedom.jpg</image:loc>
+      <image:title>Rose to Freedom</image:title>
     </image:image>
     <image:image>
       <image:loc>https://sundaraheart.com/img/gallery/eagles-eye.jpg</image:loc>
       <image:title>Eagles Eye</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://sundaraheart.com/img/gallery/rose-to-freedom.jpg</image:loc>
-      <image:title>Rose to Freedom</image:title>
+      <image:loc>https://sundaraheart.com/img/gallery/feeling-blue.jpg</image:loc>
+      <image:title>Feeling Blue</image:title>
     </image:image>
     <image:image>
       <image:loc>https://sundaraheart.com/img/gallery/pueblocita-chiquita.jpg</image:loc>
@@ -73,12 +66,24 @@
       <image:title>Pueblocita Chiquita II</image:title>
     </image:image>
     <image:image>
+      <image:loc>https://sundaraheart.com/img/gallery/mt-rush-no-more.jpg</image:loc>
+      <image:title>Mt Rush No More</image:title>
+    </image:image>
+    <image:image>
       <image:loc>https://sundaraheart.com/img/gallery/self-v.jpg</image:loc>
       <image:title>Self V</image:title>
     </image:image>
     <image:image>
+      <image:loc>https://sundaraheart.com/img/gallery/taos-canyon.jpg</image:loc>
+      <image:title>Taos Canyon</image:title>
+    </image:image>
+    <image:image>
       <image:loc>https://sundaraheart.com/img/gallery/nowhere-to-grow.jpg</image:loc>
       <image:title>Nowhere To Grow</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://sundaraheart.com/img/gallery/im-swimming-i.jpg</image:loc>
+      <image:title>I'm Swimming and There Is No Water I</image:title>
     </image:image>
     <image:image>
       <image:loc>https://sundaraheart.com/img/gallery/im-swimming-iii.jpg</image:loc>
