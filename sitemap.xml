@@ -45,6 +45,14 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
+      <image:loc>https://sundaraheart.com/img/gallery/taos-canyon.jpg</image:loc>
+      <image:title>Taos Canyon</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://sundaraheart.com/img/gallery/feeling-blue.jpg</image:loc>
+      <image:title>Feeling Blue</image:title>
+    </image:image>
+    <image:image>
       <image:loc>https://sundaraheart.com/img/gallery/eagles-eye.jpg</image:loc>
       <image:title>Eagles Eye</image:title>
     </image:image>
