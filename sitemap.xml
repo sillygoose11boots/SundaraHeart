@@ -45,6 +45,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
+      <image:loc>https://sundaraheart.com/img/gallery/mt-rush-no-more.jpg</image:loc>
+      <image:title>Mt Rush No More</image:title>
+    </image:image>
+    <image:image>
       <image:loc>https://sundaraheart.com/img/gallery/taos-canyon.jpg</image:loc>
       <image:title>Taos Canyon</image:title>
     </image:image>
