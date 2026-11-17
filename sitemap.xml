@@ -45,6 +45,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
 
+
     <image:image>
       <image:loc>https://sundaraheart.com/img/gallery/rose-to-freedom.jpg</image:loc>
       <image:title>Rose to Freedom</image:title>
@@ -54,8 +55,20 @@
       <image:title>Eagles Eye</image:title>
     </image:image>
     <image:image>
+      <image:loc>https://sundaraheart.com/img/gallery/mt-rush-no-more.jpg</image:loc>
+      <image:title>Mt Rush No More</image:title>
+    </image:image>
+    <image:image>
       <image:loc>https://sundaraheart.com/img/gallery/feeling-blue.jpg</image:loc>
       <image:title>Feeling Blue</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://sundaraheart.com/img/gallery/taos-canyon.jpg</image:loc>
+      <image:title>Taos Canyon</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://sundaraheart.com/img/gallery/table-and-chairs.jpg</image:loc>
+      <image:title>Table and Chairs</image:title>
     </image:image>
     <image:image>
       <image:loc>https://sundaraheart.com/img/gallery/pueblocita-chiquita.jpg</image:loc>
@@ -66,20 +79,8 @@
       <image:title>Pueblocita Chiquita II</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://sundaraheart.com/img/gallery/mt-rush-no-more.jpg</image:loc>
-      <image:title>Mt Rush No More</image:title>
-    </image:image>
-    <image:image>
       <image:loc>https://sundaraheart.com/img/gallery/self-v.jpg</image:loc>
       <image:title>Self V</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://sundaraheart.com/img/gallery/taos-canyon.jpg</image:loc>
-      <image:title>Taos Canyon</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://sundaraheart.com/img/gallery/nowhere-to-grow.jpg</image:loc>
-      <image:title>Nowhere To Grow</image:title>
     </image:image>
     <image:image>
       <image:loc>https://sundaraheart.com/img/gallery/im-swimming-i.jpg</image:loc>
@@ -94,16 +95,16 @@
       <image:title>I'm Swimming and There Is No Water IV</image:title>
     </image:image>
     <image:image>
+      <image:loc>https://sundaraheart.com/img/gallery/nowhere-to-grow.jpg</image:loc>
+      <image:title>Nowhere To Grow</image:title>
+    </image:image>
+    <image:image>
       <image:loc>https://sundaraheart.com/img/gallery/la-nuit-bleu.jpg</image:loc>
       <image:title>La Nuit Bleu</image:title>
     </image:image>
     <image:image>
       <image:loc>https://sundaraheart.com/img/gallery/i-left-my-soul.jpg</image:loc>
       <image:title>I Left My Soul…</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://sundaraheart.com/img/gallery/table-and-chairs.jpg</image:loc>
-      <image:title>Table and Chairs</image:title>
     </image:image>
     <image:image>
       <image:loc>https://sundaraheart.com/img/gallery/the-greater-part-of-the-soul.jpg</image:loc>
