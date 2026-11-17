@@ -45,6 +45,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
+      <image:loc>https://sundaraheart.com/img/gallery/eagles-eye.jpg</image:loc>
+      <image:title>Eagles Eye</image:title>
+    </image:image>
+    <image:image>
       <image:loc>https://sundaraheart.com/img/gallery/rose-to-freedom.jpg</image:loc>
       <image:title>Rose to Freedom</image:title>
     </image:image>
